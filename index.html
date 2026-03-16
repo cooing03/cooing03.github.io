@@ -1,0 +1,2938 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>버튜버 Live2D 작업 페이지</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    :root {
+      --bg: #dedddb;
+      --page-card: #f5f0e6;
+      --panel-bg: #f8f4ec;
+      --panel-border: #d7ccb9;
+      --panel-shadow: rgba(96, 84, 67, 0.08);
+
+      --text-main: #2f2a25;
+      --text-sub: #74695f;
+      --text-soft: #8d8278;
+
+      --chip-bg: #efe7d8;
+      --chip-border: #d8cab2;
+
+      --box-bg: #fcfaf6;
+      --box-border: #e2d8c8;
+
+      --accent-brown: #7b6955;
+      --accent-gold: #d8c07d;
+      --accent-gold-deep: #b79d55;
+      --accent-rose: #cfaebc;
+      --accent-rose-deep: #a47b93;
+
+      --button-primary: #8b7967;
+      --button-primary-text: #fffdf8;
+      --button-secondary: #efe6d9;
+      --button-secondary-text: #5f554b;
+
+      --menu-card: #fbf8f2;
+      --menu-border: #e1d7c7;
+      --gold-soft: #fbf4df;
+      --gold-mid: #f2e2ac;
+      --gold-border: #d9c06f;
+      --gold-text: #5b4c24;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.55;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 0 16px 60px;
+    }
+
+    .panel {
+      position: relative;
+      background: var(--panel-bg);
+      border: 1.5px solid var(--panel-border);
+      border-radius: 20px;
+      box-shadow: 0 10px 24px var(--panel-shadow);
+      padding: 20px;
+      margin-bottom: 28px;
+    }
+
+    .panel::before,
+    .panel::after {
+      content: "";
+      position: absolute;
+      top: -14px;
+      width: 28px;
+      height: 28px;
+      background: #f1e5d8;
+      border: 1.5px solid var(--panel-border);
+      border-bottom: none;
+      border-radius: 18px 18px 0 0;
+      transform: rotate(-35deg);
+    }
+
+    .panel::before { left: 22px; }
+
+    .panel::after {
+      right: 22px;
+      transform: scaleX(-1) rotate(-35deg);
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-brown);
+      background: var(--chip-bg);
+      border: 1px solid var(--chip-border);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .title {
+      margin: 0 0 10px;
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+
+    .subtitle {
+      margin: 0 0 18px;
+      color: var(--text-sub);
+      font-size: 14px;
+    }
+
+    .card {
+      background: var(--box-bg);
+      border: 1.5px solid var(--box-border);
+      border-radius: 16px;
+      padding: 16px;
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: var(--text-main);
+    }
+
+    .sample-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 16px;
+    }
+
+    .top-intro-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .intro-box,
+    .slot-preview-box {
+      background: #f8f4ec;
+      border: 1.5px solid #d7ccb9;
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .intro-box {
+      min-height: 210px;
+    }
+
+    .intro-box p {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: #52483f;
+    }
+
+    .slot-preview-box p {
+      margin: 0 0 16px;
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    .slot-preview-wrap {
+      border: 1.5px solid #d7ccb9;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #faf7f1 0%, #f4eee4 100%);
+      padding: 14px;
+    }
+
+    .slot-preview-title {
+      margin: 0 0 14px;
+      font-size: 28px;
+      font-weight: 900;
+      color: #2f2a25;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slot-preview-title::before {
+      content: "♡";
+      font-size: 16px;
+      color: #9d7b8e;
+    }
+
+    .slot-preview-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .slot-preview-row {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .slot-preview-month {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: #f2eee5;
+      border: 1.5px solid #d5c9b6;
+      font-weight: 900;
+      color: #3d342d;
+    }
+
+    .slot-preview-status {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 900;
+      border: 1.5px solid;
+    }
+
+    .slot-preview-status.closed {
+      background: linear-gradient(180deg, #e8e0d8 0%, #ddd3c9 100%);
+      border-color: #cfc0af;
+      color: #574c43;
+    }
+
+    .slot-preview-status.open {
+      background: linear-gradient(180deg, #faf4dd 0%, #f3e7b6 100%);
+      border-color: #d7c274;
+      color: #5e512b;
+    }
+
+    .slot-preview-status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    .slot-preview-status.closed::before {
+      background: #a47b93;
+    }
+
+    .slot-preview-status.open::before {
+      background: #fffaf0;
+      border: 1px solid #b79d55;
+    }
+
+    .poster-box,
+    .video-box,
+    .collab-image-box {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px dashed #d7cab4;
+      background: linear-gradient(135deg, #ffffff, #f3ede2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-soft);
+      font-weight: 700;
+      text-align: center;
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    .poster-box {
+      min-height: 220px;
+      position: relative;
+      padding: 14px 64px;
+    }
+
+    .video-box {
+      min-height: 300px;
+      position: relative;
+      padding: 14px 64px;
+    }
+
+    .collab-image-box {
+      aspect-ratio: 16 / 9;
+      min-height: auto;
+    }
+
+    .poster-box img,
+    .collab-image-box img,
+    .video-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .poster-nav,
+    .sample-nav {
+      position: absolute;
+      top: 50%;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid #d9cdbd;
+      background: rgba(255,255,255,0.92);
+      color: #6d6054;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 900;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      z-index: 2;
+      transform: translateY(-50%);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .poster-nav.prev { left: 20px; }
+    .poster-nav.next { right: 20px; }
+    .sample-nav.prev { left: 20px; }
+    .sample-nav.next { right: 20px; }
+
+    .poster-nav:hover,
+    .sample-nav:hover {
+      transform: translateY(-50%) scale(1.04);
+    }
+
+    .poster-nav:active,
+    .sample-nav:active {
+      transform: translateY(-50%) scale(0.97);
+    }
+
+    .poster-box img,
+    .sample-thumb img,
+    .sample-thumb video,
+    .video-box video {
+      transition: opacity 0.28s ease, transform 0.28s ease;
+      will-change: opacity, transform;
+    }
+
+    .poster-box img.is-changing,
+    .sample-thumb img.is-changing,
+    .sample-thumb video.is-changing,
+    .video-box video.is-changing {
+      opacity: 0;
+      transform: translateX(16px) scale(0.985);
+    }
+
+    .poster-box img.is-changing.reverse,
+    .sample-thumb img.is-changing.reverse,
+    .sample-thumb video.is-changing.reverse,
+    .video-box video.is-changing.reverse {
+      transform: translateX(-16px) scale(0.985);
+    }
+
+    .notice-box {
+      border: 1.5px solid var(--box-border);
+      border-radius: 16px;
+      background: var(--box-bg);
+      overflow: hidden;
+      margin-bottom: 14px;
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+    }
+
+    .notice-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      font-weight: 800;
+      color: #5e5043;
+      border-bottom: 1px solid #eee5d7;
+      background: #f5efe5;
+    }
+
+    .notice-body {
+      padding: 14px;
+      color: var(--text-sub);
+      font-size: 14px;
+    }
+
+    .notice-body p,
+    .notice-body li {
+      margin: 0 0 8px;
+    }
+
+    .notice-body ul {
+      margin: 8px 0 0 18px;
+      padding: 0;
+    }
+
+    .event-layout {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .event-card,
+    .notice-side-card {
+      background: linear-gradient(180deg, #f7f1e8 0%, #f2ece1 100%);
+      border: 1.5px solid #d9ccb8;
+      border-radius: 20px;
+      padding: 18px;
+      color: var(--text-main);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(96, 84, 67, 0.08);
+    }
+
+    .event-topline,
+    .notice-side-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .event-heading,
+    .notice-side-heading {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 900;
+      color: #5a4f45;
+    }
+
+    .event-mini-chip,
+    .notice-mini-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #efe7d8;
+      border: 1px solid #d8cab2;
+      color: #7b6955;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .event-status-top,
+    .notice-status-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 32px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #ebe4d8;
+      border: 1px solid #d4c6b5;
+      color: #7b6955;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .event-status-top::before,
+    .notice-status-top::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #a47b93;
+    }
+
+    .event-main-info {
+      filter: blur(1.8px);
+      opacity: 0.55;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .event-line-row,
+    .notice-line-row {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 10px 0;
+      border-top: 1px solid #e9dfd0;
+    }
+
+    .event-line-row:first-child,
+    .notice-line-row:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .event-key,
+    .notice-key {
+      color: #8a7562;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .event-value,
+    .notice-value {
+      color: #3f362f;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .event-price-row {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .event-price-old {
+      color: #9b8c7d;
+      text-decoration: line-through;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .event-price-sale {
+      color: #b25b5b;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .event-price-now {
+      font-size: 28px;
+      font-weight: 900;
+      color: #4f453c;
+      line-height: 1;
+    }
+
+    .event-ended-overlay {
+      position: absolute;
+      left: 50%;
+      top: 54%;
+      transform: translate(-50%, -50%);
+      min-width: 230px;
+      padding: 18px 22px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #8b7967 0%, #786656 100%);
+      border: 1.5px solid #d8cab6;
+      box-shadow: 0 10px 24px rgba(96, 84, 67, 0.18);
+      text-align: center;
+      z-index: 3;
+    }
+
+    .event-ended-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fffdf8;
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .event-ended-badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #f5e9bf;
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.08);
+    }
+
+    .event-ended-text {
+      color: #fffdf8;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .notice-side-card .notice-value ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .notice-side-card .notice-value li {
+      margin-bottom: 8px;
+      color: #4a4037;
+      line-height: 1.5;
+    }
+
+    .license-table-wrap {
+      margin-top: 14px;
+      overflow-x: auto;
+      border: 1.5px solid #fbf4df;
+      border-radius: 14px;
+      background: #fffdf9;
+    }
+
+    .license-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 560px;
+    }
+
+    .license-table th,
+    .license-table td {
+      border: 1px solid #dcc97f;
+      padding: 10px 12px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 13px;
+      color: #4a4037;
+      background: #fffaf0;
+    }
+
+    .license-table thead th {
+      background: linear-gradient(180deg, #e6dec2 0%, #e8e4d6 100%);
+      color: #55471f;
+      font-weight: 900;
+    }
+
+    .license-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #8b7564;
+      line-height: 1.5;
+    }
+
+    .process-inline-steps {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .process-step-mini {
+      background: #fffdf9;
+      border: 1.5px solid #ddd0bd;
+      border-radius: 14px;
+      padding: 12px 10px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-main);
+      min-height: 74px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+    }
+
+    .process-step-mini:hover {
+      transform: translateY(-2px);
+    }
+
+    .process-step-mini .num {
+      width: 24px;
+      height: 24px;
+      margin: 0 auto;
+      border-radius: 999px;
+      background: #fff;
+      border: 1.5px solid #d8cab6;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--accent-brown);
+    }
+
+    .sample-showcase {
+      background: linear-gradient(180deg, #f8f4ec 0%, #f4eee4 100%);
+      border: 1.5px solid #d7ccb9;
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 10px 24px rgba(96, 84, 67, 0.08);
+      position: relative;
+      margin-top: 18px;
+    }
+
+    .sample-preview-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #d8cab2;
+      background: #fffdf8;
+      color: #7b6955;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .sample-preview-chip::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #d8c07d;
+    }
+
+    .sample-showcase h2 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      font-weight: 900;
+      color: #2f2a25;
+    }
+
+    .sample-showcase p {
+      margin: 0 0 16px;
+      color: var(--text-sub);
+      font-size: 14px;
+    }
+
+    .sample-category {
+      background: #fffdf9;
+      border: 1.5px solid #e2d8c8;
+      border-radius: 20px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .sample-category-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .sample-category-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: #4d433a;
+    }
+
+    .sample-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #d8cab6;
+      background: #fff;
+      color: #8a7562;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .sample-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .sample-card {
+      background: linear-gradient(180deg, #fffefb, #f7f1e8);
+      border: 1.5px solid #e1d7c7;
+      border-radius: 16px;
+      padding: 10px;
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+    }
+
+    .sample-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .sample-card:active {
+      transform: scale(0.99);
+    }
+
+    .sample-thumb {
+      width: 100%;
+      aspect-ratio: 2 / 1;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e7dccb;
+      background: #f7f3eb;
+      margin-bottom: 10px;
+    }
+
+    .sample-thumb img,
+    .sample-thumb video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sample-thumb img {
+      cursor: zoom-in;
+    }
+
+    .poster-box img,
+    .collab-image-box img {
+      cursor: zoom-in;
+    }
+
+    .sample-meta-no {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 22px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #ddd0bd;
+      background: #fff;
+      color: #8a7562;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .sample-name {
+      font-size: 18px;
+      font-weight: 900;
+      color: #3a3045;
+      margin-bottom: 4px;
+    }
+
+    .sample-desc {
+      color: #6e6375;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .sample-slider-box {
+      position: relative;
+      padding: 0 80px;
+    }
+
+    .sample-slider-viewport {
+      width: 100%;
+    }
+
+    .expression-card {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 800;
+      color: #5b4f44;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1.5px solid #ddd0bd;
+      border-radius: 12px;
+      background: #fffdf9;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: var(--text-main);
+      outline: none;
+      transition: all 0.2s ease;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--accent-gold-deep);
+      box-shadow: 0 0 0 4px rgba(216, 192, 125, 0.15);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .pretty-select {
+      position: relative;
+    }
+
+    .pretty-select-trigger {
+      width: 100%;
+      min-height: 50px;
+      border: 1.5px solid #ddd0bd;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #fffefb, #f7f0e6);
+      padding: 12px 44px 12px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      box-shadow: 0 4px 10px rgba(120, 96, 72, 0.05);
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.2s ease;
+      display: flex;
+      align-items: center;
+      position: relative;
+      text-align: left;
+    }
+
+    .pretty-select-trigger:hover {
+      border-color: #ccb99f;
+      box-shadow: 0 8px 16px rgba(120, 96, 72, 0.08);
+    }
+
+    .pretty-select.open .pretty-select-trigger {
+      border-color: var(--accent-gold-deep);
+      box-shadow: 0 0 0 4px rgba(216, 192, 125, 0.15);
+    }
+
+    .pretty-select-trigger::after {
+      content: "";
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      width: 9px;
+      height: 9px;
+      border-right: 2px solid #8b7967;
+      border-bottom: 2px solid #8b7967;
+      transform: translateY(-65%) rotate(45deg);
+      transition: transform 0.2s ease;
+    }
+
+    .pretty-select.open .pretty-select-trigger::after {
+      transform: translateY(-35%) rotate(225deg);
+    }
+
+    .pretty-select-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      width: 100%;
+      background: #fffdf9;
+      border: 1.5px solid #ddd0bd;
+      border-radius: 16px;
+      box-shadow: 0 14px 24px rgba(96, 84, 67, 0.12);
+      padding: 8px;
+      z-index: 50;
+      display: block;
+      transform: translateY(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .pretty-select.open .pretty-select-menu {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .pretty-option {
+      width: 100%;
+      border: none;
+      background: linear-gradient(180deg, #fffdf9, #f8f2e8);
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.2s ease;
+      margin-bottom: 6px;
+    }
+
+    .pretty-option:last-child {
+      margin-bottom: 0;
+    }
+
+    .pretty-option:hover {
+      background: linear-gradient(180deg, #fff8e8, #f4ead0);
+      transform: translateY(-1px);
+    }
+
+    .pretty-option.selected {
+      background: linear-gradient(180deg, #fff4da, #f3e1ac);
+      color: #5f4f2f;
+      box-shadow: inset 0 0 0 1px #d7c274;
+    }
+
+    .pretty-option.placeholder-option {
+      color: var(--text-sub);
+    }
+
+    .radio-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .radio-option {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      background: linear-gradient(180deg, #fffdf9, #f6efe4);
+      border: 1.5px solid #ddd0bd;
+      border-radius: 16px;
+      padding: 16px;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-main);
+      cursor: pointer;
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+      box-shadow: 0 6px 14px rgba(120, 96, 72, 0.05);
+      min-height: 92px;
+    }
+
+    .radio-option:hover {
+      transform: translateY(-2px);
+    }
+
+    .radio-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .radio-option::before {
+      content: "";
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 2px solid #cdbda7;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+
+    .radio-option.is-selected {
+      border-color: var(--accent-gold-deep);
+      background: linear-gradient(180deg, #fff8e8, #f6e8bf);
+      box-shadow: 0 10px 18px rgba(183, 157, 85, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .radio-option.is-selected::before {
+      border-color: var(--accent-gold-deep);
+      background: radial-gradient(circle at center, #b79d55 45%, #fff 48%);
+    }
+
+    .radio-option small {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-sub);
+      line-height: 1.45;
+    }
+
+    .option-price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .check-option {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      min-height: 88px;
+      background: linear-gradient(180deg, #fffdf9, #f6efe4);
+      border: 1.5px solid #ddd0bd;
+      border-radius: 16px;
+      padding: 16px;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-main);
+      cursor: pointer;
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+      box-shadow: 0 6px 14px rgba(120, 96, 72, 0.05);
+    }
+
+    .check-option:hover {
+      transform: translateY(-2px);
+    }
+
+    .check-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .check-option::before {
+      content: "";
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      border: 2px solid #cdbda7;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+
+    .check-option:has(input:checked) {
+      border-color: var(--gold-border);
+      background: linear-gradient(180deg, #fff8e7, #f4e3ab);
+      box-shadow: 0 10px 18px rgba(183, 157, 85, 0.14);
+      transform: translateY(-2px);
+    }
+
+    .check-option:has(input:checked)::before {
+      content: "✓";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      font-weight: 900;
+      background: var(--accent-gold-deep);
+      border-color: var(--accent-gold-deep);
+    }
+
+    .check-option small {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-sub);
+      line-height: 1.45;
+    }
+
+    .summary {
+      margin-top: 18px;
+      padding: 16px;
+      background: #f7f1e8;
+      border: 1.5px solid #d9ccb9;
+      border-radius: 16px;
+    }
+
+    .summary h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: var(--text-main);
+    }
+
+    .total {
+      font-size: 20px;
+      font-weight: 900;
+      color: #6f5d4d;
+      margin-bottom: 12px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    button.action,
+    .menu-dark-btn {
+      appearance: none;
+      cursor: pointer;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 800;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .menu-dark-btn:hover,
+    button.action:hover {
+      transform: translateY(-2px);
+    }
+
+    .menu-dark-btn:active,
+    button.action:active {
+      transform: scale(0.97);
+    }
+
+    .primary {
+      background: var(--button-primary);
+      color: var(--button-primary-text);
+      border: none;
+    }
+
+    .secondary {
+      background: var(--button-secondary);
+      color: var(--button-secondary-text);
+      border: 1.5px solid #d9ccb8;
+    }
+
+    .helper {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    pre.output {
+      margin: 14px 0 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #fffdf9;
+      border: 1.5px solid #ddd0bd;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 14px;
+      color: #473c33;
+      min-height: 180px;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+    }
+
+    .menu-dark-panel {
+      background: linear-gradient(180deg, #f8f4ec 0%, #f3ede3 100%);
+      border: 1.5px solid #d9ccb8;
+      border-radius: 22px;
+      padding: 18px;
+      color: var(--text-main);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
+    }
+
+    .menu-dark-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #e6dccd;
+      margin-bottom: 14px;
+    }
+
+    .menu-dark-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent-brown);
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+
+    .menu-dark-kicker::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #d3b8c2, #b48a9f);
+    }
+
+    .menu-dark-title {
+      margin: 0 0 4px;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+
+    .menu-dark-subtitle {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    .menu-dark-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-self: center;
+    }
+
+    .menu-dark-btn {
+      border: 1px solid #d8cab7;
+      background: #fffdf8;
+      color: #5c5147;
+    }
+
+    .menu-accordion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .menu-item {
+      background: var(--menu-card);
+      border: 1px solid var(--menu-border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition:
+        box-shadow 0.28s ease,
+        border-color 0.28s ease,
+        background 0.28s ease;
+    }
+
+    .menu-item.open {
+      box-shadow: 0 10px 22px rgba(96, 84, 67, 0.08);
+    }
+
+    .menu-item-head {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      cursor: pointer;
+    }
+
+    .menu-item-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      border: 1px solid #ded2c1;
+      background: linear-gradient(180deg, #fffefb, #f0e8db);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a7562;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .menu-item-main {
+      min-width: 0;
+    }
+
+    .menu-item-title {
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--text-main);
+    }
+
+    .menu-item-price {
+      width: 120px;
+      min-width: 120px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--gold-text);
+      background: linear-gradient(180deg, #fffefb, #f0e8db);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      padding: 0 12px;
+      text-align: center;
+    }
+
+    .menu-item-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      border: 1px solid #ddd0bd;
+      background: linear-gradient(180deg,#fffefb,#efe6d8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .menu-item-toggle .arrow {
+      width: 10px;
+      height: 10px;
+      border-right: 3px solid #7b6c5d;
+      border-bottom: 3px solid #7b6c5d;
+      transform: rotate(45deg);
+      transition: transform 0.25s ease;
+    }
+
+    .menu-item.open .menu-item-toggle .arrow {
+      transform: rotate(225deg);
+    }
+
+    .menu-item-body {
+      display: block;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 16px 0 64px;
+      border-top: 0 solid #ece2d4;
+      background: #faf7f1;
+      opacity: 0;
+      transition:
+        max-height 0.38s ease,
+        opacity 0.28s ease,
+        padding 0.28s ease,
+        border-top-width 0.2s ease;
+    }
+
+    .menu-item.open .menu-item-body {
+      opacity: 1;
+      padding: 0 16px 16px 64px;
+      border-top-width: 1px;
+    }
+
+    .menu-subcard {
+      margin-top: 12px;
+      background: #fffdf9;
+      border: 1px solid #e3d8c7;
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .menu-detail-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text-sub);
+      font-size: 13px;
+    }
+
+    .menu-detail-list li {
+      margin-bottom: 6px;
+    }
+
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(27, 23, 19, 0.84);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.24s ease;
+    }
+
+    .image-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .image-modal-inner {
+      position: relative;
+      max-width: min(92vw, 1400px);
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-modal img {
+      max-width: 100%;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+      background: #fff;
+    }
+
+    .image-modal-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      font-size: 24px;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+    }
+
+    @media (max-width: 860px) {
+      .sample-grid,
+      .top-intro-grid,
+      .form-grid,
+      .event-layout,
+      .sample-card-grid,
+      .process-inline-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .radio-group,
+      .option-price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .slot-preview-row {
+        grid-template-columns: 72px 1fr;
+      }
+
+      .menu-dark-top {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .menu-item-head {
+        grid-template-columns: 34px 1fr 34px;
+      }
+
+      .menu-item-price {
+        grid-column: 2 / 3;
+        padding-left: 0;
+        margin-top: 4px;
+        width: 120px;
+        min-width: 120px;
+      }
+
+      .menu-item-toggle {
+        grid-column: 3 / 4;
+        grid-row: 1 / 3;
+      }
+
+      .menu-item-body {
+        padding: 0 14px 0 14px;
+      }
+
+      .menu-item.open .menu-item-body {
+        padding: 0 14px 14px 14px;
+      }
+
+      .title {
+        font-size: 26px;
+      }
+
+      .poster-box,
+      .video-box {
+        padding: 12px 56px;
+      }
+
+      .sample-slider-box {
+        padding: 0 56px;
+      }
+
+      .poster-nav.prev,
+      .sample-nav.prev { left: 10px; }
+
+      .poster-nav.next,
+      .sample-nav.next { right: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <section class="panel" id="topIntro">
+      <span class="section-label">00. 소개 및 슬롯</span>
+      <div class="top-intro-grid">
+        <div class="intro-box">
+          <p><strong>안녕하세요! Live2D 일러스트레이터 cooing입니다</strong></p>
+          <p>깔끔하고 심화된 표현을 바탕으로 미소녀 미소년부터 마스코트 캐릭터를 매력적인 분위기로 일러스트를 작업하고 있습니다.</p>
+          <p>비주얼 캐릭터와 맞추는 분위기 일러스트를 진행하며, 캐릭터의 매력을 최대한 살릴 수 있도록 디자인 단계까지 꼼꼼하게 작업합니다.</p>
+          <p>작업 과정에서는 충분한 소통을 통해 의뢰자님의 원하는 방향을 최대한 반영하고자 노력하고 있습니다. 소중한 캐릭터를 맡겨주신 만큼 정성과 책임감을 가지고 작업하겠습니다. 감사합니다!</p>
+        </div>
+
+        <div class="slot-preview-box">
+          <p>매월 최대 2명의 인원만 집중하여 작업을 진행하고 있으며, 아래 슬롯 현황을 참고해 주시기 바랍니다. 결제 완료 순으로 슬롯이 최종 확정되며, 앞선 작업이 마무리되는 대로 순차적으로 시작됩니다.</p>
+
+          <div class="slot-preview-wrap">
+            <h2 class="slot-preview-title">작업 슬롯 현황</h2>
+
+            <div class="slot-preview-list">
+              <div class="slot-preview-row">
+                <div class="slot-preview-month">3월</div>
+                <div class="slot-preview-status closed">CLOSED</div>
+              </div>
+
+              <div class="slot-preview-row">
+                <div class="slot-preview-month">4월</div>
+                <div class="slot-preview-status closed">CLOSED</div>
+              </div>
+
+              <div class="slot-preview-row">
+                <div class="slot-preview-month">5월</div>
+                <div class="slot-preview-status open">OPEN</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="samples">
+      <span class="section-label">01. Live2D 작업 샘플</span>
+      <h1 class="title">버튜버 Live2D 작업 페이지</h1>
+      <p class="subtitle">포스터 / 리깅 영상 / 샘플 메뉴를 한 페이지에서 확인할 수 있도록 구성한 의뢰 안내 페이지입니다.</p>
+
+      <div class="sample-grid">
+        <div class="card">
+          <h3>포스터 및 사진</h3>
+          <div class="poster-box">
+            <button type="button" class="poster-nav prev" id="posterPrevBtn" aria-label="이전 이미지">‹</button>
+            <img id="posterImage" src="images/test.png" alt="포스터 이미지 1" data-expandable />
+            <button type="button" class="poster-nav next" id="posterNextBtn" aria-label="다음 이미지">›</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>작업 샘플</h3>
+          <div class="video-box">
+            <button type="button" class="poster-nav prev" id="videoPrevBtn" aria-label="이전 작업 샘플">‹</button>
+            <video id="sampleVideo" controls playsinline muted preload="metadata">
+              <source src="images/face.mp4" type="video/mp4" />
+              브라우저가 video 태그를 지원하지 않습니다.
+            </video>
+            <button type="button" class="poster-nav next" id="videoNextBtn" aria-label="다음 작업 샘플">›</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sample-showcase">
+        <div class="sample-preview-chip">Sample Preview</div>
+        <h2>샘플</h2>
+        <p>작업 예시를 큰 카드 형식으로 확인하실 수 있습니다.</p>
+
+        <div class="sample-category">
+          <div class="sample-category-top">
+            <div class="sample-category-title">표정 샘플</div>
+            <div class="sample-pill">3 SAMPLE</div>
+          </div>
+
+          <div class="sample-slider-box">
+            <button type="button" class="sample-nav prev" id="expressionPrevBtn" aria-label="이전 작업 샘플">‹</button>
+
+            <div class="sample-slider-viewport">
+              <div class="sample-card expression-card" id="expressionCard">
+                <div class="sample-thumb">
+                  <video
+                    id="expressionVideo"
+                    controls
+                    playsinline
+                    muted
+                    loop
+                    preload="metadata"
+                  >
+                    <source src="images/face.mp4" type="video/mp4" />
+                    브라우저가 video 태그를 지원하지 않습니다.
+                  </video>
+                </div>
+                <div class="sample-meta-no" id="expressionNo">NO.1</div>
+                <div class="sample-name" id="expressionName">sample one</div>
+                <div class="sample-desc" id="expressionDesc">기본 표정과 감정 변화 연출을 확인할 수 있는 샘플 카드입니다.</div>
+              </div>
+            </div>
+
+            <button type="button" class="sample-nav next" id="expressionNextBtn" aria-label="다음 작업 샘플">›</button>
+          </div>
+        </div>
+
+        <div class="sample-category" style="margin-bottom:0;">
+          <div class="sample-category-top">
+            <div class="sample-category-title">디자인 샘플</div>
+            <div class="sample-pill">3 SAMPLE</div>
+          </div>
+
+          <div class="sample-card-grid">
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/design/design1.png" alt="디자인 샘플 1" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.1</div>
+              <div class="sample-name">design one</div>
+              <div class="sample-desc">정면 중심의 캐릭터 시안 샘플입니다.</div>
+            </div>
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/design/design2.png" alt="디자인 샘플 2" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.2</div>
+              <div class="sample-name">design two</div>
+              <div class="sample-desc">기본형 디자인 샘플 배치 예시입니다.</div>
+            </div>
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/design/design3.png" alt="디자인 샘플 3" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.3</div>
+              <div class="sample-name">design three</div>
+              <div class="sample-desc">의상 차이를 비교할 수 있는 구성입니다.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="event">
+      <span class="section-label">02. 이벤트</span>
+      <h2 class="title" style="font-size: 28px;">진행 중인 이벤트</h2>
+
+      <div class="event-layout">
+        <div class="event-card">
+          <div class="event-topline">
+            <div class="event-heading">
+              <span class="event-mini-chip">EVENT</span>
+              <span>이벤트</span>
+            </div>
+            <div class="event-status-top">종료됨</div>
+          </div>
+
+          <div class="event-main-info">
+            <div class="event-line-row">
+              <div class="event-key">종류</div>
+              <div class="event-value">리깅 할인 이벤트</div>
+            </div>
+
+            <div class="event-line-row">
+              <div class="event-key">기간</div>
+              <div class="event-value">2026.02.01 ~ 2026.02.28</div>
+            </div>
+
+            <div class="event-line-row">
+              <div class="event-key">정비 리깅</div>
+              <div class="event-value event-price-row">
+                <div>
+                  <div class="event-price-old">₩500,000</div>
+                  <div class="event-price-sale">-₩100,000</div>
+                </div>
+                <div class="event-price-now">₩400,000</div>
+              </div>
+            </div>
+
+            <div class="event-line-row">
+              <div class="event-key">FREE</div>
+              <div class="event-value">리뷰 작성 시 간단 표정 3종 무료</div>
+            </div>
+          </div>
+
+          <div class="event-ended-overlay">
+            <div class="event-ended-badge">종료된 이벤트</div>
+            <div class="event-ended-text">현재는 진행 중인 이벤트가 없습니다</div>
+          </div>
+        </div>
+
+        <div class="notice-side-card">
+          <div class="notice-side-topline">
+            <div class="notice-side-heading">
+              <span class="notice-mini-chip">NOTICE</span>
+              <span>안내사항</span>
+            </div>
+            <div class="notice-status-top">확인 필수</div>
+          </div>
+
+          <div class="notice-line-row">
+            <div class="notice-key">안내 1</div>
+            <div class="notice-value">10초 컷의 짧은 안내영상이나 샘플 컷은 작업 확인용으로 제공됩니다.</div>
+          </div>
+
+          <div class="notice-line-row">
+            <div class="notice-key">안내 2</div>
+            <div class="notice-value">장비를 옮길 날이 있다면 미리 말씀해주시면 일정 조율이 가능합니다.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="notice">
+      <span class="section-label">03. 공지사항</span>
+      <h2 class="title" style="font-size: 28px;">작업 공지사항</h2>
+
+      <div class="notice-box">
+        <div class="notice-head">작업 안내</div>
+        <div class="notice-body">
+          <p>1. 방송용 버츄얼 캐릭터 일러스트 작업만 진행합니다. 리깅 작업은 포함되지 않습니다.</p>
+          <p>2. 작업물의 저작권은 작가 cooing에게 귀속됩니다.</p>
+          <p>3. 기본 사용 범위는 개인 방송 활동에 한정됩니다.</p>
+          <p>※ 본 공지를 숙지하지 않아 발생하는 모든 문제에 대해 작가는 책임지지 않습니다.</p>
+        </div>
+      </div>
+
+      <div class="notice-box">
+        <div class="notice-head">사용 범위 안내</div>
+        <div class="notice-body">
+          <p>1. 저작권 구매 시 굿즈 제작 라이센스 / 오리지널 3D 제작 라이센스가 양도됩니다.</p>
+          <p>2. 타 작가에게 리깅 의뢰는 가능하지만 디자인 및 Live2D 일러스트 저작권은 cooing에게 있습니다.</p>
+          <p>3. ip소유 저작권까지 구매를 원하실 경우 별도 문의 부탁드립니다.</p>
+        </div>
+      </div>
+
+      <div class="notice-box">
+        <div class="notice-head">저작권 안내</div>
+        <div class="notice-body">
+          <p>모든 작업물은 포트폴리오에 활용될 수 있습니다.</p>
+          <p>저작권의 이용권을 구매하실 수 있으며, 구매 시 타작가 의뢰와 라이센스 활용이 가능합니다.</p>
+
+          <div class="license-table-wrap">
+            <table class="license-table">
+              <thead>
+                <tr>
+                  <th>방송용</th>
+                  <th>상업용</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>추가금 진행</td>
+                  <td>개인 / 기업</td>
+                </tr>
+                <tr>
+                  <td>
+                    개인소장 + 커미션 신청<br />
+                    + 비매팅디
+                  </td>
+                  <td>
+                    개인용<br />
+                    기업용
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>40만원</strong>
+                  </td>
+                  <td>
+                    <strong>40만원</strong><br />
+                    <strong>10만원</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    굿즈 + 2차 상품 + 타작가 의뢰<br />
+                    + 저작권 이전
+                  </td>
+                  <td>
+                    개인소장 + 커미션디 + 스트리밍<br />
+                    + 방송용 굿즈 + 2차이용<br />
+                    + 타작가 의뢰
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="license-note">
+            ※ 저작권 구매 시 2차저작권 라이선스 / 오리지널 3D 제작 라이선스 포함 여부는 별도 문의해주세요.<br />
+            ※ 단독컷 외, 2인 이상이 포함된 저작권은 cooing에게 있습니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="notice-box">
+        <div class="notice-head">작업 범위</div>
+        <div class="notice-body">
+          <p>1. 기본 제작 사이즈 및 해상도는 세로 5000px / 300dpi입니다.</p>
+          <p>2. 기본 표정 3종이 포함됩니다.</p>
+          <p>3. 추가 표정 및 추가 파츠는 별도의 비용이 발생합니다.</p>
+          <p>4. 복잡한 의상, 장식, 소품 등은 작업 난이도에 따라 추가 비용이 발생할 수 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="notice-box">
+        <div class="notice-head">파일 전달</div>
+        <div class="notice-body">
+          <p>1. 모든 작업물은 PSD 파일로 전달됩니다.</p>
+          <p>2. PSD 파일은 담당 리거에게만 공유 가능합니다.
+저작권 구매 시 요청할 경우 자유롭게 전달 가능합니다.</p>
+          <p>3. 사전 예고 없이 완성본을 제외한 러프, 선화, 작업 과정물의 공개를 금합니다.</p>
+        </div>
+      </div>
+
+      <div class="notice-box">
+        <div class="notice-head">작업 기간 및 수정</div>
+        <div class="notice-body">
+          <p>1. 작업 기간은 최대 30일이며 작업 시작 시점을 기준으로 합니다.</p>
+          <p>2. 수정은 최대 2회까지 가능합니다.</p>
+          <p>3. 추가 수정은 별도의 비용이 발생하며 수정 범위에 따라 금액이 달라질 수 있습니다.</p>
+          <p>4. 전달된 파일에 오류가 있거나 리거의 요청으로 필요한 수정은 해당 부분에 한해 무료로 진행됩니다.</p>
+        </div>
+      </div>
+
+      <div class="notice-box">
+        <div class="notice-head">결제 및 환불 안내</div>
+        <div class="notice-body">
+          <p>1. 작업은 입금 확인 후 진행됩니다.</p>
+          <p>2. 작업 예약은 총 금액 전액 결제 후 확정됩니다.</p>
+          <p>3. 예약 파기 시 총 금액의 10% 위약금이 발생합니다.</p>
+        </div>
+      </div>
+
+      <div class="notice-box">
+        <div class="notice-head">크레딧 표기</div>
+        <div class="notice-body">
+          <p>1. 방송, SNS 및 각종 플랫폼에서 캐릭터를 사용할 경우 작가 크레딧(cooing) 표기는 필수입니다.</p>
+          <p>2. 크레딧 표기를 임의로 삭제하거나 누락하는 것을 금합니다.</p>
+          <p>3. 단, 저작권 구매 시에는 예외로 합니다.</p>
+        </div>
+      </div>
+
+      <div class="notice-box">
+        <div class="notice-head">기타 사항</div>
+        <div class="notice-body">
+          <p>1. 작업물은 작가의 포트폴리오 및 샘플로 사용될 수 있습니다. 비공개 요청은 계약 전 사전 협의가 필요합니다.</p>
+          <p>2. 일정 기간 이상 연락이 두절될 경우 작업이 자동 취소될 수 있습니다.</p>
+          <p>3. 모든 작업물의 AI 학습 및 데이터셋 활용을 금합니다.</p>
+          <p>4. 모든 작업물의 무단 수정, 트레이싱, 재가공을 금합니다. (저작권 구매 시 예외)</p>
+          <p>5. 기타 문의 사항은 별도로 연락 부탁드립니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="process">
+      <span class="section-label">04. 작업</span>
+      <h2 class="title" style="font-size: 28px;">작업 과정</h2>
+
+      <div class="notice-box">
+        <div class="notice-head">작업순서</div>
+        <div class="notice-body">
+          <p>문의 → 주문 및 입금 → 시안 전달 → 컨펌 → 파츠분리 및 중간과정 → 완성 및 최종컨펌</p>
+
+          <div class="process-inline-steps">
+            <div class="process-step-mini"><div class="num">1</div><span>문의</span></div>
+            <div class="process-step-mini"><div class="num">2</div><span>주문 및 입금</span></div>
+            <div class="process-step-mini"><div class="num">3</div><span>시안 전달</span></div>
+            <div class="process-step-mini"><div class="num">4</div><span>컨펌</span></div>
+            <div class="process-step-mini"><div class="num">5</div><span>파츠분리 및 중간과정</span></div>
+            <div class="process-step-mini"><div class="num">6</div><span>완성 및 최종컨펌</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice-box">
+        <div class="notice-head">작업과정</div>
+        <div class="notice-body">
+          <p>시안전달 → 파츠분리 및 중간과정 → 완성본 전달</p>
+          <ul>
+            <li>시안 단계에서 최대한 조율해드립니다.</li>
+            <li>파츠가 많은 경우 작업기간이 늘어날 수 있으며 사전 공지드립니다.</li>
+            <li>컨펌 단계 외 수정 요청 시 추가금이 있습니다.</li>
+            <li>리깅 과정에서 파츠 관련 수정 요청은 무료로 진행해드립니다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="collab">
+      <span class="section-label">05. 리깅 협업 작가</span>
+
+      <div class="card">
+        <h3>협업 작가</h3>
+        <div class="collab-image-box">
+          <img src="images/artist/artist.png" alt="협업 작가 이미지" data-expandable />
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="menu">
+      <span class="section-label">06. 메뉴</span>
+
+      <div class="menu-dark-panel">
+        <div class="menu-dark-top">
+          <div>
+            <div class="menu-dark-kicker">MENU</div>
+            <h2 class="menu-dark-title">Live2D 리깅 메뉴</h2>
+            <p class="menu-dark-subtitle">자세한 내용은 펼쳐서 확인</p>
+          </div>
+
+          <div class="menu-dark-actions">
+            <button type="button" class="menu-dark-btn" id="expandAllBtn">전체 펼치기</button>
+            <button type="button" class="menu-dark-btn" id="collapseAllBtn">전체 접기</button>
+          </div>
+        </div>
+
+        <div class="menu-accordion-list">
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">온오프 장식 등</h3>
+              </div>
+              <div class="menu-item-price">₩100,000</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>온오프 토글 장식 및 꾸밈 요소 추가</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">엉덩이 밑까지 오는 긴헤어</h3>
+              </div>
+              <div class="menu-item-price">₩100,000</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>장발 헤어 물리 및 길이 보정 포함</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">헤어 (복잡한 변형)</h3>
+              </div>
+              <div class="menu-item-price">₩50,000</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>복잡한 실루엣 변형이 포함된 헤어 작업</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">앞, 뒷머리 신헤어</h3>
+              </div>
+              <div class="menu-item-price">₩250,000</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>앞머리와 뒷머리 전체 신규 제작</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">뒷머리 신헤어</h3>
+              </div>
+              <div class="menu-item-price">₩150,000</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>뒷머리만 신규 추가되는 헤어 옵션</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">동물귀, 꼬리 등</h3>
+              </div>
+              <div class="menu-item-price">₩50,000~</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>동물귀, 꼬리, 유사 파츠의 물리 추가</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">소품</h3>
+              </div>
+              <div class="menu-item-price">₩50,000~</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>소품 추가 및 간단 연동</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">신의상</h3>
+              </div>
+              <div class="menu-item-price">₩250,000~</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>기존 모델 기준 신규 의상 파츠 제작</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">손포즈</h3>
+              </div>
+              <div class="menu-item-price">₩80,000</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>추가 손포즈 및 간단한 동작 조정</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">오브젝트 & 추가팔</h3>
+              </div>
+              <div class="menu-item-price">₩150,000~</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>오브젝트 파츠 또는 추가 팔 제작</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">추가시안</h3>
+              </div>
+              <div class="menu-item-price">₩50,000</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>추가 러프/시안 제작 비용</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">삼면도 단색</h3>
+              </div>
+              <div class="menu-item-price">₩200,000</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>단색 기준 삼면도 제작</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">비대칭 포즈</h3>
+              </div>
+              <div class="menu-item-price">₩150,000</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>비대칭 포즈 대응 제작</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">표정추가</h3>
+              </div>
+              <div class="menu-item-price">₩10,000</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>표정 1종 추가 기준</li></ul></div></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <div class="menu-item-icon">✦</div>
+              <div class="menu-item-main">
+                <h3 class="menu-item-title">디스코드 실시간 컨펌</h3>
+              </div>
+              <div class="menu-item-price">₩10,000</div>
+              <div class="menu-item-toggle"><span class="arrow"></span></div>
+            </div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>디스코드 실시간 화면 공유 컨펌</li></ul></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="apply">
+      <span class="section-label">07. 신청양식</span>
+      <h2 class="title" style="font-size: 28px;">신청양식</h2>
+      <p class="subtitle">항목을 선택/작성한 뒤 “문의 내용 복사”를 눌러 그대로 붙여넣어 주세요.</p>
+
+      <div class="form-grid">
+        <div class="field">
+          <label for="nickname">방송 닉네임</label>
+          <input id="nickname" placeholder="예: 미작성" />
+        </div>
+
+        <div class="field">
+          <label for="platform">방송 플랫폼 & 닉네임</label>
+          <input id="platform" placeholder="예: 치지직 / 유튜브 / 트위치 등" />
+        </div>
+
+        <div class="field">
+          <label for="debutDate">희망 마감일 / 데뷔 예정일</label>
+          <input id="debutDate" placeholder="예: 2025-02-14" />
+        </div>
+
+        <div class="field">
+          <label for="businessType">기업세 / 개인세</label>
+          <div class="pretty-select" data-target="businessType">
+            <input type="hidden" id="businessType" value="미작성" />
+            <button type="button" class="pretty-select-trigger">선택해주세요</button>
+            <div class="pretty-select-menu">
+              <button type="button" class="pretty-option placeholder-option" data-value="미작성">선택해주세요</button>
+              <button type="button" class="pretty-option" data-value="기업세">기업세</button>
+              <button type="button" class="pretty-option" data-value="개인세">개인세</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field full">
+          <label for="appearance">캐릭터 외관 설정</label>
+          <textarea id="appearance" placeholder="성별, 나이 및 키, 정확한 색상정보, 의상, 성격, 분위기, 체형, 표정 등을 작성해주세요."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="collabArtist">협업 작가</label>
+          <input id="collabArtist" placeholder="없으면 '해당 없음' 입력" />
+        </div>
+
+        <div class="field">
+          <label for="copyrightBuy">저작권 구매 여부</label>
+          <div class="pretty-select" data-target="copyrightBuy">
+            <input type="hidden" id="copyrightBuy" value="미선택" />
+            <button type="button" class="pretty-select-trigger">선택해주세요</button>
+            <div class="pretty-select-menu">
+              <button type="button" class="pretty-option placeholder-option" data-value="미선택">선택해주세요</button>
+              <button type="button" class="pretty-option" data-value="구매">구매</button>
+              <button type="button" class="pretty-option" data-value="미구매">미구매</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field full">
+          <label for="privateUse">비공개 여부</label>
+          <div class="pretty-select" data-target="privateUse">
+            <input type="hidden" id="privateUse" value="미선택" />
+            <button type="button" class="pretty-select-trigger">선택해주세요</button>
+            <div class="pretty-select-menu">
+              <button type="button" class="pretty-option placeholder-option" data-value="미선택">선택해주세요</button>
+              <button type="button" class="pretty-option" data-value="비공개">비공개</button>
+              <button type="button" class="pretty-option" data-value="데뷔날까지 비공개">데뷔날까지 비공개</button>
+              <button type="button" class="pretty-option" data-value="공개 가능">공개 가능</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field full">
+          <label>리깅 기본 옵션</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="baseOption" value="900000" data-label="전신 아바타 일러스트 (표정 3개 포함)" />
+              전신 아바타 일러스트
+              <small>표정 3개 포함 / ₩900,000</small>
+            </label>
+
+            <label class="radio-option">
+              <input type="radio" name="baseOption" value="500000" data-label="반신 아바타 일러스트 (표정 3개 포함)" />
+              반신 아바타 일러스트
+              <small>표정 3개 포함 / ₩500,000</small>
+            </label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <label>추가 옵션</label>
+          <div class="option-price-grid">
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="100000" data-label="온오프 장식 등" />
+              온오프 장식 등
+              <small>₩100,000</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="100000" data-label="엉덩이 밑까지 오는 긴헤어" />
+              엉덩이 밑까지 오는 긴헤어
+              <small>₩100,000</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="50000" data-label="헤어 (복잡한 변형)" />
+              헤어 (복잡한 변형)
+              <small>₩50,000</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="250000" data-label="앞, 뒷머리 신헤어" />
+              앞, 뒷머리 신헤어
+              <small>₩250,000</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="150000" data-label="뒷머리 신헤어" />
+              뒷머리 신헤어
+              <small>₩150,000</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="50000" data-label="동물귀, 꼬리 등" />
+              동물귀, 꼬리 등
+              <small>₩50,000~</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="50000" data-label="소품" />
+              소품
+              <small>₩50,000~</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="250000" data-label="신의상" />
+              신의상
+              <small>₩250,000~</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="80000" data-label="손포즈" />
+              손포즈
+              <small>₩80,000</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="150000" data-label="오브젝트 & 추가팔" />
+              오브젝트 & 추가팔
+              <small>₩150,000~</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="50000" data-label="추가시안" />
+              추가시안
+              <small>₩50,000</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="200000" data-label="삼면도 단색" />
+              삼면도 단색
+              <small>₩200,000</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="150000" data-label="비대칭 포즈" />
+              비대칭 포즈
+              <small>₩150,000</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="10000" data-label="표정추가" />
+              표정추가
+              <small>₩10,000</small>
+            </label>
+
+            <label class="check-option">
+              <input type="checkbox" class="addon" data-price="10000" data-label="디스코드 실시간 컨펌" />
+              디스코드 실시간 컨펌
+              <small>₩10,000</small>
+            </label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <label for="etc">기타 문의내용</label>
+          <textarea id="etc" placeholder="기타 요청사항이 있으면 작성해주세요. 없으면 비워두셔도 됩니다."></textarea>
+        </div>
+      </div>
+
+      <div class="summary">
+        <h3>문의 텍스트</h3>
+        <div class="total" id="totalPrice">선택 합계: ₩0</div>
+        <div class="helper">문의 텍스트에 항목/총액이 함께 포함됩니다.</div>
+        <div class="button-row">
+          <button type="button" class="action primary" id="copyBtn">문의 내용 복사</button>
+          <button type="button" class="action secondary" id="previewBtn">미리보기 갱신</button>
+        </div>
+        <pre class="output" id="outputText"></pre>
+      </div>
+    </section>
+  </div>
+
+  <div class="image-modal" id="imageModal" aria-hidden="true">
+    <div class="image-modal-inner">
+      <button type="button" class="image-modal-close" id="imageModalClose" aria-label="확대 이미지 닫기">×</button>
+      <img id="imageModalImg" src="" alt="확대 이미지" />
+    </div>
+  </div>
+
+  <script>
+    const posterImages = [
+      "images/poster/poster1.png",
+      "images/poster/poster2.png",
+      "images/poster/poster3.png",
+      "images/poster/poster4.png",
+      "images/poster/poster5.png"
+    ];
+
+    const videoSamples = [
+      "images/sample/sample1.mp4",
+      "images/sample/sample2.mp4",
+      "images/sample/sample3.mp4"
+
+    ];
+
+    const expressionSamples = [
+      {
+        video: "images/face/face1.mp4",
+        no: "NO.1",
+        name: "sample one",
+        desc: "기본 표정과 감정 변화 연출을 확인할 수 있는 샘플 카드입니다."
+      },
+      {
+        video: "images/face/face2.mp4",
+        no: "NO.2",
+        name: "sample two",
+        desc: "눈매와 입모양 변화를 중심으로 분위기 차이를 비교할 수 있습니다."
+      },
+      {
+        video: "images/face/face3.mp4",
+        no: "NO.3",
+        name: "sample three",
+        desc: "캐릭터 성격에 맞는 다양한 감정 표현 예시를 보여주는 구성입니다."
+      }
+    ];
+
+    let currentPosterIndex = 0;
+    let currentVideoIndex = 0;
+    let currentExpressionIndex = 0;
+
+    function formatKRW(value) {
+      return "₩" + Number(value).toLocaleString("ko-KR");
+    }
+
+    function animateImageChange(imgEl, nextSrc, nextAlt, direction = "next", onMidChange) {
+      if (!imgEl) return;
+
+      imgEl.classList.remove("reverse");
+      imgEl.classList.add("is-changing");
+
+      if (direction === "prev") {
+        imgEl.classList.add("reverse");
+      }
+
+      setTimeout(() => {
+        imgEl.src = nextSrc;
+        imgEl.alt = nextAlt;
+        if (typeof onMidChange === "function") onMidChange();
+      }, 140);
+
+      setTimeout(() => {
+        imgEl.classList.remove("is-changing", "reverse");
+      }, 280);
+    }
+
+    function animateVideoChange(videoEl, nextSrc, direction = "next", onMidChange) {
+      if (!videoEl) return;
+
+      videoEl.classList.remove("reverse");
+      videoEl.classList.add("is-changing");
+
+      if (direction === "prev") {
+        videoEl.classList.add("reverse");
+      }
+
+      setTimeout(() => {
+        videoEl.pause();
+        videoEl.src = nextSrc;
+        videoEl.load();
+        if (typeof onMidChange === "function") onMidChange();
+      }, 140);
+
+      setTimeout(() => {
+        videoEl.classList.remove("is-changing", "reverse");
+      }, 280);
+    }
+
+    function renderPosterImageImmediately() {
+      const posterImage = document.getElementById("posterImage");
+      if (!posterImage) return;
+
+      posterImage.src = posterImages[currentPosterIndex];
+      posterImage.alt = `포스터 이미지 ${currentPosterIndex + 1}`;
+    }
+
+    function updatePosterImage(direction = "next") {
+      const posterImage = document.getElementById("posterImage");
+      if (!posterImage) return;
+
+      animateImageChange(
+        posterImage,
+        posterImages[currentPosterIndex],
+        `포스터 이미지 ${currentPosterIndex + 1}`,
+        direction
+      );
+    }
+
+    function setupPosterSlider() {
+      const prevBtn = document.getElementById("posterPrevBtn");
+      const nextBtn = document.getElementById("posterNextBtn");
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          currentPosterIndex = (currentPosterIndex - 1 + posterImages.length) % posterImages.length;
+          updatePosterImage("prev");
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          currentPosterIndex = (currentPosterIndex + 1) % posterImages.length;
+          updatePosterImage("next");
+        });
+      }
+    }
+
+    function renderVideoSampleImmediately() {
+      const videoEl = document.getElementById("sampleVideo");
+      if (!videoEl) return;
+
+      videoEl.src = videoSamples[currentVideoIndex];
+      videoEl.load();
+    }
+
+    function updateVideoSample(direction = "next") {
+      const videoEl = document.getElementById("sampleVideo");
+      if (!videoEl) return;
+
+      animateVideoChange(videoEl, videoSamples[currentVideoIndex], direction);
+    }
+
+    function setupVideoSlider() {
+      const prevBtn = document.getElementById("videoPrevBtn");
+      const nextBtn = document.getElementById("videoNextBtn");
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          currentVideoIndex = (currentVideoIndex - 1 + videoSamples.length) % videoSamples.length;
+          updateVideoSample("prev");
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          currentVideoIndex = (currentVideoIndex + 1) % videoSamples.length;
+          updateVideoSample("next");
+        });
+      }
+    }
+
+    function renderExpressionSampleImmediately() {
+      const videoEl = document.getElementById("expressionVideo");
+      const noEl = document.getElementById("expressionNo");
+      const nameEl = document.getElementById("expressionName");
+      const descEl = document.getElementById("expressionDesc");
+
+      if (!videoEl || !noEl || !nameEl || !descEl) return;
+
+      const current = expressionSamples[currentExpressionIndex];
+      videoEl.src = current.video;
+      videoEl.load();
+      noEl.textContent = current.no;
+      nameEl.textContent = current.name;
+      descEl.textContent = current.desc;
+    }
+
+    function updateExpressionSample(direction = "next") {
+      const videoEl = document.getElementById("expressionVideo");
+      const noEl = document.getElementById("expressionNo");
+      const nameEl = document.getElementById("expressionName");
+      const descEl = document.getElementById("expressionDesc");
+
+      if (!videoEl || !noEl || !nameEl || !descEl) return;
+
+      const current = expressionSamples[currentExpressionIndex];
+
+      animateVideoChange(
+        videoEl,
+        current.video,
+        direction,
+        function () {
+          noEl.textContent = current.no;
+          nameEl.textContent = current.name;
+          descEl.textContent = current.desc;
+        }
+      );
+    }
+
+    function setupExpressionSlider() {
+      const prevBtn = document.getElementById("expressionPrevBtn");
+      const nextBtn = document.getElementById("expressionNextBtn");
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          currentExpressionIndex =
+            (currentExpressionIndex - 1 + expressionSamples.length) % expressionSamples.length;
+          updateExpressionSample("prev");
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          currentExpressionIndex =
+            (currentExpressionIndex + 1) % expressionSamples.length;
+          updateExpressionSample("next");
+        });
+      }
+    }
+
+    function syncBaseOptionUI() {
+      const options = document.querySelectorAll(".radio-option");
+      options.forEach((label) => {
+        const input = label.querySelector('input[name="baseOption"]');
+        label.classList.toggle("is-selected", !!input.checked);
+      });
+    }
+
+    function getSelectedBaseOption() {
+      const selected = document.querySelector('input[name="baseOption"]:checked');
+      return {
+        price: Number(selected?.value || 0),
+        label: selected?.dataset.label || "미선택"
+      };
+    }
+
+    function getAddonData() {
+      const addons = [...document.querySelectorAll(".addon:checked")];
+      return {
+        total: addons.reduce((sum, el) => sum + Number(el.dataset.price || 0), 0),
+        labels: addons.map(el => el.dataset.label)
+      };
+    }
+
+    function valueOrFallback(id, fallback) {
+      const el = document.getElementById(id);
+      const value = (el?.value || "").trim();
+      return value || fallback;
+    }
+
+    function buildOutput() {
+      const nickname = valueOrFallback("nickname", "미작성");
+      const platform = valueOrFallback("platform", "미작성");
+      const debutDate = valueOrFallback("debutDate", "미작성");
+      const businessType = valueOrFallback("businessType", "미작성");
+      const appearance = valueOrFallback("appearance", "미작성");
+      const collabArtist = valueOrFallback("collabArtist", "해당 없음");
+      const copyrightBuy = valueOrFallback("copyrightBuy", "미선택");
+      const privateUse = valueOrFallback("privateUse", "미선택");
+      const etc = valueOrFallback("etc", "없음");
+
+      const base = getSelectedBaseOption();
+      const addons = getAddonData();
+      const total = base.price + addons.total;
+      const addonText = addons.labels.length ? addons.labels.join(", ") : "없음";
+
+      document.getElementById("totalPrice").textContent = "선택 합계: " + formatKRW(total);
+
+      const text =
+`안녕하세요. 리깅 신청 문의드립니다.
+
+1) 방송 닉네임: ${nickname}
+2) 기업세 / 개인세: ${businessType}
+3) 캐릭터 외관 설정:
+${appearance}
+
+4) 선택 합계: ${formatKRW(total)}
+5) PSD 파일 준비 여부: 예
+6) 방송 플랫폼 & 닉네임: ${platform}
+7) 협업 작가: ${collabArtist}
+8) 데뷔 예정일: ${debutDate}
+9) 저작권 구매 여부: ${copyrightBuy}
+10) 비공개 여부: ${privateUse}
+11) 기본 옵션: ${base.label}
+12) 추가 옵션: ${addonText}
+13) 기타 문의내용: ${etc}
+
+감사합니다!`;
+
+      document.getElementById("outputText").textContent = text;
+      return text;
+    }
+
+    function setupPrettySelects() {
+      const prettySelects = document.querySelectorAll(".pretty-select");
+
+      prettySelects.forEach((selectBox) => {
+        const targetId = selectBox.dataset.target;
+        const hiddenInput = document.getElementById(targetId);
+        const trigger = selectBox.querySelector(".pretty-select-trigger");
+        const options = selectBox.querySelectorAll(".pretty-option");
+
+        trigger.addEventListener("click", function (e) {
+          e.stopPropagation();
+
+          prettySelects.forEach((other) => {
+            if (other !== selectBox) other.classList.remove("open");
+          });
+
+          selectBox.classList.toggle("open");
+        });
+
+        options.forEach((option) => {
+          option.addEventListener("click", function (e) {
+            e.stopPropagation();
+
+            const value = option.dataset.value;
+            hiddenInput.value = value;
+            trigger.textContent = option.textContent;
+
+            options.forEach((opt) => opt.classList.remove("selected"));
+            option.classList.add("selected");
+
+            selectBox.classList.remove("open");
+            buildOutput();
+          });
+        });
+
+        const initialValue = hiddenInput.value;
+        const initialOption = [...options].find(opt => opt.dataset.value === initialValue);
+        if (initialOption) {
+          initialOption.classList.add("selected");
+          trigger.textContent = initialOption.textContent;
+        }
+      });
+
+      document.addEventListener("click", function () {
+        prettySelects.forEach((selectBox) => selectBox.classList.remove("open"));
+      });
+    }
+
+    function setupToggleableBaseOption() {
+      const baseInputs = document.querySelectorAll('input[name="baseOption"]');
+
+      baseInputs.forEach((input) => {
+        input.addEventListener("click", function () {
+          if (this.dataset.wasChecked === "true") {
+            this.checked = false;
+            this.dataset.wasChecked = "false";
+          } else {
+            baseInputs.forEach((other) => {
+              other.dataset.wasChecked = "false";
+            });
+            this.checked = true;
+            this.dataset.wasChecked = "true";
+          }
+
+          syncBaseOptionUI();
+          buildOutput();
+        });
+
+        input.addEventListener("mousedown", function () {
+          this.dataset.wasChecked = this.checked ? "true" : "false";
+        });
+      });
+
+      syncBaseOptionUI();
+    }
+
+    function setAccordionHeight(item) {
+      const body = item.querySelector(".menu-item-body");
+      if (!body) return;
+
+      if (item.classList.contains("open")) {
+        body.style.maxHeight = body.scrollHeight + 24 + "px";
+      } else {
+        body.style.maxHeight = "0px";
+      }
+    }
+
+    function setupMenuAccordion() {
+      const menuItems = document.querySelectorAll(".menu-item");
+      const expandAllBtn = document.getElementById("expandAllBtn");
+      const collapseAllBtn = document.getElementById("collapseAllBtn");
+
+      menuItems.forEach((item) => {
+        const head = item.querySelector(".menu-item-head");
+        if (!head) return;
+
+        setAccordionHeight(item);
+
+        head.addEventListener("click", function () {
+          item.classList.toggle("open");
+          setAccordionHeight(item);
+        });
+      });
+
+      if (expandAllBtn) {
+        expandAllBtn.addEventListener("click", function () {
+          menuItems.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add("open");
+              setAccordionHeight(item);
+            }, index * 40);
+          });
+        });
+      }
+
+      if (collapseAllBtn) {
+        collapseAllBtn.addEventListener("click", function () {
+          [...menuItems].reverse().forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.remove("open");
+              setAccordionHeight(item);
+            }, index * 30);
+          });
+        });
+      }
+
+      window.addEventListener("resize", function () {
+        menuItems.forEach(setAccordionHeight);
+      });
+    }
+
+    function openImageModal(src, alt) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("imageModalImg");
+      if (!modal || !modalImg) return;
+
+      modalImg.src = src;
+      modalImg.alt = alt || "확대 이미지";
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("imageModalImg");
+      if (!modal || !modalImg) return;
+
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+
+      setTimeout(() => {
+        if (!modal.classList.contains("open")) {
+          modalImg.src = "";
+        }
+      }, 220);
+    }
+
+    function setupImageModal() {
+      document.addEventListener("click", function (e) {
+        const img = e.target.closest("img[data-expandable]");
+        if (img) {
+          openImageModal(img.src, img.alt);
+          return;
+        }
+
+        const modal = document.getElementById("imageModal");
+        const closeBtn = document.getElementById("imageModalClose");
+
+        if (e.target === modal || e.target === closeBtn) {
+          closeImageModal();
+        }
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeImageModal();
+        }
+      });
+    }
+
+    document.addEventListener("input", function (e) {
+      if (e.target.matches("input, textarea")) {
+        buildOutput();
+      }
+    });
+
+    document.addEventListener("change", function (e) {
+      if (e.target.matches(".addon")) {
+        buildOutput();
+      }
+    });
+
+    document.getElementById("previewBtn").addEventListener("click", function () {
+      buildOutput();
+    });
+
+    document.getElementById("copyBtn").addEventListener("click", async () => {
+      const text = buildOutput();
+      try {
+        await navigator.clipboard.writeText(text);
+        alert("문의 내용이 복사되었습니다.");
+      } catch (e) {
+        alert("복사에 실패했습니다. 직접 선택해서 복사해주세요.");
+      }
+    });
+
+    buildOutput();
+    renderPosterImageImmediately();
+    setupPosterSlider();
+    renderVideoSampleImmediately();
+    setupVideoSlider();
+    renderExpressionSampleImmediately();
+    setupExpressionSlider();
+    setupMenuAccordion();
+    setupPrettySelects();
+    setupToggleableBaseOption();
+    setupImageModal();
+  </script>
+</body>
+</html>
