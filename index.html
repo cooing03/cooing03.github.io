@@ -134,7 +134,7 @@
 
     .sample-grid {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
+      grid-template-columns: 1fr;
       gap: 16px;
     }
 
@@ -275,16 +275,13 @@
       overflow: hidden;
     }
 
-    .poster-box {
-      min-height: 220px;
-      position: relative;
-      padding: 14px 64px;
-    }
-
+    .poster-box,
     .video-box {
-      min-height: 300px;
+      min-height: auto;
       position: relative;
-      padding: 14px 64px;
+      padding: 14px;
+      flex-direction: column;
+      gap: 14px;
     }
 
     .collab-image-box {
@@ -302,69 +299,151 @@
       display: block;
     }
 
-    .poster-nav,
-    .sample-nav {
-      position: absolute;
-      top: 50%;
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      border: 1px solid #d9cdbd;
-      background: rgba(255,255,255,0.92);
-      color: #6d6054;
+    .slide-shell {
+      width: 100%;
       display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .slide-frame {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 14px;
+      background: #f7f3eb;
+      border: 1px solid #e7dccb;
+    }
+
+    .poster-box .slide-frame {
+      aspect-ratio: 4 / 5;
+      min-height: 420px;
+    }
+
+    .video-box .slide-frame {
+      aspect-ratio: 16 / 9;
+      min-height: 360px;
+    }
+
+    .expression-video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      min-height: 360px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e1d7c7;
+      background: #f7f3eb;
+      margin-bottom: 0;
+    }
+
+    .expression-video-frame video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .expression-info-box {
+      border-top: 1.5px solid #e6dccd;
+      padding-top: 14px;
+      margin-top: 4px;
+    }
+
+    .slide-item {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #f7f3eb;
+    }
+
+    .slide-item.active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    .slide-item img,
+    .slide-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 14px;
+    }
+
+    .slider-controls {
+      display: grid;
+      grid-template-columns: 72px 1fr 72px;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .slide-control-btn {
+      appearance: none;
+      border: 1.5px solid #d9ccb8;
+      background: linear-gradient(180deg, #fffefb, #efe6d8);
+      color: #5f554b;
+      width: 72px;
+      min-width: 72px;
+      height: 42px;
+      padding: 0;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      font-size: 18px;
-      font-weight: 900;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      z-index: 2;
-      transform: translateY(-50%);
       transition:
         transform 0.2s ease,
         box-shadow 0.2s ease,
-        background 0.2s ease,
         border-color 0.2s ease,
-        opacity 0.2s ease;
+        background 0.2s ease;
     }
 
-    .poster-nav.prev { left: 20px; }
-    .poster-nav.next { right: 20px; }
-    .sample-nav.prev { left: 20px; }
-    .sample-nav.next { right: 20px; }
-
-    .poster-nav:hover,
-    .sample-nav:hover {
-      transform: translateY(-50%) scale(1.04);
+    .slide-control-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(96, 84, 67, 0.08);
     }
 
-    .poster-nav:active,
-    .sample-nav:active {
-      transform: translateY(-50%) scale(0.97);
+    .slide-control-btn:active {
+      transform: scale(0.98);
     }
 
-    .poster-box img,
-    .sample-thumb img,
-    .sample-thumb video,
-    .video-box video {
-      transition: opacity 0.28s ease, transform 0.28s ease;
-      will-change: opacity, transform;
+    .slide-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      flex-wrap: wrap;
     }
 
-    .poster-box img.is-changing,
-    .sample-thumb img.is-changing,
-    .sample-thumb video.is-changing,
-    .video-box video.is-changing {
-      opacity: 0;
-      transform: translateX(16px) scale(0.985);
+    .slide-dot {
+      appearance: none;
+      width: 10px;
+      height: 10px;
+      border: none;
+      border-radius: 999px;
+      background: #d3c7b6;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, width 0.2s ease;
+      padding: 0;
     }
 
-    .poster-box img.is-changing.reverse,
-    .sample-thumb img.is-changing.reverse,
-    .sample-thumb video.is-changing.reverse,
-    .video-box video.is-changing.reverse {
-      transform: translateX(-16px) scale(0.985);
+    .slide-dot.active {
+      width: 26px;
+      background: #8b7967;
+    }
+
+    .slide-dot:hover {
+      transform: scale(1.08);
     }
 
     .notice-box {
@@ -609,7 +688,7 @@
     .license-table-wrap {
       margin-top: 14px;
       overflow-x: auto;
-      border: 1.5px solid #fbf4df;
+      border: 1.5px solid #d7d7d7;
       border-radius: 14px;
       background: #fffdf9;
     }
@@ -617,23 +696,31 @@
     .license-table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 560px;
+      min-width: 0;
     }
 
     .license-table th,
     .license-table td {
-      border: 1px solid #dcc97f;
-      padding: 10px 12px;
+      border: 1px solid #b8b8b8;
+      padding: 14px 12px;
       text-align: center;
       vertical-align: middle;
       font-size: 13px;
       color: #4a4037;
-      background: #fffaf0;
+      background: #ffffff;
+      word-break: keep-all;
     }
 
-    .license-table thead th {
-      background: linear-gradient(180deg, #e6dec2 0%, #e8e4d6 100%);
-      color: #55471f;
+    .license-table thead tr:first-child th {
+      background: #ebe2bd;
+      color: #70610b;
+      font-weight: 900;
+      font-size: 15px;
+    }
+
+    .license-table thead tr:nth-child(2) th {
+      background: #f3f3f3;
+      color: #4f4f4f;
       font-weight: 900;
     }
 
@@ -783,6 +870,7 @@
       border: 1.5px solid #e1d7c7;
       border-radius: 16px;
       padding: 10px;
+      min-width: 0;
       transition:
         transform 0.22s ease,
         box-shadow 0.22s ease,
@@ -800,7 +888,7 @@
 
     .sample-thumb {
       width: 100%;
-      aspect-ratio: 2 / 1;
+      aspect-ratio: 3 / 4;
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid #e7dccb;
@@ -841,7 +929,7 @@
     }
 
     .sample-name {
-      font-size: 18px;
+      font-size: 15px;
       font-weight: 900;
       color: #3a3045;
       margin-bottom: 4px;
@@ -849,13 +937,13 @@
 
     .sample-desc {
       color: #6e6375;
-      font-size: 12px;
+      font-size: 11px;
       line-height: 1.45;
     }
 
     .sample-slider-box {
       position: relative;
-      padding: 0 80px;
+      padding: 0;
     }
 
     .sample-slider-viewport {
@@ -866,6 +954,7 @@
       width: 100%;
       max-width: none;
       margin: 0;
+      padding: 14px;
     }
 
     .form-grid {
@@ -1543,9 +1632,12 @@
       .top-intro-grid,
       .form-grid,
       .event-layout,
-      .sample-card-grid,
       .process-inline-steps {
         grid-template-columns: 1fr;
+      }
+
+      .sample-card-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .radio-group,
@@ -1591,20 +1683,39 @@
         font-size: 26px;
       }
 
+      .card {
+        padding: 14px;
+        border-radius: 18px;
+      }
+
       .poster-box,
       .video-box {
-        padding: 12px 56px;
+        padding: 10px;
+        gap: 10px;
       }
 
-      .sample-slider-box {
-        padding: 0 56px;
+      .poster-box .slide-frame {
+        aspect-ratio: 4 / 5;
+        min-height: 0;
       }
 
-      .poster-nav.prev,
-      .sample-nav.prev { left: 10px; }
+      .video-box .slide-frame,
+      .expression-video-frame {
+        aspect-ratio: 16 / 9;
+        min-height: 0;
+      }
 
-      .poster-nav.next,
-      .sample-nav.next { right: 10px; }
+      .slider-controls {
+        grid-template-columns: 64px 1fr 64px;
+        gap: 8px;
+      }
+
+      .slide-control-btn {
+        width: 64px;
+        min-width: 64px;
+        height: 40px;
+        font-size: 13px;
+      }
     }
   </style>
 </head>
@@ -1635,7 +1746,7 @@
 
               <div class="slot-preview-row">
                 <div class="slot-preview-month">4월</div>
-                <div class="slot-preview-status open">Open</div>
+                <div class="slot-preview-status open">OPEN</div>
               </div>
 
               <div class="slot-preview-row">
@@ -1651,27 +1762,71 @@
     <section class="panel" id="samples">
       <span class="section-label">01. Live2D 작업 샘플</span>
       <h1 class="title">버튜버 Live2D 작업 페이지</h1>
-      <p class="subtitle">포스터 / 리깅 영상 / 샘플 메뉴를 한 페이지에서 확인할 수 있도록 구성한 의뢰 안내 페이지입니다.</p>
+      <p class="subtitle">포스터 / 리깅 영상 / 샘플 메뉴를 한 페이지에서 확인할 수 있도록 구성한 페이지입니다.</p>
 
       <div class="sample-grid">
         <div class="card">
           <h3>포스터 및 사진</h3>
           <div class="poster-box">
-            <button type="button" class="poster-nav prev" id="posterPrevBtn" aria-label="이전 이미지">‹</button>
-            <img id="posterImage" src="images/test.png" alt="포스터 이미지 1" data-expandable />
-            <button type="button" class="poster-nav next" id="posterNextBtn" aria-label="다음 이미지">›</button>
+            <div class="slide-shell">
+              <div class="slide-frame" id="posterSlider">
+                <div class="slide-item active">
+                  <img src="images/poster/poster1.png" alt="포스터 이미지 1" data-expandable />
+                </div>
+                <div class="slide-item">
+                  <img src="images/poster/poster2.png" alt="포스터 이미지 2" data-expandable />
+                </div>
+                <div class="slide-item">
+                  <img src="images/poster/poster3.png" alt="포스터 이미지 3" data-expandable />
+                </div>
+                <div class="slide-item">
+                  <img src="images/poster/poster4.png" alt="포스터 이미지 4" data-expandable />
+                </div>
+                <div class="slide-item">
+                  <img src="images/poster/poster5.png" alt="포스터 이미지 5" data-expandable />
+                </div>
+              </div>
+
+              <div class="slider-controls">
+                <button type="button" class="slide-control-btn" id="posterPrevBtn">이전</button>
+                <div class="slide-dots" id="posterDots" aria-label="포스터 슬라이드 페이지 이동"></div>
+                <button type="button" class="slide-control-btn" id="posterNextBtn">다음</button>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="card">
           <h3>작업 샘플</h3>
           <div class="video-box">
-            <button type="button" class="poster-nav prev" id="videoPrevBtn" aria-label="이전 작업 샘플">‹</button>
-            <video id="sampleVideo" controls playsinline muted preload="metadata">
-              <source src="images/face.mp4" type="video/mp4" />
-              브라우저가 video 태그를 지원하지 않습니다.
-            </video>
-            <button type="button" class="poster-nav next" id="videoNextBtn" aria-label="다음 작업 샘플">›</button>
+            <div class="slide-shell">
+              <div class="slide-frame" id="videoSlider">
+                <div class="slide-item active">
+                  <video controls playsinline muted preload="metadata">
+                    <source src="images/sample/sample1.mp4" type="video/mp4" />
+                    브라우저가 video 태그를 지원하지 않습니다.
+                  </video>
+                </div>
+                <div class="slide-item">
+                  <video controls playsinline muted preload="metadata">
+                    <source src="images/sample/sample2.mp4" type="video/mp4" />
+                    브라우저가 video 태그를 지원하지 않습니다.
+                  </video>
+                </div>
+                <div class="slide-item">
+                  <video controls playsinline muted preload="metadata">
+                    <source src="images/sample/sample3.mp4" type="video/mp4" />
+                    브라우저가 video 태그를 지원하지 않습니다.
+                  </video>
+                </div>
+              </div>
+
+              <div class="slider-controls">
+                <button type="button" class="slide-control-btn" id="videoPrevBtn">이전</button>
+                <div class="slide-dots" id="videoDots" aria-label="작업 샘플 슬라이드 페이지 이동"></div>
+                <button type="button" class="slide-control-btn" id="videoNextBtn">다음</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1688,11 +1843,9 @@
           </div>
 
           <div class="sample-slider-box">
-            <button type="button" class="sample-nav prev" id="expressionPrevBtn" aria-label="이전 작업 샘플">‹</button>
-
             <div class="sample-slider-viewport">
-              <div class="sample-card expression-card" id="expressionCard">
-                <div class="sample-thumb">
+              <div class="sample-card expression-card">
+                <div class="expression-video-frame">
                   <video
                     id="expressionVideo"
                     controls
@@ -1701,17 +1854,24 @@
                     loop
                     preload="metadata"
                   >
-                    <source src="images/face.mp4" type="video/mp4" />
+                    <source src="images/face/face1.mp4" type="video/mp4" />
                     브라우저가 video 태그를 지원하지 않습니다.
                   </video>
                 </div>
-                <div class="sample-meta-no" id="expressionNo">NO.1</div>
-                <div class="sample-name" id="expressionName">sample one</div>
-                <div class="sample-desc" id="expressionDesc">기본 표정과 감정 변화 연출을 확인할 수 있는 샘플 카드입니다.</div>
+
+                <div class="slider-controls">
+                  <button type="button" class="slide-control-btn" id="expressionPrevBtn">이전</button>
+                  <div class="slide-dots" id="expressionDots" aria-label="표정 샘플 페이지 이동"></div>
+                  <button type="button" class="slide-control-btn" id="expressionNextBtn">다음</button>
+                </div>
+
+                <div class="expression-info-box">
+                  <div class="sample-meta-no" id="expressionNo">NO.1</div>
+                  <div class="sample-name" id="expressionName">sample one</div>
+                  <div class="sample-desc" id="expressionDesc">기본 표정과 감정 변화 연출을 확인할 수 있는 샘플 카드입니다.</div>
+                </div>
               </div>
             </div>
-
-            <button type="button" class="sample-nav next" id="expressionNextBtn" aria-label="다음 작업 샘플">›</button>
           </div>
         </div>
 
@@ -1728,7 +1888,7 @@
               </div>
               <div class="sample-meta-no">NO.1</div>
               <div class="sample-name">design one</div>
-              <div class="sample-desc">정면 중심의 캐릭터 시안 샘플입니다.</div>
+              <div class="sample-desc">구매 가능한 샘플입니다.</div>
             </div>
 
             <div class="sample-card">
@@ -1737,7 +1897,7 @@
               </div>
               <div class="sample-meta-no">NO.2</div>
               <div class="sample-name">design two</div>
-              <div class="sample-desc">기본형 디자인 샘플 배치 예시입니다.</div>
+              <div class="sample-desc">구매 가능한 샘플입니다.</div>
             </div>
 
             <div class="sample-card">
@@ -1746,7 +1906,7 @@
               </div>
               <div class="sample-meta-no">NO.3</div>
               <div class="sample-name">design three</div>
-              <div class="sample-desc">의상 차이를 비교할 수 있는 구성입니다.</div>
+              <div class="sample-desc">구매 가능한 샘플입니다.</div>
             </div>
           </div>
         </div>
@@ -1812,12 +1972,12 @@
 
           <div class="notice-line-row">
             <div class="notice-key">안내 1</div>
-            <div class="notice-value">저작권 구매 시 2차 저작권 라이선스 / 오리지널 3D 제작 라이선스 포함 여부는 별도 문의해주세요.</div>
+            <div class="notice-value">10월 부터 가격이 인상됩니다! 참고 부탁드립니다.</div>
           </div>
 
           <div class="notice-line-row">
             <div class="notice-key">안내 2</div>
-            <div class="notice-value">단독컷 외, 2인 이상이 포함된 저작권은 cooing에게 있습니다.</div>
+            <div class="notice-value">공지를 읽지 않아 생기는 문제는 책임지지 않습니다.</div>
           </div>
         </div>
       </div>
@@ -1841,7 +2001,7 @@
         <div class="notice-head">사용 범위 안내</div>
         <div class="notice-body">
           <p>1. 저작권 구매 시 굿즈 제작 라이센스 / 오리지널 3D 제작 라이센스가 양도됩니다.</p>
-          <p>2. 타 작가에게 리깅 의뢰는 가능하지만 디자인 및 Live2D 일러스트 저작권은 cooing에게 있습니다.</p>
+          <p>2. 저작권 구매시 타 작가에게 신 의상, 추가 파츠 등의 의뢰는 가능하지만 디자인 및 Live2D 일러스트 저작권은 cooing에게 있습니다.</p>
           <p>3. ip소유 저작권까지 구매를 원하실 경우 별도 문의 부탁드립니다.</p>
         </div>
       </div>
@@ -1857,42 +2017,31 @@
               <thead>
                 <tr>
                   <th>방송용</th>
-                  <th>상업용</th>
+                  <th colspan="2">상업용</th>
+                </tr>
+                <tr>
+                  <th>추가금 없음</th>
+                  <th>개인</th>
+                  <th>기업</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>추가금 진행</td>
-                  <td>개인 / 기업</td>
+                  <td></td>
+                  <td><strong>40만원</strong></td>
+                  <td><strong>100만원</strong></td>
                 </tr>
                 <tr>
                   <td>
-                    개인소장 + 커미션 신청<br />
-                    + 비매팅디
+                    개인소장+커뮤니티+스트리밍<br />
+                    +유튜브
+                    <br /><br />
+                    <strong style="color:#c96d63;">굿즈+2차수정+타작가 의뢰<br />+저작권 (X)</strong>
                   </td>
-                  <td>
-                    개인용<br />
-                    기업용
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>40만원</strong>
-                  </td>
-                  <td>
-                    <strong>40만원</strong><br />
-                    <strong>10만원</strong>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    굿즈 + 2차 상품 + 타작가 의뢰<br />
-                    + 저작권 이전
-                  </td>
-                  <td>
-                    개인소장 + 커미션디 + 스트리밍<br />
-                    + 방송용 굿즈 + 2차이용<br />
-                    + 타작가 의뢰
+                  <td colspan="2">
+                    개인소장+커뮤니티+스트리밍<br />
+                    +유튜브+굿즈+2차수정<br />
+                    +타작가 의뢰(O)
                   </td>
                 </tr>
               </tbody>
@@ -1900,8 +2049,8 @@
           </div>
 
           <div class="license-note">
-            ※ 저작권 구매 시 2차저작권 라이선스 / 오리지널 3D 제작 라이선스 포함 여부는 별도 문의해주세요.<br />
-            ※ 단독컷 외, 2인 이상이 포함된 저작권은 cooing에게 있습니다.
+            ※ 타작가 의뢰 및 활용 범위는 계약 내용에 따라 달라질 수 있으므로 사전 문의 부탁드립니다.<br />
+            ※ 별도 IP 권리 양도 및 확장 사용 범위는 추가 협의가 필요합니다.
           </div>
         </div>
       </div>
@@ -1920,7 +2069,7 @@
         <div class="notice-head">파일 전달</div>
         <div class="notice-body">
           <p>1. 모든 작업물은 PSD 파일로 전달됩니다.</p>
-          <p>2. PSD 파일은 담당 리거에게만 공유 가능합니다.
+          <p>2. PSD 파일은 담당 리거에게만 직접 공유합니다.
 저작권 구매 시 요청할 경우 자유롭게 전달 가능합니다.</p>
           <p>3. 사전 예고 없이 완성본을 제외한 러프, 선화, 작업 과정물의 공개를 금합니다.</p>
         </div>
@@ -1957,7 +2106,7 @@
       <div class="notice-box">
         <div class="notice-head">기타 사항</div>
         <div class="notice-body">
-          <p>1. 작업물은 작가의 포트폴리오 및 샘플로 사용될 수 있습니다. 비공개 요청은 계약 전 사전 협의가 필요합니다.</p>
+          <p>1. 작업물은 작가의 포트폴리오 및 샘플로 사용될 수 있습니다. 비공개 요청은 계약 전 사전 협의가 필요합니다.(영구 비공개는 추가금이 발생합니다.)</p>
           <p>2. 일정 기간 이상 연락이 두절될 경우 작업이 자동 취소될 수 있습니다.</p>
           <p>3. 모든 작업물의 AI 학습 및 데이터셋 활용을 금합니다.</p>
           <p>4. 모든 작업물의 무단 수정, 트레이싱, 재가공을 금합니다. (저작권 구매 시 예외)</p>
@@ -1973,8 +2122,6 @@
       <div class="notice-box">
         <div class="notice-head">작업순서</div>
         <div class="notice-body">
-          <!-- <p>문의 → 주문 및 입금 → 시안 전달 → 컨펌 → 파츠분리 및 중간과정 → 완성 및 최종컨펌</p> -->
-
           <div class="process-inline-steps">
             <div class="process-step-mini"><div class="num">1</div><span>문의</span></div>
             <div class="process-step-mini"><div class="num">2</div><span>주문 및 입금</span></div>
@@ -2038,14 +2185,14 @@
               <div class="menu-item-price">₩100,000</div>
               <div class="menu-item-toggle"><span class="arrow"></span></div>
             </div>
-            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>온오프 토글 장식 및 꾸밈 요소 추가</li></ul></div></div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>온오프 토글 장식</li></ul></div></div>
           </div>
 
           <div class="menu-item">
             <div class="menu-item-head">
               <div class="menu-item-icon">✦</div>
               <div class="menu-item-main">
-                <h3 class="menu-item-title">엉덩이 밑까지 오는 긴헤어</h3>
+                <h3 class="menu-item-title">엉덩이 밑보다 더 긴 헤어</h3>
               </div>
               <div class="menu-item-price">₩100,000</div>
               <div class="menu-item-toggle"><span class="arrow"></span></div>
@@ -2093,7 +2240,7 @@
             <div class="menu-item-head">
               <div class="menu-item-icon">✦</div>
               <div class="menu-item-main">
-                <h3 class="menu-item-title">동물귀, 꼬리 등</h3>
+                <h3 class="menu-item-title">동물귀, 꼬리, 유사 파츠</h3>
               </div>
               <div class="menu-item-price">₩50,000~</div>
               <div class="menu-item-toggle"><span class="arrow"></span></div>
@@ -2110,7 +2257,7 @@
               <div class="menu-item-price">₩50,000~</div>
               <div class="menu-item-toggle"><span class="arrow"></span></div>
             </div>
-            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>소품 추가 및 간단 연동</li></ul></div></div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>머리위에 얹어진 인형 등</li></ul></div></div>
           </div>
 
           <div class="menu-item">
@@ -2182,7 +2329,7 @@
               <div class="menu-item-price">₩150,000</div>
               <div class="menu-item-toggle"><span class="arrow"></span></div>
             </div>
-            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>비대칭 포즈 대응 제작</li></ul></div></div>
+            <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list"><li>비대칭 포즈 제작</li></ul></div></div>
           </div>
 
           <div class="menu-item">
@@ -2252,7 +2399,7 @@
         </div>
 
         <div class="field">
-          <label for="collabArtist">협업 작가</label>
+          <label for="collabArtist">리깅 작가</label>
           <input id="collabArtist" placeholder="없으면 '해당 없음' 입력" />
         </div>
 
@@ -2335,7 +2482,7 @@
 
             <label class="check-option">
               <input type="checkbox" class="addon" data-price="50000" data-label="동물귀, 꼬리 등" />
-              동물귀, 꼬리 등
+              동물귀, 꼬리, 유사 파츠
               <small>₩50,000~</small>
             </label>
 
@@ -2422,21 +2569,6 @@
   </div>
 
   <script>
-    const posterImages = [
-      "images/poster/poster1.png",
-      "images/poster/poster2.png",
-      "images/poster/poster3.png",
-      "images/poster/poster4.png",
-      "images/poster/poster5.png"
-    ];
-
-    const videoSamples = [
-      "images/sample/sample1.mp4",
-      "images/sample/sample2.mp4",
-      "images/sample/sample3.mp4"
-
-    ];
-
     const expressionSamples = [
       {
         video: "images/face/face1.mp4",
@@ -2458,131 +2590,109 @@
       }
     ];
 
-    let currentPosterIndex = 0;
-    let currentVideoIndex = 0;
     let currentExpressionIndex = 0;
 
     function formatKRW(value) {
       return "₩" + Number(value).toLocaleString("ko-KR");
     }
 
-    function animateImageChange(imgEl, nextSrc, nextAlt, direction = "next", onMidChange) {
-      if (!imgEl) return;
+    function createManualSlider({
+      sliderId,
+      dotsId,
+      prevBtnId,
+      nextBtnId,
+      onChange
+    }) {
+      const slider = document.getElementById(sliderId);
+      const dotsWrap = document.getElementById(dotsId);
+      const prevBtn = document.getElementById(prevBtnId);
+      const nextBtn = document.getElementById(nextBtnId);
 
-      imgEl.classList.remove("reverse");
-      imgEl.classList.add("is-changing");
+      if (!slider || !dotsWrap) return;
 
-      if (direction === "prev") {
-        imgEl.classList.add("reverse");
+      const slides = Array.from(slider.querySelectorAll(".slide-item"));
+      if (!slides.length) return;
+
+      let currentIndex = 0;
+
+      function pauseAllVideos() {
+        slides.forEach((slide) => {
+          const video = slide.querySelector("video");
+          if (video) video.pause();
+        });
       }
 
-      setTimeout(() => {
-        imgEl.src = nextSrc;
-        imgEl.alt = nextAlt;
-        if (typeof onMidChange === "function") onMidChange();
-      }, 140);
+      function update() {
+        slides.forEach((slide, index) => {
+          slide.classList.toggle("active", index === currentIndex);
+        });
 
-      setTimeout(() => {
-        imgEl.classList.remove("is-changing", "reverse");
-      }, 280);
-    }
+        const dots = dotsWrap.querySelectorAll(".slide-dot");
+        dots.forEach((dot, index) => {
+          dot.classList.toggle("active", index === currentIndex);
+        });
 
-    function animateVideoChange(videoEl, nextSrc, direction = "next", onMidChange) {
-      if (!videoEl) return;
+        pauseAllVideos();
 
-      videoEl.classList.remove("reverse");
-      videoEl.classList.add("is-changing");
-
-      if (direction === "prev") {
-        videoEl.classList.add("reverse");
+        if (typeof onChange === "function") {
+          onChange(currentIndex);
+        }
       }
 
-      setTimeout(() => {
-        videoEl.pause();
-        videoEl.src = nextSrc;
-        videoEl.load();
-        if (typeof onMidChange === "function") onMidChange();
-      }, 140);
+      function goTo(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        update();
+      }
 
-      setTimeout(() => {
-        videoEl.classList.remove("is-changing", "reverse");
-      }, 280);
-    }
-
-    function renderPosterImageImmediately() {
-      const posterImage = document.getElementById("posterImage");
-      if (!posterImage) return;
-
-      posterImage.src = posterImages[currentPosterIndex];
-      posterImage.alt = `포스터 이미지 ${currentPosterIndex + 1}`;
-    }
-
-    function updatePosterImage(direction = "next") {
-      const posterImage = document.getElementById("posterImage");
-      if (!posterImage) return;
-
-      animateImageChange(
-        posterImage,
-        posterImages[currentPosterIndex],
-        `포스터 이미지 ${currentPosterIndex + 1}`,
-        direction
-      );
-    }
-
-    function setupPosterSlider() {
-      const prevBtn = document.getElementById("posterPrevBtn");
-      const nextBtn = document.getElementById("posterNextBtn");
+      function renderDots() {
+        dotsWrap.innerHTML = "";
+        slides.forEach((_, index) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "slide-dot" + (index === currentIndex ? " active" : "");
+          dot.setAttribute("aria-label", `${index + 1}번 슬라이드 보기`);
+          dot.addEventListener("click", () => goTo(index));
+          dotsWrap.appendChild(dot);
+        });
+      }
 
       if (prevBtn) {
         prevBtn.addEventListener("click", function () {
-          currentPosterIndex = (currentPosterIndex - 1 + posterImages.length) % posterImages.length;
-          updatePosterImage("prev");
+          goTo(currentIndex - 1);
         });
       }
 
       if (nextBtn) {
         nextBtn.addEventListener("click", function () {
-          currentPosterIndex = (currentPosterIndex + 1) % posterImages.length;
-          updatePosterImage("next");
-        });
-      }
-    }
-
-    function renderVideoSampleImmediately() {
-      const videoEl = document.getElementById("sampleVideo");
-      if (!videoEl) return;
-
-      videoEl.src = videoSamples[currentVideoIndex];
-      videoEl.load();
-    }
-
-    function updateVideoSample(direction = "next") {
-      const videoEl = document.getElementById("sampleVideo");
-      if (!videoEl) return;
-
-      animateVideoChange(videoEl, videoSamples[currentVideoIndex], direction);
-    }
-
-    function setupVideoSlider() {
-      const prevBtn = document.getElementById("videoPrevBtn");
-      const nextBtn = document.getElementById("videoNextBtn");
-
-      if (prevBtn) {
-        prevBtn.addEventListener("click", function () {
-          currentVideoIndex = (currentVideoIndex - 1 + videoSamples.length) % videoSamples.length;
-          updateVideoSample("prev");
+          goTo(currentIndex + 1);
         });
       }
 
-      if (nextBtn) {
-        nextBtn.addEventListener("click", function () {
-          currentVideoIndex = (currentVideoIndex + 1) % videoSamples.length;
-          updateVideoSample("next");
-        });
-      }
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      slider.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+
+      slider.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        const delta = touchEndX - touchStartX;
+
+        if (Math.abs(delta) > 40) {
+          if (delta < 0) {
+            goTo(currentIndex + 1);
+          } else {
+            goTo(currentIndex - 1);
+          }
+        }
+      }, { passive: true });
+
+      renderDots();
+      update();
     }
 
-    function renderExpressionSampleImmediately() {
+    function renderExpressionSample(index) {
       const videoEl = document.getElementById("expressionVideo");
       const noEl = document.getElementById("expressionNo");
       const nameEl = document.getElementById("expressionName");
@@ -2590,7 +2700,7 @@
 
       if (!videoEl || !noEl || !nameEl || !descEl) return;
 
-      const current = expressionSamples[currentExpressionIndex];
+      const current = expressionSamples[index];
       videoEl.src = current.video;
       videoEl.load();
       noEl.textContent = current.no;
@@ -2598,47 +2708,74 @@
       descEl.textContent = current.desc;
     }
 
-    function updateExpressionSample(direction = "next") {
-      const videoEl = document.getElementById("expressionVideo");
-      const noEl = document.getElementById("expressionNo");
-      const nameEl = document.getElementById("expressionName");
-      const descEl = document.getElementById("expressionDesc");
-
-      if (!videoEl || !noEl || !nameEl || !descEl) return;
-
-      const current = expressionSamples[currentExpressionIndex];
-
-      animateVideoChange(
-        videoEl,
-        current.video,
-        direction,
-        function () {
-          noEl.textContent = current.no;
-          nameEl.textContent = current.name;
-          descEl.textContent = current.desc;
-        }
-      );
-    }
-
     function setupExpressionSlider() {
+      const dotsWrap = document.getElementById("expressionDots");
       const prevBtn = document.getElementById("expressionPrevBtn");
       const nextBtn = document.getElementById("expressionNextBtn");
+      if (!dotsWrap) return;
+
+      function updateDots() {
+        const dots = dotsWrap.querySelectorAll(".slide-dot");
+        dots.forEach((dot, index) => {
+          dot.classList.toggle("active", index === currentExpressionIndex);
+        });
+      }
+
+      function goTo(index) {
+        currentExpressionIndex = (index + expressionSamples.length) % expressionSamples.length;
+        renderExpressionSample(currentExpressionIndex);
+        updateDots();
+      }
+
+      function renderDots() {
+        dotsWrap.innerHTML = "";
+        expressionSamples.forEach((_, index) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "slide-dot" + (index === currentExpressionIndex ? " active" : "");
+          dot.setAttribute("aria-label", `${index + 1}번 표정 샘플 보기`);
+          dot.addEventListener("click", () => goTo(index));
+          dotsWrap.appendChild(dot);
+        });
+      }
 
       if (prevBtn) {
         prevBtn.addEventListener("click", function () {
-          currentExpressionIndex =
-            (currentExpressionIndex - 1 + expressionSamples.length) % expressionSamples.length;
-          updateExpressionSample("prev");
+          goTo(currentExpressionIndex - 1);
         });
       }
 
       if (nextBtn) {
         nextBtn.addEventListener("click", function () {
-          currentExpressionIndex =
-            (currentExpressionIndex + 1) % expressionSamples.length;
-          updateExpressionSample("next");
+          goTo(currentExpressionIndex + 1);
         });
       }
+
+      const frame = document.querySelector(".expression-video-frame");
+      if (frame) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        frame.addEventListener("touchstart", (e) => {
+          touchStartX = e.changedTouches[0].clientX;
+        }, { passive: true });
+
+        frame.addEventListener("touchend", (e) => {
+          touchEndX = e.changedTouches[0].clientX;
+          const delta = touchEndX - touchStartX;
+
+          if (Math.abs(delta) > 40) {
+            if (delta < 0) {
+              goTo(currentExpressionIndex + 1);
+            } else {
+              goTo(currentExpressionIndex - 1);
+            }
+          }
+        }, { passive: true });
+      }
+
+      renderDots();
+      renderExpressionSample(currentExpressionIndex);
     }
 
     function syncBaseOptionUI() {
@@ -2690,23 +2827,20 @@
       document.getElementById("totalPrice").textContent = "선택 합계: " + formatKRW(total);
 
       const text =
-`안녕하세요. 리깅 신청 문의드립니다.
+`안녕하세요. 신청 문의드립니다.
 
 1) 방송 닉네임: ${nickname}
 2) 기업세 / 개인세: ${businessType}
-3) 캐릭터 외관 설정:
-${appearance}
-
+3) 캐릭터 외관 설정: ${appearance}
 4) 선택 합계: ${formatKRW(total)}
-5) PSD 파일 준비 여부: 예
-6) 방송 플랫폼 & 닉네임: ${platform}
-7) 협업 작가: ${collabArtist}
-8) 데뷔 예정일: ${debutDate}
-9) 저작권 구매 여부: ${copyrightBuy}
-10) 비공개 여부: ${privateUse}
-11) 기본 옵션: ${base.label}
-12) 추가 옵션: ${addonText}
-13) 기타 문의내용: ${etc}
+5) 방송 플랫폼 & 닉네임: ${platform}
+6) 리깅 작가: ${collabArtist}
+7) 데뷔 예정일: ${debutDate}
+8) 저작권 구매 여부: ${copyrightBuy}
+9) 비공개 여부: ${privateUse}
+10) 기본 옵션: ${base.label}
+11) 추가 옵션: ${addonText}
+12) 기타 문의내용: ${etc}
 
 감사합니다!`;
 
@@ -2923,16 +3057,25 @@ ${appearance}
     });
 
     buildOutput();
-    renderPosterImageImmediately();
-    setupPosterSlider();
-    renderVideoSampleImmediately();
-    setupVideoSlider();
-    renderExpressionSampleImmediately();
-    setupExpressionSlider();
     setupMenuAccordion();
     setupPrettySelects();
     setupToggleableBaseOption();
     setupImageModal();
+    setupExpressionSlider();
+
+    createManualSlider({
+      sliderId: "posterSlider",
+      dotsId: "posterDots",
+      prevBtnId: "posterPrevBtn",
+      nextBtnId: "posterNextBtn"
+    });
+
+    createManualSlider({
+      sliderId: "videoSlider",
+      dotsId: "videoDots",
+      prevBtnId: "videoPrevBtn",
+      nextBtnId: "videoNextBtn"
+    });
   </script>
 </body>
 </html>
