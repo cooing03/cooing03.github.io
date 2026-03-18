@@ -3063,17 +3063,29 @@
       modalInner.style.height = rect.height + "px";
     }
 
+   
     function getExpandedRect(imgEl) {
       const modalImg = document.getElementById("imageModalImg");
+      const rect = imgEl.getBoundingClientRect();
+
       const naturalWidth = imgEl?.naturalWidth || modalImg?.naturalWidth || 0;
       const naturalHeight = imgEl?.naturalHeight || modalImg?.naturalHeight || 0;
       const fitted = fitImageSize(naturalWidth, naturalHeight);
 
+      let left = rect.left + (rect.width / 2) - (fitted.width / 2);
+      let top = rect.top + (rect.height / 2) - (fitted.height / 2);
+
+      const maxLeft = window.innerWidth - fitted.width;
+      const maxTop = window.innerHeight - fitted.height;
+
+      left = Math.max(12, Math.min(left, maxLeft - 12));
+      top = Math.max(12, Math.min(top, maxTop - 12));
+
       return {
         width: fitted.width,
         height: fitted.height,
-        left: (window.innerWidth - fitted.width) / 2,
-        top: (window.innerHeight - fitted.height) / 2
+        left,
+        top
       };
     }
 
