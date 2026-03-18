@@ -299,6 +299,12 @@
       display: block;
     }
 
+    .collab-image-box a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
     .slide-shell {
       width: 100%;
       display: flex;
@@ -1575,14 +1581,12 @@
       position: fixed;
       inset: 0;
       background: rgba(27, 23, 19, 0.84);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 28px;
       z-index: 9999;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.24s ease;
+      transition: opacity 0.26s ease;
+      overflow: hidden;
+      touch-action: none;
     }
 
     .image-modal.open {
@@ -1591,29 +1595,38 @@
     }
 
     .image-modal-inner {
-      position: relative;
-      max-width: min(92vw, 1400px);
-      max-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+      will-change: left, top, width, height, border-radius;
+      transition:
+        left 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+        top 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+        width 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+        height 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+        border-radius 0.34s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .image-modal img {
-      max-width: 100%;
-      max-height: 90vh;
-      width: auto;
-      height: auto;
+      width: 100%;
+      height: 100%;
       display: block;
-      border-radius: 14px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+      object-fit: contain;
       background: #fff;
+      user-select: none;
+      -webkit-user-drag: none;
     }
 
     .image-modal-close {
-      position: absolute;
-      top: -14px;
-      right: -14px;
+      position: fixed;
+      top: 18px;
+      right: 18px;
       width: 42px;
       height: 42px;
       border: 1px solid rgba(255,255,255,0.18);
@@ -1627,6 +1640,15 @@
       align-items: center;
       justify-content: center;
       backdrop-filter: blur(6px);
+      z-index: 10000;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .image-modal.open .image-modal-close {
+      opacity: 1;
+      transform: scale(1);
     }
 
     @media (max-width: 860px) {
@@ -1718,6 +1740,11 @@
         height: 40px;
         font-size: 13px;
       }
+
+      .image-modal-close {
+        top: 12px;
+        right: 12px;
+      }
     }
   </style>
 </head>
@@ -1743,7 +1770,6 @@
             <div class="slot-preview-list">
               <div class="slot-preview-row">
                 <div class="slot-preview-month">3월</div>
-                <!-- <div class="slot-preview-status closed">CLOSED</div> -->
                 <div class="slot-preview-status open">OPEN</div>
               </div>
 
@@ -1785,9 +1811,6 @@
                 <div class="slide-item">
                   <img src="images/poster/poster4.png" alt="포스터 이미지 4" data-expandable />
                 </div>
-                <!-- <div class="slide-item">
-                  <img src="images/poster/poster5.png" alt="포스터 이미지 5" data-expandable />
-                </div> -->
               </div>
 
               <div class="slider-controls">
@@ -1805,10 +1828,6 @@
             <div class="slide-shell">
               <div class="slide-frame" id="videoSlider">
                 <div class="slide-item active">
-                  <!-- <video controls playsinline muted preload="metadata">
-                    <source src="images/sample/sample1.mp4" type="video/mp4" />
-                    브라우저가 video 태그를 지원하지 않습니다.
-                  </video> -->
                   <iframe 
                     src="https://www.youtube.com/embed/zM50eZXTxVY"
                     frameborder="0"
@@ -1816,10 +1835,6 @@
                   ></iframe>
                 </div>
                 <div class="slide-item">
-                  <!-- <video controls playsinline muted preload="metadata">
-                    <source src="images/sample/sample2.mp4" type="video/mp4" />
-                    브라우저가 video 태그를 지원하지 않습니다.
-                  </video> -->
                   <iframe 
                     src="https://www.youtube.com/embed/nKnbNQM_E6Y"
                     frameborder="0"
@@ -1827,10 +1842,6 @@
                   ></iframe>
                 </div>
                 <div class="slide-item">
-                  <!-- <video controls playsinline muted preload="metadata">
-                    <source src="images/sample/sample3.mp4" type="video/mp4" />
-                    브라우저가 video 태그를 지원하지 않습니다.
-                  </video> -->
                   <iframe 
                     src="https://www.youtube.com/embed/GSNXmsDC6VY"
                     frameborder="0"
@@ -2171,8 +2182,12 @@
       <div class="card">
         <h3>협업 작가</h3>
         <div class="collab-image-box">
-          <a href="https://artmug.kr/index.php?channel=view&uid=51824" target="_blank">
-            <img src="images/artist/artist.png" alt="협업 작가 이미지" data-expandable />
+          <a
+            href="https://artmug.kr/index.php?channel=view&uid=51824"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="images/artist/artist.png" alt="협업 작가 이미지" />
           </a>
         </div>
       </div>
@@ -2582,8 +2597,8 @@
   </div>
 
   <div class="image-modal" id="imageModal" aria-hidden="true">
-    <div class="image-modal-inner">
-      <button type="button" class="image-modal-close" id="imageModalClose" aria-label="확대 이미지 닫기">×</button>
+    <button type="button" class="image-modal-close" id="imageModalClose" aria-label="확대 이미지 닫기">×</button>
+    <div class="image-modal-inner" id="imageModalInner">
       <img id="imageModalImg" src="" alt="확대 이미지" />
     </div>
   </div>
@@ -2611,6 +2626,10 @@
     ];
 
     let currentExpressionIndex = 0;
+
+    let activeExpandableImage = null;
+    let lastFocusedElement = null;
+    let modalAnimating = false;
 
     function formatKRW(value) {
       return "₩" + Number(value).toLocaleString("ko-KR");
@@ -2999,39 +3018,154 @@
       });
     }
 
-    function openImageModal(src, alt) {
+    function getRectFromElement(el) {
+      const rect = el.getBoundingClientRect();
+      return {
+        left: rect.left,
+        top: rect.top,
+        width: rect.width,
+        height: rect.height
+      };
+    }
+
+    function fitImageSize(naturalWidth, naturalHeight) {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const maxWidth = vw * 0.92;
+      const maxHeight = vh * 0.88;
+
+      if (!naturalWidth || !naturalHeight) {
+        return {
+          width: Math.min(maxWidth, 800),
+          height: Math.min(maxHeight, 600)
+        };
+      }
+
+      const ratio = naturalWidth / naturalHeight;
+      let width = maxWidth;
+      let height = width / ratio;
+
+      if (height > maxHeight) {
+        height = maxHeight;
+        width = height * ratio;
+      }
+
+      return { width, height };
+    }
+
+    function applyModalRect(rect) {
+      const modalInner = document.getElementById("imageModalInner");
+      if (!modalInner) return;
+
+      modalInner.style.left = rect.left + "px";
+      modalInner.style.top = rect.top + "px";
+      modalInner.style.width = rect.width + "px";
+      modalInner.style.height = rect.height + "px";
+    }
+
+    function getExpandedRect(imgEl) {
+      const modalImg = document.getElementById("imageModalImg");
+      const naturalWidth = imgEl?.naturalWidth || modalImg?.naturalWidth || 0;
+      const naturalHeight = imgEl?.naturalHeight || modalImg?.naturalHeight || 0;
+      const fitted = fitImageSize(naturalWidth, naturalHeight);
+
+      return {
+        width: fitted.width,
+        height: fitted.height,
+        left: (window.innerWidth - fitted.width) / 2,
+        top: (window.innerHeight - fitted.height) / 2
+      };
+    }
+
+    function openImageModal(targetImg) {
       const modal = document.getElementById("imageModal");
       const modalImg = document.getElementById("imageModalImg");
-      if (!modal || !modalImg) return;
+      const modalInner = document.getElementById("imageModalInner");
+      if (!modal || !modalImg || !modalInner || !targetImg || modalAnimating) return;
 
-      modalImg.src = src;
-      modalImg.alt = alt || "확대 이미지";
+      modalAnimating = true;
+      activeExpandableImage = targetImg;
+      lastFocusedElement = document.activeElement;
+
+      const startRect = getRectFromElement(targetImg);
+
+      modalImg.src = targetImg.src;
+      modalImg.alt = targetImg.alt || "확대 이미지";
+
       modal.classList.add("open");
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+
+      modalInner.style.transition = "none";
+      modalInner.style.borderRadius = "14px";
+      applyModalRect(startRect);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const endRect = getExpandedRect(targetImg);
+          modalInner.style.transition = "";
+          modalInner.style.borderRadius = "18px";
+          applyModalRect(endRect);
+
+          setTimeout(() => {
+            modalAnimating = false;
+          }, 360);
+        });
+      });
     }
 
     function closeImageModal() {
       const modal = document.getElementById("imageModal");
       const modalImg = document.getElementById("imageModalImg");
-      if (!modal || !modalImg) return;
+      const modalInner = document.getElementById("imageModalInner");
+      if (!modal || !modalImg || !modalInner || modalAnimating) return;
+      if (!modal.classList.contains("open")) return;
 
+      modalAnimating = true;
+
+      const fallbackRect = {
+        left: window.innerWidth / 2,
+        top: window.innerHeight / 2,
+        width: 0,
+        height: 0
+      };
+
+      const endRect = activeExpandableImage
+        ? getRectFromElement(activeExpandableImage)
+        : fallbackRect;
+
+      modalInner.style.borderRadius = "14px";
+      applyModalRect(endRect);
       modal.classList.remove("open");
       modal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
 
       setTimeout(() => {
-        if (!modal.classList.contains("open")) {
-          modalImg.src = "";
+        modalImg.src = "";
+        document.body.style.overflow = "";
+        activeExpandableImage = null;
+        modalAnimating = false;
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+          lastFocusedElement.focus();
         }
-      }, 220);
+      }, 360);
+    }
+
+    function syncOpenModalPosition() {
+      const modal = document.getElementById("imageModal");
+      const modalInner = document.getElementById("imageModalInner");
+      if (!modal || !modalInner || !modal.classList.contains("open") || !activeExpandableImage || modalAnimating) return;
+
+      const endRect = getExpandedRect(activeExpandableImage);
+      applyModalRect(endRect);
     }
 
     function setupImageModal() {
       document.addEventListener("click", function (e) {
         const img = e.target.closest("img[data-expandable]");
         if (img) {
-          openImageModal(img.src, img.alt);
+          e.preventDefault();
+          openImageModal(img);
           return;
         }
 
@@ -3048,6 +3182,8 @@
           closeImageModal();
         }
       });
+
+      window.addEventListener("resize", syncOpenModalPosition);
     }
 
     document.addEventListener("input", function (e) {
