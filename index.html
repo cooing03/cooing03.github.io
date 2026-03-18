@@ -1621,6 +1621,7 @@
       background: #fff;
       user-select: none;
       -webkit-user-drag: none;
+      cursor: zoom-out;
     }
 
     .image-modal-close {
@@ -3063,7 +3064,6 @@
       modalInner.style.height = rect.height + "px";
     }
 
-   
     function getExpandedRect(imgEl) {
       const modalImg = document.getElementById("imageModalImg");
       const rect = imgEl.getBoundingClientRect();
@@ -3173,6 +3173,10 @@
     }
 
     function setupImageModal() {
+      const modal = document.getElementById("imageModal");
+      const closeBtn = document.getElementById("imageModalClose");
+      const modalImg = document.getElementById("imageModalImg");
+
       document.addEventListener("click", function (e) {
         const img = e.target.closest("img[data-expandable]");
         if (img) {
@@ -3181,13 +3185,16 @@
           return;
         }
 
-        const modal = document.getElementById("imageModal");
-        const closeBtn = document.getElementById("imageModalClose");
-
         if (e.target === modal || e.target === closeBtn) {
           closeImageModal();
         }
       });
+
+      if (modalImg) {
+        modalImg.addEventListener("click", function () {
+          closeImageModal();
+        });
+      }
 
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") {
