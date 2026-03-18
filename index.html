@@ -367,7 +367,8 @@
     }
 
     .slide-item img,
-    .slide-item video {
+    .slide-item video,
+    .slide-item iframe{
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -1802,22 +1803,37 @@
             <div class="slide-shell">
               <div class="slide-frame" id="videoSlider">
                 <div class="slide-item active">
-                  <video controls playsinline muted preload="metadata">
+                  <!-- <video controls playsinline muted preload="metadata">
                     <source src="images/sample/sample1.mp4" type="video/mp4" />
                     브라우저가 video 태그를 지원하지 않습니다.
-                  </video>
+                  </video> -->
+                  <iframe 
+                    src="https://www.youtube.com/embed/zM50eZXTxVY"
+                    frameborder="0"
+                    allowfullscreen
+                  ></iframe>
                 </div>
                 <div class="slide-item">
-                  <video controls playsinline muted preload="metadata">
+                  <!-- <video controls playsinline muted preload="metadata">
                     <source src="images/sample/sample2.mp4" type="video/mp4" />
                     브라우저가 video 태그를 지원하지 않습니다.
-                  </video>
+                  </video> -->
+                  <iframe 
+                    src="https://youtu.be/nKnbNQM_E6Y?si=s2EIfBlESFeoYkm0"
+                    frameborder="0"
+                    allowfullscreen
+                  ></iframe>
                 </div>
                 <div class="slide-item">
-                  <video controls playsinline muted preload="metadata">
+                  <!-- <video controls playsinline muted preload="metadata">
                     <source src="images/sample/sample3.mp4" type="video/mp4" />
                     브라우저가 video 태그를 지원하지 않습니다.
-                  </video>
+                  </video> -->
+                  <iframe 
+                    src="https://youtu.be/GSNXmsDC6VY?si=Ra7xoNxaXaTpA9ye"
+                    frameborder="0"
+                    allowfullscreen
+                  ></iframe>
                 </div>
               </div>
 
