@@ -1652,6 +1652,148 @@
       transform: scale(1);
     }
 
+    /* ===== 협업 작가 섹션 수정 ===== */
+    .collab-section-title {
+      margin: 0 0 8px;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--text-main);
+    }
+
+    .collab-section-subtitle {
+      margin: 0 0 18px;
+      font-size: 14px;
+      color: var(--text-sub);
+    }
+
+    .collab-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .collab-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1.5px solid #d7cab4;
+      background: linear-gradient(135deg, #ffffff, #f3ede2);
+      aspect-ratio: 16 / 10;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(96, 84, 67, 0.08);
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+    }
+
+    .collab-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(96, 84, 67, 0.12);
+    }
+
+    .collab-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .collab-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(60, 45, 30, 0.05) 0%,
+          rgba(80, 60, 40, 0.35) 35%,
+          rgba(50, 35, 25, 0.85) 100%
+        );
+      color: #fffdf8;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease;
+    }
+
+    .collab-card.active .collab-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .collab-overlay-inner {
+      max-width: 90%;
+    }
+
+    .collab-name {
+      margin: 0 0 10px;
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.15;
+      color: #fffdf8;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.28);
+    }
+
+    .collab-desc {
+      margin: 0 0 14px;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.95);
+      text-shadow: 0 4px 16px rgba(0,0,0,0.24);
+      white-space: pre-line;
+    }
+
+    .collab-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      border: none;
+      background: transparent;
+      color: #c08a5b;
+      font-size: 15px;
+      font-weight: 900;
+      text-decoration: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .collab-link-btn:hover {
+      text-decoration: underline;
+      color: #e2b78a;
+
+    }
+
+    .collab-hint {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(215, 203, 185, 0.9);
+      color: #6a5b4d;
+      font-size: 12px;
+      font-weight: 900;
+      z-index: 2;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    .collab-card.active .collab-hint {
+      opacity: 0;
+      transform: translateY(-4px);
+      pointer-events: none;
+    }
+
     @media (max-width: 860px) {
       .sample-grid,
       .top-intro-grid,
@@ -1746,6 +1888,26 @@
         top: 12px;
         right: 12px;
       }
+
+      .collab-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .collab-card {
+        aspect-ratio: 16 / 9;
+        min-height: 0;
+      }
+
+      .collab-name {
+        font-size: 22px;
+        text-shadow: 0 4px 16px rgba(40, 25, 15, 0.35);
+      }
+
+      .collab-desc {
+        font-size: 14px;
+        text-shadow: 0 4px 16px rgba(40, 25, 15, 0.3);
+
+      }
     }
   </style>
 </head>
@@ -1829,22 +1991,25 @@
             <div class="slide-shell">
               <div class="slide-frame" id="videoSlider">
                 <div class="slide-item active">
-                  <iframe 
+                  <iframe
                     src="https://www.youtube.com/embed/zM50eZXTxVY"
+                    title="작업 샘플 영상 1"
                     frameborder="0"
                     allowfullscreen
                   ></iframe>
                 </div>
                 <div class="slide-item">
-                  <iframe 
+                  <iframe
                     src="https://www.youtube.com/embed/nKnbNQM_E6Y"
+                    title="작업 샘플 영상 2"
                     frameborder="0"
                     allowfullscreen
                   ></iframe>
                 </div>
                 <div class="slide-item">
-                  <iframe 
+                  <iframe
                     src="https://www.youtube.com/embed/GSNXmsDC6VY"
+                    title="작업 샘플 영상 3"
                     frameborder="0"
                     allowfullscreen
                   ></iframe>
@@ -2179,17 +2344,80 @@
 
     <section class="panel" id="collab">
       <span class="section-label">05. 리깅 협업 작가</span>
+      <h2 class="collab-section-title">협업 작가</h2>
+      <p class="collab-section-subtitle">이미지를 클릭하면 작가 소개와 이동 버튼이 표시됩니다.</p>
 
-      <div class="card">
-        <h3>협업 작가</h3>
-        <div class="collab-image-box">
-          <a
-            href="https://artmug.kr/index.php?channel=view&uid=51824"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="images/artist/artist.png" alt="협업 작가 이미지" />
-          </a>
+      <div class="collab-grid">
+        <div
+          class="collab-card"
+          tabindex="0"
+          data-link="https://artmug.kr/index.php?channel=view&uid=51824"
+        >
+          <span class="collab-hint">클릭해서 소개 보기</span>
+          <img src="images/artist/artist1.png" alt="피치 작가님 작업 이미지" />
+          <div class="collab-overlay">
+            <div class="collab-overlay-inner">
+              <h3 class="collab-name">네코노바 작가님</h3>
+              <p class="collab-desc">협업 혜택</p>
+              <a
+                class="collab-link-btn"
+                href="https://artmug.kr/index.php?channel=view&uid=51824"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                작가님 페이지로 이동
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="collab-card"
+          tabindex="0"
+          data-link="https://example.com/artist2"
+        >
+          <span class="collab-hint">클릭해서 소개 보기</span>
+          <img src="images/artist/artist2.png" alt="보현 작가님 작업 이미지" />
+          <div class="collab-overlay">
+            <div class="collab-overlay-inner">
+              <h3 class="collab-name">보현 작가님</h3>
+              <p class="collab-desc">일러스트 5만원 할인
+                리깅 5만원 할인</p>
+              <a
+                class="collab-link-btn"
+                href="https://artmug.kr/m/index.php?channel=view&uid=53364"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                작가님 페이지로 이동
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="collab-card"
+          tabindex="0"
+          data-link="https://example.com/artist3"
+        >
+          <span class="collab-hint">클릭해서 소개 보기</span>
+          <img src="images/artist/artist3.png" alt="Eryn 작가님 작업 이미지" />
+          <div class="collab-overlay">
+            <div class="collab-overlay-inner">
+              <h3 class="collab-name">유나 작가님</h3>
+              <p class="collab-desc">리깅 5만원 할인 + 추가표정2
+                일러 5만원 할인 + 추가표정 2 (표정 총 5개)
+              </p>
+              <a
+                class="collab-link-btn"
+                href="https://artmug.kr/index.php?channel=view&uid=51881&no_vcnt=1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                작가님 페이지로 이동
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -3205,6 +3433,54 @@
       window.addEventListener("resize", syncOpenModalPosition);
     }
 
+    function setupCollabCards() {
+      const cards = document.querySelectorAll(".collab-card");
+      if (!cards.length) return;
+
+      function closeAllCards() {
+        cards.forEach((card) => card.classList.remove("active"));
+      }
+
+      cards.forEach((card) => {
+        const linkBtn = card.querySelector(".collab-link-btn");
+
+        card.addEventListener("click", function (e) {
+          if (e.target.closest(".collab-link-btn")) return;
+
+          const isActive = card.classList.contains("active");
+          closeAllCards();
+
+          if (!isActive) {
+            card.classList.add("active");
+          }
+        });
+
+        card.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            const isActive = card.classList.contains("active");
+            closeAllCards();
+
+            if (!isActive) {
+              card.classList.add("active");
+            }
+          }
+        });
+
+        if (linkBtn) {
+          linkBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
+        }
+      });
+
+      document.addEventListener("click", function (e) {
+        if (!e.target.closest(".collab-card")) {
+          closeAllCards();
+        }
+      });
+    }
+
     document.addEventListener("input", function (e) {
       if (e.target.matches("input, textarea")) {
         buildOutput();
@@ -3237,6 +3513,7 @@
     setupToggleableBaseOption();
     setupImageModal();
     setupExpressionSlider();
+    setupCollabCards();
 
     createManualSlider({
       sliderId: "posterSlider",
