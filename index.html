@@ -1794,6 +1794,38 @@
       pointer-events: none;
     }
 
+    .collab-card.empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f8f3ea, #eee6d8);
+      border: 1.5px dashed #cdbba3;
+      cursor: default;
+    }
+
+    .collab-card.empty:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .collab-empty-inner {
+      text-align: center;
+      color: #8a7a67;
+    }
+
+    .collab-empty-inner p {
+      margin: 0 0 6px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .collab-empty-inner span {
+      font-size: 13px;
+      font-weight: 700;
+      opacity: 0.8;
+    }
+
     @media (max-width: 860px) {
       .sample-grid,
       .top-intro-grid,
@@ -2417,6 +2449,27 @@
                 작가님 페이지로 이동
               </a>
             </div>
+          </div>
+        </div>
+
+        <div class="collab-card empty">
+          <div class="collab-empty-inner">
+            <p>OPEN</p>
+            <span>협업 작가 모집중</span>
+          </div>
+        </div>
+
+        <div class="collab-card empty">
+          <div class="collab-empty-inner">
+            <p>OPEN</p>
+            <span>협업 작가 모집중</span>
+          </div>
+        </div>
+
+        <div class="collab-card empty">
+          <div class="collab-empty-inner">
+            <p>OPEN</p>
+            <span>협업 작가 모집중</span>
           </div>
         </div>
       </div>
