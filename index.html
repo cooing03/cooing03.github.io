@@ -1938,6 +1938,12 @@
         text-shadow: 0 4px 16px rgba(40, 25, 15, 0.3);
       }
     }
+
+    @media (max-width: 640px) {
+      .sample-card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1952,32 +1958,53 @@
       <div class="sample-grid">
         <div class="card">
           <h3>포스터 및 사진</h3>
-          <div class="poster-box">
-            <div class="slide-shell">
-              <div class="slide-frame" id="posterSlider">
-                <div class="slide-item active">
-                  <img src="images/poster/poster1.png" alt="포스터 이미지 1" data-expandable />
-                </div>
-                <div class="slide-item">
-                  <img src="images/poster/poster2.png" alt="포스터 이미지 2" data-expandable />
-                </div>
-                <div class="slide-item">
-                  <img src="images/poster/poster3.png" alt="포스터 이미지 3" data-expandable />
-                </div>
-                <div class="slide-item">
-                  <img src="images/poster/poster4.png" alt="포스터 이미지 4" data-expandable />
-                </div>
-                <div class="slide-item">
-                  <img src="images/poster/poster5.png" alt="포스터 이미지 5" data-expandable />
-                </div>
+          <div class="sample-card-grid">
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/poster/poster1.png" alt="포스터 이미지 1" data-expandable />
               </div>
-
-              <div class="slider-controls">
-                <button type="button" class="slide-control-btn" id="posterPrevBtn">이전</button>
-                <div class="slide-dots" id="posterDots" aria-label="포스터 슬라이드 페이지 이동"></div>
-                <button type="button" class="slide-control-btn" id="posterNextBtn">다음</button>
-              </div>
+              <div class="sample-meta-no">NO.1</div>
+              <div class="sample-name">협업 모델 샘플</div>
+              <div class="sample-desc">판매 예정 모델입니다.</div>
             </div>
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/poster/poster2.png" alt="포스터 이미지 2" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.2</div>
+              <div class="sample-name">아야린</div>
+              <div class="sample-desc">포스터 샘플입니다.</div>
+            </div>
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/poster/poster3.png" alt="포스터 이미지 3" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.3</div>
+              <div class="sample-name">시로가네 미오</div>
+              <div class="sample-desc">포스터 샘플입니다.</div>
+            </div>
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/poster/poster4.png" alt="포스터 이미지 4" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.4</div>
+              <div class="sample-name">유라차</div>
+              <div class="sample-desc">포스터 샘플입니다.</div>
+            </div>
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/poster/poster5.png" alt="포스터 이미지 5" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.5</div>
+              <div class="sample-name">박유넬</div>
+              <div class="sample-desc">포스터 샘플입니다.</div>
+            </div>
+
+            
           </div>
         </div>
 
@@ -3328,13 +3355,6 @@ ${applyText.closing}`;
         setupImageModal();
         setupExpressionSlider();
         setupCollabCards();
-
-        createManualSlider({
-          sliderId: "posterSlider",
-          dotsId: "posterDots",
-          prevBtnId: "posterPrevBtn",
-          nextBtnId: "posterNextBtn"
-        });
 
         createManualSlider({
           sliderId: "videoSlider",
