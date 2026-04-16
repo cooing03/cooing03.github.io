@@ -22,8 +22,8 @@
       },
       {
         "month": "6월",
-        "status": "open",
-        "label": "OPEN"
+        "status": "closed",
+        "label": "CLOSED"
       },
       {
         "month": "7월",
