@@ -11,22 +11,22 @@
     "slotTitle": "작업 슬롯 현황",
     "slots": [
       {
-        "month": "4월",
-        "status": "closed",
-        "label": "CLOSED"
-      },
-      {
         "month": "5월",
         "status": "closed",
         "label": "CLOSED"
       },
       {
         "month": "6월",
-        "status": "closed",
-        "label": "CLOSED"
+        "status": "open",
+        "label": "OPEN"
       },
       {
         "month": "7월",
+        "status": "open",
+        "label": "OPEN"
+      },
+      {
+        "month": "8월",
         "status": "open",
         "label": "OPEN"
       }
