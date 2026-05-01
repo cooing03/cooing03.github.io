@@ -2578,8 +2578,13 @@
               <button type="button" class="pretty-select-trigger">${escapeHtml(data.selectPlaceholder)}</button>
               <div class="pretty-select-menu">
                 <button type="button" class="pretty-option placeholder-option" data-value="${escapeHtml(data.fields.businessType.defaultValue)}">${escapeHtml(data.selectPlaceholder)}</button>
-                ${data.fields.businessType.options.map(option => `
-                  <button type="button" class="pretty-option" data-value="${escapeHtml(option)}">${escapeHtml(option)}</button>
+                ${data.fields.businessType.options.map((option, index) => `
+                  <button
+                    type="button"
+                    class="pretty-option${index === data.fields.businessType.options.length - 1 ? ' placeholder-option' : ''}"
+                    data-value="${escapeHtml(option.outputLabel)}"
+                    data-price="${Number(option.price)}"
+                  >${escapeHtml(option.title)} <small>${escapeHtml(option.priceText)}</small></button>
                 `).join("")}
               </div>
             </div>
@@ -2592,7 +2597,20 @@
 
           <div class="field">
             <label for="collabArtist">${escapeHtml(data.fields.collabArtist.label)}</label>
-            <input id="collabArtist" placeholder="${escapeHtml(data.fields.collabArtist.placeholder)}" />
+            <div class="pretty-select" data-target="collabArtist">
+              <input type="hidden" id="collabArtist" value="${escapeHtml(data.fields.collabArtist.defaultValue)}" data-price="0" />
+              <button type="button" class="pretty-select-trigger">${escapeHtml(data.selectPlaceholder)}</button>
+              <div class="pretty-select-menu">
+                ${data.fields.collabArtist.options.map((option, index) => `
+                  <button
+                    type="button"
+                    class="pretty-option${index === data.fields.collabArtist.options.length - 1 ? ' placeholder-option' : ''}"
+                    data-value="${escapeHtml(option.outputLabel)}"
+                    data-price="${Number(option.price)}"
+                  >${escapeHtml(option.title)} <small>${escapeHtml(option.priceText)}</small></button>
+                `).join("")}
+              </div>
+            </div>
           </div>
 
           <div class="field">
@@ -2603,7 +2621,7 @@
               <div class="pretty-select-menu">
                 <button type="button" class="pretty-option placeholder-option" data-value="${escapeHtml(data.fields.copyrightBuy.defaultValue)}">${escapeHtml(data.selectPlaceholder)}</button>
                 ${data.fields.copyrightBuy.options.map(option => `
-                  <button type="button" class="pretty-option" data-value="${escapeHtml(option)}">${escapeHtml(option)}</button>
+                  <button type="button" class="pretty-option" data-value="${escapeHtml(option)}" data-price="0">${escapeHtml(option)}</button>
                 `).join("")}
               </div>
             </div>
@@ -2617,7 +2635,12 @@
               <div class="pretty-select-menu">
                 <button type="button" class="pretty-option placeholder-option" data-value="${escapeHtml(data.fields.privateUse.defaultValue)}">${escapeHtml(data.selectPlaceholder)}</button>
                 ${data.fields.privateUse.options.map(option => `
-                  <button type="button" class="pretty-option" data-value="${escapeHtml(option)}">${escapeHtml(option)}</button>
+                  <button
+                    type="button"
+                    class="pretty-option"
+                    data-value="${escapeHtml(option.outputLabel)}"
+                    data-price="${Number(option.price)}"
+                  >${escapeHtml(option.title)} <small>${escapeHtml(option.priceText)}</small></button>
                 `).join("")}
               </div>
             </div>
@@ -2884,6 +2907,15 @@
       };
     }
 
+    function getPrettySelectData(id, fallback) {
+      const el = document.getElementById(id);
+      const value = (el?.value || "").trim();
+      return {
+        label: value || fallback,
+        price: Number(el?.dataset.price || 0)
+      };
+    }
+
     function valueOrFallback(id, fallback) {
       const el = document.getElementById(id);
       const value = (el?.value || "").trim();
@@ -2898,16 +2930,16 @@
       const nickname = valueOrFallback("nickname", applyText.fallbacks.nickname);
       const platform = valueOrFallback("platform", applyText.fallbacks.platform);
       const debutDate = valueOrFallback("debutDate", applyText.fallbacks.debutDate);
-      const businessType = valueOrFallback("businessType", applyText.fallbacks.businessType);
+      const businessType = getPrettySelectData("businessType", applyText.fallbacks.businessType);
       const appearance = valueOrFallback("appearance", applyText.fallbacks.appearance);
-      const collabArtist = valueOrFallback("collabArtist", applyText.fallbacks.collabArtist);
-      const copyrightBuy = valueOrFallback("copyrightBuy", applyText.fallbacks.copyrightBuy);
-      const privateUse = valueOrFallback("privateUse", applyText.fallbacks.privateUse);
+      const collabArtist = getPrettySelectData("collabArtist", applyText.fallbacks.collabArtist);
+      const copyrightBuy = getPrettySelectData("copyrightBuy", applyText.fallbacks.copyrightBuy);
+      const privateUse = getPrettySelectData("privateUse", applyText.fallbacks.privateUse);
       const etc = valueOrFallback("etc", applyText.fallbacks.etc);
 
       const base = getSelectedBaseOption();
       const addons = getAddonData();
-      const total = base.price + addons.total;
+      const total = base.price + addons.total + businessType.price + collabArtist.price + privateUse.price;
       const addonText = addons.labels.length ? addons.labels.join(", ") : applyText.noAddonText;
 
       document.getElementById("totalPrice").textContent = `${contentData.apply.totalPrefix} ${formatKRW(total)}`;
@@ -2916,14 +2948,14 @@
 `${applyText.greeting}
 
 1) ${applyText.labels.nickname}: ${nickname}
-2) ${applyText.labels.businessType}: ${businessType}
+2) ${applyText.labels.businessType}: ${businessType.label}
 3) ${applyText.labels.appearance}: ${appearance}
 4) ${applyText.labels.total}: ${formatKRW(total)}
 5) ${applyText.labels.platform}: ${platform}
-6) ${applyText.labels.collabArtist}: ${collabArtist}
+6) ${applyText.labels.collabArtist}: ${collabArtist.label}
 7) ${applyText.labels.debutDate}: ${debutDate}
-8) ${applyText.labels.copyrightBuy}: ${copyrightBuy}
-9) ${applyText.labels.privateUse}: ${privateUse}
+8) ${applyText.labels.copyrightBuy}: ${copyrightBuy.label}
+9) ${applyText.labels.privateUse}: ${privateUse.label}
 10) ${applyText.labels.baseOption}: ${base.label}
 11) ${applyText.labels.addonOption}: ${addonText}
 12) ${applyText.labels.etc}: ${etc}
@@ -2959,6 +2991,7 @@ ${applyText.closing}`;
 
             const value = option.dataset.value;
             hiddenInput.value = value;
+            hiddenInput.dataset.price = option.dataset.price || "0";
             trigger.textContent = option.textContent;
 
             options.forEach((opt) => opt.classList.remove("selected"));
@@ -2973,6 +3006,7 @@ ${applyText.closing}`;
         const initialOption = [...options].find(opt => opt.dataset.value === initialValue);
         if (initialOption) {
           initialOption.classList.add("selected");
+          hiddenInput.dataset.price = initialOption.dataset.price || "0";
           if (initialValue !== "미작성" && initialValue !== "미선택") {
             trigger.textContent = initialOption.textContent;
           }
