@@ -32,10 +32,6 @@
       }
     ]
   },
-
-
-
-  
   "event": {
     "sectionLabel": "02. 이벤트",
     "title": "진행 중인 이벤트",
@@ -58,13 +54,6 @@
       "현금영수증 발행시에도 가격은 동일합니다."
     ]
   },
-
-
-
-
-
-
-
   "notice": {
     "sectionLabel": "03. 공지사항",
     "title": "작업 공지사항",
@@ -172,14 +161,6 @@
       }
     ]
   },
-
-
-
-
-
-
-
-
   "process": {
     "sectionLabel": "04. 작업",
     "title": "작업 과정",
@@ -201,15 +182,6 @@
       "리깅 과정에서 파츠 관련 수정 요청은 무료로 진행해드립니다."
     ]
   },
-
-
-
-
-
-
-
-
-
   "menu": {
     "sectionLabel": "06. 메뉴",
     "title": "Live2D 리깅 메뉴",
@@ -239,15 +211,15 @@
         ]
       },
       {
-        "title": "앞, 뒷머리 신헤어",
-        "priceText": "₩250,000",
+        "title": "신헤어(전체 변형)",
+        "priceText": "₩350,000",
         "details": [
           "앞머리와 뒷머리 전체 신규 제작"
         ]
       },
       {
-        "title": "뒷머리 신헤어",
-        "priceText": "₩150,000",
+        "title": "신헤어(뒷머리 변형)",
+        "priceText": "₩200,000",
         "details": [
           "뒷머리만 신규 추가되는 헤어 옵션"
         ]
@@ -323,26 +295,36 @@
         ]
       },
       {
-        "title": "영구 비공개 추가금",
-        "priceText": "₩1,000,000",
+        "title": "맨몸 풀 채색",
+        "priceText": "₩300,000",
         "details": [
-          "영구 비공개 추가금"
+          "맨몸 풀 채색 추가 옵션"
         ]
       },
       {
-        "title": "데뷔전 비공개 추가금",
-        "priceText": "₩50,000",
+        "title": "협업 작가 이벤트",
+        "priceText": "-₩50,000 ~",
         "details": [
-          "데뷔전 비공개 추가금"
+          "협업작가 선택 시 적용 할인"
+        ]
+      },
+      {
+        "title": "전신[이벤트]",
+        "priceText": "₩800,000",
+        "details": [
+          "이벤트 추가 옵션: 파츠분리 + 디자인 + 표정 3 + 시안 3 (협업 작가 중복 할인 가능)"
+        ]
+      },
+      {
+        "title": "리뷰이벤트",
+        "priceText": "₩0",
+        "details": [
+          "이벤트 참여 시 적용 가능한 리뷰 이벤트 옵션"
         ]
       }
+      
     ]
   },
-
-
-
-
-  
   "apply": {
     "sectionLabel": "07. 신청양식",
     "title": "신청양식",
@@ -372,10 +354,38 @@
       },
       "businessType": {
         "label": "기업세 / 개인세",
-        "defaultValue": "미작성",
+        "defaultValue": "미구매",
         "options": [
-          "기업세",
-          "개인세"
+          {
+            "title": "기업세 상업권 구매 (디자인 X)",
+            "priceText": "[₩1,000,000]",
+            "price": 1000000,
+            "outputLabel": "기업세 상업권 구매 1"
+          },
+          {
+            "title": "개인세 상업권 구매 (디자인 X)",
+            "priceText": "[₩400,000]",
+            "price": 400000,
+            "outputLabel": "개인세 상업권 구매 2"
+          },
+          {
+            "title": "기업세 상업권 구매 (디자인 필요)",
+            "priceText": "[₩1,500,000]",
+            "price": 1500000,
+            "outputLabel": "기업세 상업권 구매 1 (₩1,500,000)"
+          },
+          {
+            "title": "개인세 상업권 구매 (디자인 필요)",
+            "priceText": "[₩600,000]",
+            "price": 600000,
+            "outputLabel": "개인세 상업권 구매 2 (₩600,000)"
+          },
+          {
+            "title": "미구매",
+            "priceText": "",
+            "price": 0,
+            "outputLabel": "미구매"
+          }
         ]
       },
       "appearance": {
@@ -383,8 +393,52 @@
         "placeholder": "성별, 나이 및 키, 정확한 색상정보, 의상, 성격, 분위기, 체형, 표정 등을 작성해주세요."
       },
       "collabArtist": {
-        "label": "리깅 작가",
-        "placeholder": "없으면 '해당 없음' 입력"
+        "label": "협업작가 선택",
+        "defaultValue": "없음(+0원)",
+        "options": [
+          {
+            "title": "네코노바 작가님 - 일러스트 할인",
+            "priceText": "[-₩50,000]",
+            "price": -50000,
+            "outputLabel": "네코노바 작가님 - 일러스트 할인"
+          },
+          {
+            "title": "아스레 작가님 -일러스트 할인",
+            "priceText": "[-₩100,000]",
+            "price": -100000,
+            "outputLabel": "아스레 작가님 - 일러스트 할인"
+          },
+          {
+            "title": "보현 작가님 - 일러스트 할인",
+            "priceText": "[-₩50,000]",
+            "price": -50000,
+            "outputLabel": "보현 작가님 - 일러스트 할인"
+          },
+          {
+            "title": "Eyrn 작가님 - 일러스트 할인 및 추가표정 2(표정 총 5개)",
+            "priceText": "[-₩50,000]",
+            "price": -50000,
+            "outputLabel": "Eyrn 작가님 - 일러스트 할인 및 추가표정 2(표정 총 5개)"
+          },
+          {
+            "title": "KuA 작가님 - 일러스트 할인 및 추가표정 2(표정 총 5개)",
+            "priceText": "[-₩50,000]",
+            "price": -50000,
+            "outputLabel": "KuA 작가님 - 일러스트 할인 및 추가표정 2(표정 총 5개)"
+          },
+          {
+            "title": "루가 작가님 - 일러스트 할인",
+            "priceText": "[-₩100,000]",
+            "price": -100000,
+            "outputLabel": "루가 작가님 - 일러스트 할인"
+          },
+          {
+            "title": "없음",
+            "priceText": "",
+            "price": 0,
+            "outputLabel": "없음"
+          }
+        ]
       },
       "copyrightBuy": {
         "label": "저작권 구매 여부",
@@ -395,12 +449,27 @@
         ]
       },
       "privateUse": {
-        "label": "비공개 여부",
+        "label": "비공개 항목",
         "defaultValue": "미선택",
         "options": [
-          "비공개",
-          "데뷔날까지 비공개",
-          "공개 가능"
+          {
+            "title": "포트폴리오 영구 비공개",
+            "priceText": "[₩1,000,000]",
+            "price": 1000000,
+            "outputLabel": "포트폴리오 영구 비공개"
+          },
+          {
+            "title": "완성일로 부터 1달 이상 비공개 시 한달간 추가금 (협업작가 해당 X)",
+            "priceText": "[₩20,000]",
+            "price": 20000,
+            "outputLabel": "한달 이상 비공개"
+          },
+          {
+            "title": "공개 가능",
+            "priceText": "",
+            "price": 0,
+            "outputLabel": "공개 가능"
+          }
         ]
       },
       "etc": {
@@ -451,16 +520,16 @@
         "outputLabel": "헤어 (복잡한 변형)"
       },
       {
-        "title": "앞, 뒷머리 신헤어",
-        "priceText": "₩250,000",
-        "price": 250000,
-        "outputLabel": "앞, 뒷머리 신헤어"
+        "title": "신헤어(전체 변형)",
+        "priceText": "350,000",
+        "price": 350000,
+        "outputLabel": "신헤어(전체 변형)"
       },
       {
-        "title": "뒷머리 신헤어",
-        "priceText": "₩150,000",
-        "price": 150000,
-        "outputLabel": "뒷머리 신헤어"
+        "title": "신헤어(뒷머리 변형)",
+        "priceText": "₩200,000",
+        "price": 200000,
+        "outputLabel": "신헤어(뒷머리 변형)"
       },
       {
         "title": "동물귀, 꼬리, 유사 파츠",
@@ -523,16 +592,22 @@
         "outputLabel": "디스코드 실시간 컨펌"
       },
       {
-        "title": "영구 비공개 추가금",
-        "priceText": "₩1,000,000",
-        "price": 1000000,
-        "outputLabel": "영구 비공개 추가금"
+        "title": "맨몸 풀 채색",
+        "priceText": "₩300,000",
+        "price": 300000,
+        "outputLabel": "맨몸 풀 채색"
       },
       {
-        "title": "데뷔전 비공개 추가금",
-        "priceText": "₩50,000",
-        "price": 50000,
-        "outputLabel": "데뷔전 비공개 추가금"
+        "title": "전신[이벤트]",
+        "priceText": "₩800,000",
+        "price": 800000,
+        "outputLabel": "전신[이벤트]"
+      },
+      {
+        "title": "리뷰이벤트",
+        "priceText": "",
+        "price": 0,
+        "outputLabel": "리뷰이벤트"
       }
     ],
     "outputText": {
@@ -545,10 +620,10 @@
         "appearance": "캐릭터 외관 설정",
         "total": "선택 합계",
         "platform": "방송 플랫폼 & 닉네임",
-        "collabArtist": "리깅 작가",
+        "collabArtist": "협업작가 선택",
         "debutDate": "데뷔 예정일",
-        "copyrightBuy": "저작권 구매 여부",
-        "privateUse": "비공개 여부",
+        "copyrightBuy": "저작권 구매항목",
+        "privateUse": "비공개 항목",
         "baseOption": "기본 옵션",
         "addonOption": "추가 옵션",
         "etc": "기타 문의내용"
@@ -558,7 +633,7 @@
         "businessType": "미작성",
         "appearance": "미작성",
         "platform": "미작성",
-        "collabArtist": "해당 없음",
+        "collabArtist": "없음",
         "debutDate": "미작성",
         "copyrightBuy": "미선택",
         "privateUse": "미선택",
