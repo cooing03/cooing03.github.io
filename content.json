@@ -33,6 +33,7 @@
     ]
   },
   "event": {
+    "visibility": "close",
     "sectionLabel": "02. 이벤트",
     "title": "진행 중인 이벤트",
     "cardLabel": "이벤트",
