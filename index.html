@@ -2344,7 +2344,12 @@
 
     function renderEvent(data) {
       const root = document.getElementById("event");
-      const guideHtml = data.guides.map((item, idx) => `${idx + 1}. ${escapeHtml(item)}`).join("<br />");
+
+      const isOpen = data.visibility === "open";
+
+      const guideHtml = data.guides
+        .map((item, idx) => `${idx + 1}. ${escapeHtml(item)}`)
+        .join("<br />");
 
       root.innerHTML = `
         <span class="section-label">${escapeHtml(data.sectionLabel)}</span>
@@ -2352,41 +2357,56 @@
 
         <div class="event-layout">
           <div class="event-card">
-            <div class="event-topline">
-              <div class="event-heading">
-                <span class="event-mini-chip">EVENT</span>
-                <span>${escapeHtml(data.cardLabel)}</span>
-              </div>
-              <div class="event-status-top">${escapeHtml(data.status)}</div>
-            </div>
 
-            <div>
-              <div class="event-line-row">
-                <div class="event-key">종류</div>
-                <div class="event-value">${escapeHtml(data.type)}</div>
+            <div class="${isOpen ? "" : "event-main-info"}">
+              <div class="event-topline">
+                <div class="event-heading">
+                  <span class="event-mini-chip">EVENT</span>
+                  <span>${escapeHtml(data.cardLabel)}</span>
+                </div>
+                <div class="event-status-top">${escapeHtml(data.status)}</div>
               </div>
 
-              <div class="event-line-row">
-                <div class="event-key">기간</div>
-                <div class="event-value">${escapeHtml(data.period)}</div>
-              </div>
+              <div>
+                <div class="event-line-row">
+                  <div class="event-key">종류</div>
+                  <div class="event-value">${escapeHtml(data.type)}</div>
+                </div>
 
-              <div class="event-line-row">
-                <div class="event-key">이벤트 내용</div>
-                <div class="event-value event-price-row">
-                  <div>
-                    <div class="event-price-old">${escapeHtml(data.oldPrice)}</div>
-                    <div class="event-price-sale">${escapeHtml(data.discount)}</div>
+                <div class="event-line-row">
+                  <div class="event-key">기간</div>
+                  <div class="event-value">${escapeHtml(data.period)}</div>
+                </div>
+
+                <div class="event-line-row">
+                  <div class="event-key">이벤트 내용</div>
+                  <div class="event-value event-price-row">
+                    <div>
+                      <div class="event-price-old">${escapeHtml(data.oldPrice)}</div>
+                      <div class="event-price-sale">${escapeHtml(data.discount)}</div>
+                    </div>
+                    <div class="event-price-now">${escapeHtml(data.finalPrice)}</div>
                   </div>
-                  <div class="event-price-now">${escapeHtml(data.finalPrice)}</div>
+                </div>
+
+                <div class="event-line-row">
+                  <div class="event-key">안내</div>
+                  <div class="event-value">${guideHtml}</div>
                 </div>
               </div>
-
-              <div class="event-line-row">
-                <div class="event-key">안내</div>
-                <div class="event-value">${guideHtml}</div>
-              </div>
             </div>
+
+            ${
+              !isOpen
+                ? `
+            <div class="event-ended-overlay">
+              <div class="event-ended-badge">EVENT CLOSED</div>
+              <div class="event-ended-text">이벤트가 종료되었습니다</div>
+            </div>
+            `
+                : ""
+            }
+
           </div>
 
           <div class="notice-side-card">
@@ -2398,12 +2418,16 @@
               <div class="notice-status-top">${escapeHtml(data.sideStatus)}</div>
             </div>
 
-            ${data.sideNotices.map((item, index) => `
+            ${data.sideNotices
+              .map(
+                (item, index) => `
               <div class="notice-line-row">
                 <div class="notice-key">안내 ${index + 1}</div>
                 <div class="notice-value">${escapeHtml(item)}</div>
               </div>
-            `).join("")}
+            `
+              )
+              .join("")}
           </div>
         </div>
       `;
