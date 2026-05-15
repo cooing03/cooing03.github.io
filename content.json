@@ -22,8 +22,8 @@
       },
       {
         "month": "7월",
-        "status": "open",
-        "label": "OPEN"
+        "status": "closed",
+        "label": "CLOSED"
       },
       {
         "month": "8월",
@@ -33,7 +33,7 @@
     ]
   },
   "event": {
-    "visibility": "open",
+    "visibility": "closed",
     "sectionLabel": "02. 이벤트",
     "title": "진행 중인 이벤트",
     "cardLabel": "이벤트",
