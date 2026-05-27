@@ -866,6 +866,12 @@
       font-weight: 800;
     }
 
+    .face-card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
     .sample-card-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1833,6 +1839,10 @@
         grid-template-columns: 1fr;
       }
 
+      .facce-card-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
       .sample-card-grid {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -2080,42 +2090,78 @@
         <h2>샘플</h2>
         <p>작업 예시를 큰 카드 형식으로 확인하실 수 있습니다.</p>
 
-        <div class="sample-category">
+        
+        <div class="sample-category" style="margin-bottom:10;">
           <div class="sample-category-top">
             <div class="sample-category-title">표정 샘플</div>
-            <div class="sample-pill">3 SAMPLE</div>
+            <div class="sample-pill">8 SAMPLE</div>
           </div>
-
-          <div class="sample-slider-box">
-            <div class="sample-slider-viewport">
-              <div class="sample-card expression-card">
-                <div class="expression-video-frame">
-                  <video
-                    id="expressionVideo"
-                    controls
-                    playsinline
-                    muted
-                    loop
-                    preload="metadata"
-                  >
-                    <source src="images/face/face1.mp4" type="video/mp4" />
-                    브라우저가 video 태그를 지원하지 않습니다.
-                  </video>
-                </div>
-
-                <div class="slider-controls">
-                  <button type="button" class="slide-control-btn" id="expressionPrevBtn">이전</button>
-                  <div class="slide-dots" id="expressionDots" aria-label="표정 샘플 페이지 이동"></div>
-                  <button type="button" class="slide-control-btn" id="expressionNextBtn">다음</button>
-                </div>
-
-                <div class="expression-info-box">
-                  <div class="sample-meta-no" id="expressionNo">NO.1</div>
-                  <div class="sample-name" id="expressionName">sample one</div>
-                  <div class="sample-desc" id="expressionDesc">기본 표정과 감정 변화 연출을 확인할 수 있는 샘플 카드입니다.</div>
-                </div>
+          <p>없는 표정도 의뢰 가능합니다.</p>
+          <div class="face-card-grid">
+            <!-- <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/face/face1.png" alt="표정 샘플 1" data-expandable />
               </div>
+              <div class="sample-meta-no">NO.1</div>
+              <div class="sample-name">정색 표정</div>
             </div>
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/face/face2.png" alt="표정 샘플 2" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.2</div>
+              <div class="sample-name">반짝 표정</div>
+            </div>
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/face/face3.png" alt="표정 샘플 3" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.3</div>
+              <div class="sample-name">하트 표정</div>
+            </div> -->
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/face/face4.png" alt="표정 샘플 4" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.4</div>
+              <div class="sample-name">눈물 표정</div>
+            </div>
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/face/face5.png" alt="표정 샘플 5" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.5</div>
+              <div class="sample-name">죽은 눈 표정</div>
+            </div>
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/face/face6.png" alt="표정 샘플 6" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.6</div>
+              <div class="sample-name">홍조 표정</div>
+            </div>
+
+            <!-- <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/face/face7.png" alt="표정 샘플 7" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.7</div>
+              <div class="sample-name">볼빵빵 표정</div>
+            </div> -->
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/face/face8.png" alt="표정 샘플 8" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.8</div>
+              <div class="sample-name">헤롱 표정</div>
+            </div>
+
           </div>
         </div>
 
@@ -2161,6 +2207,7 @@
               <div class="sample-name">design four</div>
               <div class="sample-desc">협업 샘플 제작 예정입니다.</div>
             </div>
+
 
           </div>
         </div>
