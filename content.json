@@ -518,22 +518,22 @@
     },
     "baseOptions": [
       {
-        "title": "전신 아바타 일러스트",
-        "description": "표정 3개, 시안 3개, 파츠분리",
-        "priceText": "₩900,000",
-        "price": 900000,
+        "title": "이벤트 전신 아바타 일러스트",
+        "description": "표정 3개, 시안 2개, 파츠분리",
+        "priceText": "₩1,000,000",
+        "price": 1000000,
         "outputLabel": "전신 아바타 일러스트 (표정 3개 포함)"
       },
       {
         "title": "전신 아바타 일러스트",
-        "description": "표정 3개, 시안 3개, 하체제외파츠분리",
-        "priceText": "₩700,000",
-        "price": 700000,
+        "description": "표정 3개, 시안 2개, 하체제외 파츠분리",
+        "priceText": "₩800,000",
+        "price": 800000,
         "outputLabel": "전신 아바타 일러스트 (표정 3개 포함)"
       },
       {
         "title": "반신 아바타 일러스트",
-        "description": "표정 3개, 시안 3개, 파츠분리",
+        "description": "표정 3개, 시안 2개, 파츠분리",
         "priceText": "₩600,000",
         "price": 600000,
         "outputLabel": "반신 아바타 일러스트 (표정 3개 포함)"
