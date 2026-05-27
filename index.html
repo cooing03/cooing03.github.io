@@ -1964,7 +1964,7 @@
                 <img src="images/poster/poster1.png" alt="포스터 이미지 1" data-expandable />
               </div>
               <div class="sample-meta-no">NO.1</div>
-              <div class="sample-name">협업 모델 샘플</div>
+              <div class="sample-name">엔서스</div>
               <div class="sample-desc">판매 예정 모델입니다.</div>
             </div>
 
@@ -1973,7 +1973,7 @@
                 <img src="images/poster/poster2.png" alt="포스터 이미지 2" data-expandable />
               </div>
               <div class="sample-meta-no">NO.2</div>
-              <div class="sample-name">아야린</div>
+              <div class="sample-name">협업 모델 샘플</div>
               <div class="sample-desc">포스터 샘플입니다.</div>
             </div>
 
@@ -1982,7 +1982,7 @@
                 <img src="images/poster/poster3.png" alt="포스터 이미지 3" data-expandable />
               </div>
               <div class="sample-meta-no">NO.3</div>
-              <div class="sample-name">유라차</div>
+              <div class="sample-name">아야린</div>
               <div class="sample-desc">포스터 샘플입니다.</div>
             </div>
 
@@ -1991,7 +1991,7 @@
                 <img src="images/poster/poster4.png" alt="포스터 이미지 4" data-expandable />
               </div>
               <div class="sample-meta-no">NO.4</div>
-              <div class="sample-name">시로가네 미오</div>
+              <div class="sample-name">유라차</div>
               <div class="sample-desc">포스터 샘플입니다.</div>
             </div>
 
@@ -2001,6 +2001,15 @@
               </div>
               <div class="sample-meta-no">NO.5</div>
               <div class="sample-name">박유넬</div>
+              <div class="sample-desc">포스터 샘플입니다.</div>
+            </div>
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/poster/poster6.png" alt="포스터 이미지 6" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.6</div>
+              <div class="sample-name">시로가네 미오</div>
               <div class="sample-desc">포스터 샘플입니다.</div>
             </div>
 
@@ -2143,6 +2152,16 @@
               <div class="sample-name">design three</div>
               <div class="sample-desc">구매 가능한 샘플입니다.</div>
             </div>
+
+            <div class="sample-card">
+              <div class="sample-thumb">
+                <img src="images/design/design4.png" alt="디자인 샘플 4" data-expandable />
+              </div>
+              <div class="sample-meta-no">NO.4</div>
+              <div class="sample-name">design four</div>
+              <div class="sample-desc">협업 샘플 제작 예정입니다.</div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -2266,21 +2285,51 @@
       {
         video: "images/face/face1.mp4",
         no: "NO.1",
-        name: "땀, 반짝눈 표정",
+        name: "정색 표정",
         desc: "없는 표정도 작업 가능합니다."
       },
       {
         video: "images/face/face2.mp4",
         no: "NO.2",
-        name: "눈물 표정",
+        name: "하트 표정",
         desc: "없는 표정도 작업 가능합니다."
       },
       {
         video: "images/face/face3.mp4",
         no: "NO.3",
-        name: "반짝눈, 하트, 정색 표정",
+        name: "헤롱 표정",
         desc: "없는 표정도 작업 가능합니다."
-      }
+      },
+      {
+        video: "images/face/face4.mp4",
+        no: "NO.4",
+        name: "눈물 표정",
+        desc: "없는 표정도 작업 가능합니다."
+      },
+      {
+        video: "images/face/face5.mp4",
+        no: "NO.5",
+        name: "홍조 표정",
+        desc: "없는 표정도 작업 가능합니다."
+      },
+      {
+        video: "images/face/face6.mp4",
+        no: "NO.6",
+        name: "반짝 표정",
+        desc: "없는 표정도 작업 가능합니다."
+      },
+      {
+        video: "images/face/face7.mp4",
+        no: "NO.7",
+        name: "땀 표정",
+        desc: "없는 표정도 작업 가능합니다."
+      },
+      {
+        video: "images/face/face8.mp4",
+        no: "NO.8",
+        name: "일자눈 표정",
+        desc: "없는 표정도 작업 가능합니다."
+      },
     ];
 
     let currentExpressionIndex = 0;
@@ -2452,23 +2501,27 @@
                     <table class="license-table">
                       <thead>
                         <tr>
-                          <th>${escapeHtml(section.table.header1Left)}</th>
+                          <th colspan="2">${escapeHtml(section.table.header1Left)}</th>
                           <th colspan="2">${escapeHtml(section.table.header1Right)}</th>
                         </tr>
                         <tr>
+                          
                           <th>${escapeHtml(section.table.header2Left)}</th>
-                          <th>${escapeHtml(section.table.header2Middle)}</th>
+                          <th>${escapeHtml(section.table.header2LeftSub)}</th>
                           <th>${escapeHtml(section.table.header2Right)}</th>
+                          <th>${escapeHtml(section.table.header2RightSub)}</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>${escapeHtml(section.table.priceLeft)}</td>
-                          <td><strong>${escapeHtml(section.table.priceMiddle)}</strong></td>
+                          <td><strong>${escapeHtml(section.table.priceLeft)}</td>
+                          <td><strong>${escapeHtml(section.table.priceLeftSub)}</td>
                           <td><strong>${escapeHtml(section.table.priceRight)}</strong></td>
+                          <td><strong>${escapeHtml(section.table.priceRightSub)}</strong></td>
                         </tr>
                         <tr>
-                          <td>${nlToBr(section.table.descLeft)}</td>
+                          <td colspan="2">${nlToBr(section.table.descLeft)}</td>
+                          
                           <td colspan="2">${nlToBr(section.table.descRight)}</td>
                         </tr>
                       </tbody>
