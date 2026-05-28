@@ -22,8 +22,8 @@
       },
       {
         "month": "8월",
-        "status": "closed",
-        "label": "CLOSED"
+        "status": "open",
+        "label": "OPEN"
       },
       {
         "month": "9월",
@@ -371,6 +371,7 @@
     "selectPlaceholder": "선택해주세요",
     "baseOptionsLabel": "리깅 기본 옵션",
     "addonOptionsLabel": "추가 옵션",
+    "faceOptionsLabel": "표정 옵션",
     "summaryTitle": "문의 텍스트",
     "totalPrefix": "선택 합계:",
     "summaryHelper": "문의 텍스트에 항목/총액이 함께 포함됩니다.",
@@ -669,6 +670,59 @@
       }
       
     ],
+
+    "faceOptions": [
+      {
+        "title": "정색",
+        "price": 0,
+        "outputLabel": "정색"
+      },
+      {
+        "title": "반짝",
+        "price": 0,
+        "outputLabel": "반짝"
+      },
+      {
+        "title": "하트",
+        "price": 0,
+        "outputLabel": "하트"
+      },
+      {
+        "title": "눈물",
+        "price": 0,
+        "outputLabel": "눈물"
+      },
+      {
+        "title": "죽은 눈",
+        "price": 0,
+        "outputLabel": "죽은 눈"
+      },
+      {
+        "title": "홍조",
+        "price": 0,
+        "outputLabel": "홍조"
+      },
+      {
+        "title": "볼빵빵",
+        "price": 0,
+        "outputLabel": "볼빵빵"
+      },
+      {
+        "title": "헤롱",
+        "price": 0,
+        "outputLabel": "헤롱"
+      },
+      {
+        "title": "표정 의뢰",
+        "price": 0,
+        "outputLabel": "표정 의뢰"
+      }
+      
+      
+    ],
+
+
+
     "outputText": {
       "greeting": "안녕하세요. 신청 문의드립니다.",
       "closing": "감사합니다!",
@@ -685,6 +739,7 @@
         "privateUse": "비공개 항목",
         "baseOption": "기본 옵션",
         "addonOption": "추가 옵션",
+        "faceOption": "표정 옵션",
         "etc": "기타 문의내용"
       },
       "fallbacks": {
