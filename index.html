@@ -1211,20 +1211,26 @@
 
     .option-price-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(7, 1fr);
       gap: 12px;
     }
 
-    .check-option {
+    .option-face-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+    }
+
+    .face-option {
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 6px;
-      min-height: 88px;
+      gap: 0px;
+      min-height: 0px;
       background: linear-gradient(180deg, #fffdf9, #f6efe4);
       border: 1.5px solid #ddd0bd;
-      border-radius: 16px;
+      border-radius: 100px;
       padding: 16px;
       font-size: 14px;
       font-weight: 800;
@@ -1238,17 +1244,17 @@
       box-shadow: 0 6px 14px rgba(120, 96, 72, 0.05);
     }
 
-    .check-option:hover {
+    .face-option:hover {
       transform: translateY(-2px);
     }
 
-    .check-option input {
+    .face-option input {
       position: absolute;
       opacity: 0;
       pointer-events: none;
     }
 
-    .check-option::before {
+    .face-option::before {
       content: "";
       position: absolute;
       top: 14px;
@@ -1261,14 +1267,14 @@
       transition: all 0.2s ease;
     }
 
-    .check-option:has(input:checked) {
+    .face-option:has(input:checked) {
       border-color: var(--gold-border);
       background: linear-gradient(180deg, #fff8e7, #f4e3ab);
       box-shadow: 0 10px 18px rgba(183, 157, 85, 0.14);
       transform: translateY(-2px);
     }
 
-    .check-option:has(input:checked)::before {
+    .face-option:has(input:checked)::before {
       content: "✓";
       display: flex;
       align-items: center;
@@ -1280,12 +1286,94 @@
       border-color: var(--accent-gold-deep);
     }
 
+    .face-option small {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-sub);
+      line-height: 1.45;
+    }
+
+
+
+
+
+    .check-option {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      min-height: 88px;
+      /* background: linear-gradient(180deg, #fffdf9, #f6efe4); */
+      background: #fff;
+      border: 1.5px solid #ddd0bd;
+      border-radius: 16px;
+      padding: 16px;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-main);
+      cursor: pointer;
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+      box-shadow: 0 6px 14px rgba(120, 96, 72, 0.05);
+      line-height: 1.4;
+      overflow-wrap: break-word;
+      
+    }
+
+    .check-option:hover {
+      transform: translateY(-2px);
+    }
+
+    .check-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* .check-option::before {
+      content: "";
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      border: 2px solid #cdbda7;
+      background: #fff;
+      transition: all 0.2s ease;
+    } */
+
+    .check-option:has(input:checked) {
+      border-color: var(--gold-border);
+      /* background: linear-gradient(180deg, #fff8e7, #f4e3ab); */
+      background: #f4e3ab;
+      box-shadow: 0 10px 18px rgba(183, 157, 85, 0.14);
+      transform: translateY(-2px);
+    }
+
+    /* .check-option:has(input:checked)::before {
+      content: "✓";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      font-weight: 900;
+      background: var(--accent-gold-deep);
+      border-color: var(--accent-gold-deep);
+    } */
+
     .check-option small {
       font-size: 12px;
       font-weight: 600;
       color: var(--text-sub);
       line-height: 1.45;
     }
+
 
     .summary {
       margin-top: 18px;
@@ -1848,7 +1936,8 @@
       }
 
       .radio-group,
-      .option-price-grid {
+      .option-price-grid,
+      .option-face-grid {
         grid-template-columns: 1fr;
       }
 
@@ -2789,6 +2878,24 @@
           </div>
 
           <div class="field full">
+            <label>${escapeHtml(data.faceOptionsLabel)}</label>
+            <div class="option-face-grid">
+              ${data.faceOptions.map(option => `
+                <label class="face-option">
+                  <input
+                    type="checkbox"
+                    class="addon"
+                    data-price="${Number(option.price)}"
+                    data-label="${escapeHtml(option.outputLabel)}"
+                  />
+                  ${escapeHtml(option.title)}
+                  <small>${escapeHtml(option.priceText)}</small>
+                </label>
+              `).join("")}
+            </div>
+          </div>
+
+          <div class="field full">
             <label>${escapeHtml(data.addonOptionsLabel)}</label>
             <div class="option-price-grid">
               ${data.addonOptions.map(option => `
@@ -3065,6 +3172,8 @@
       const addons = getAddonData();
       const total = base.price + addons.total + businessType.price + collabArtist.price + privateUse.price;
       const addonText = addons.labels.length ? addons.labels.join(", ") : applyText.noAddonText;
+      const face = getPrettySelectData("faceOptions", applyText.fallbacks.copyrightBuy);
+
 
       document.getElementById("totalPrice").textContent = `${contentData.apply.totalPrefix} ${formatKRW(total)}`;
 
@@ -3082,7 +3191,8 @@
 9) ${applyText.labels.privateUse}: ${privateUse.label}
 10) ${applyText.labels.baseOption}: ${base.label}
 11) ${applyText.labels.addonOption}: ${addonText}
-12) ${applyText.labels.etc}: ${etc}
+12) ${applyText.labels.faceOption}: ${face.label}
+13) ${applyText.labels.etc}: ${etc}
 
 ${applyText.closing}`;
 
