@@ -107,7 +107,7 @@
           "header2Right": "기업",
           "header2RightSub": "개인",
           "priceLeft": "100만원 (+10%)",
-          "priceLeftSub": "40만원 (+10%)",
+          "priceLeftSub": "50만원 (+10%)",
           "priceRight": "150만원 (+10%)",
           "priceRightSub": "60만원 (+10%)",
           "descLeft": "개인소장+커뮤니티+스트리밍\n+유튜브+굿즈+2차수정\n+타작가 의뢰(O)",
@@ -404,8 +404,8 @@
           },
           {
             "title": "개인세 상업권 구매 (디자인 X)",
-            "priceText": "[₩400,000]",
-            "price": 400000,
+            "priceText": "[₩500,000]",
+            "price": 500000,
             "outputLabel": "개인세 상업권 구매 2"
           },
           {
