@@ -526,7 +526,7 @@
       },
       {
         "title": { "ko": "전신[이벤트]", "ja": "全身【イベント】", "en": "Full Body [Event]" },
-        "priceText": "₩900,000",
+        "priceText": "₩1,000,000",
         "details": { "ko": ["이벤트 추가 옵션: 파츠분리 + 디자인 + 표정 3 + 시안 3 (협업 작가 중복 할인 가능)"], "ja": ["イベント追加オプション: パーツ分離+デザイン+表情3+ラフ3（コラボ作家重複割引可）"], "en": ["Event option: parts separation + design + 3 expressions + 3 drafts (collab discount stackable)"] }
       },
       {
@@ -610,7 +610,7 @@
       { "title": { "ko": "핸드트래킹", "ja": "ハンドトラッキング", "en": "Hand Tracking" }, "priceText": "₩400,000", "price": 400000, "outputLabel": { "ko": "핸드트래킹", "ja": "ハンドトラッキング", "en": "Hand tracking" } },
       { "title": { "ko": "SD전신", "ja": "SD全身", "en": "SD Full Body" }, "priceText": "₩200,000", "price": 200000, "outputLabel": { "ko": "SD전신", "ja": "SD全身", "en": "SD full body" } },
       { "title": { "ko": "맨몸 풀 채색", "ja": "素体フルカラー", "en": "Bare Body Full Color" }, "priceText": "₩300,000", "price": 300000, "outputLabel": { "ko": "맨몸 풀 채색", "ja": "素体フルカラー", "en": "Bare body full color" } },
-      { "title": { "ko": "전신[이벤트]", "ja": "全身【イベント】", "en": "Full Body [Event]" }, "priceText": "₩800,000", "price": 800000, "outputLabel": { "ko": "전신[이벤트]", "ja": "全身【イベント】", "en": "Full body [event]" } },
+      { "title": { "ko": "전신[이벤트]", "ja": "全身【イベント】", "en": "Full Body [Event]" }, "priceText": "₩1,000,000", "price": 1000000, "outputLabel": { "ko": "전신[이벤트]", "ja": "全身【イベント】", "en": "Full body [event]" } },
       { "title": { "ko": "리뷰이벤트", "ja": "レビューイベント", "en": "Review Event" }, "priceText": "", "price": 0, "outputLabel": { "ko": "리뷰이벤트", "ja": "レビューイベント", "en": "Review event" } }
     ],
     "faceOptions": [
