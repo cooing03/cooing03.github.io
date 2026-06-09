@@ -1,758 +1,718 @@
 {
   "intro": {
-    "sectionLabel": "00. 소개 및 슬롯",
-    "greeting": "안녕하세요! Live2D 일러스트레이터 cooing입니다",
-    "paragraphs": [
-      "깔끔하고 심화된 표현을 바탕으로 미소녀 미소년부터 마스코트 캐릭터를 매력적인 분위기로 일러스트를 작업하고 있습니다.",
-      "비주얼 캐릭터와 맞추는 분위기 일러스트를 진행하며, 캐릭터의 매력을 최대한 살릴 수 있도록 최소 파츠 250개 이상으로 디자인 단계까지 꼼꼼하게 작업합니다.",
-      "작업 과정에서는 충분한 소통을 통해 의뢰자님의 원하는 방향을 최대한 반영하고자 노력하고 있습니다. 소중한 캐릭터를 맡겨주신 만큼 정성과 책임감을 가지고 작업하겠습니다. 감사합니다!"
-    ],
-    "slotNotice": "매월 1명 인원만 집중하여 작업을 진행하고 있으며, 아래 슬롯 현황을 참고해 주시기 바랍니다. 결제 완료 순으로 슬롯이 최종 확정되며, 앞선 작업이 마무리되는 대로 순차적으로 시작됩니다. 예약 파기시 위약금 10%가 부가되니 참고부탁드립니다.",
-    "slotTitle": "작업 슬롯 현황",
+    "sectionLabel": {
+      "ko": "00. 소개 및 슬롯",
+      "ja": "00. 紹介 & スロット",
+      "en": "00. Intro & Slots"
+    },
+    "greeting": {
+      "ko": "안녕하세요! Live2D 일러스트레이터 cooing입니다.",
+      "ja": "こんにちは！Live2Dイラストレーターのcooingです.",
+      "en": "Hello! I'm cooing, a Live2D illustrator."
+    },
+    "paragraphs": {
+      "ko": [
+        "깔끔하고 심화된 표현을 바탕으로 미소녀 미소년부터 마스코트 캐릭터를 매력적인 분위기로 일러스트를 작업하고 있습니다.",
+        "비주얼 캐릭터와 맞추는 분위기 일러스트를 진행하며, 캐릭터의 매력을 최대한 살릴 수 있도록 최소 파츠 250개 이상으로 디자인 단계까지 꼼꼼하게 작업합니다.",
+        "작업 과정에서는 충분한 소통을 통해 의뢰자님의 원하는 방향을 최대한 반영하고자 노력하고 있습니다. 소중한 캐릭터를 맡겨주신 만큼 정성과 책임감을 가지고 작업하겠습니다. 감사합니다!"
+      ],
+      "ja": [
+        "すっきりとした深みのある表現をもとに、美少女・美少年からマスコットキャラクターまで、魅力的な雰囲気でイラストを制作しています。",
+        "ビジュアルキャラクターに合わせた雰囲気のイラストを制作し、キャラクターの魅力を最大限に引き出せるよう、最低250パーツ以上でデザイン段階から丁寧に作業します。",
+        "制作過程では十分なコミュニケーションを取り、ご依頼者様のご希望の方向性を最大限反映できるよう努めています。大切なキャラクターをお預かりする分、誠意と責任感を持って作業いたします。ありがとうございます！"
+      ],
+      "en": [
+        "I create illustrations with clean and expressive artistry, from beautiful girls and boys to mascot characters with charming atmospheres.",
+        "I produce mood illustrations tailored to your visual character, carefully working through the design stage with a minimum of 250+ parts to maximize your character's appeal.",
+        "I strive to reflect your vision through thorough communication throughout the process. I will work with dedication and responsibility for the precious character you entrust to me. Thank you!"
+      ]
+    },
+    "slotTitle": {
+      "ko": "작업 슬롯 현황",
+      "ja": "作業スロット状況",
+      "en": "Commission Slot Status"
+    },
+    "slotNotice": {
+      "ko": "매월 1명 인원만 집중하여 작업을 진행하고 있으며, 아래 슬롯 현황을 참고해 주시기 바랍니다. 결제 완료 순으로 슬롯이 최종 확정되며, 앞선 작업이 마무리되는 대로 순차적으로 시작됩니다. 예약 파기시 위약금 10%가 부가되니 참고부탁드립니다.",
+      "ja": "毎月1名だけに集中して作業を進めており、以下のスロット状況をご参照ください。 決済完了順にスロットが最終確定し、前の作業が完了次第、順次開始されます。 予約をキャンセルする場合、違約金として10％が加算されますのでご留意ください。",
+      "en": "We focus on only one person every month, and please refer to the status of the slots below. The slots will be finalized in the order of payment completion, and it will start sequentially as soon as the previous work is completed. Please note that 10% of the penalty will be added for canceling the reservation."
+    },
     "slots": [
-      {
-        "month": "6월",
-        "status": "closed",
-        "label": "CLOSED"
-      },
-      {
-        "month": "7월",
-        "status": "closed",
-        "label": "CLOSED"
-      },
-      {
-        "month": "8월",
-        "status": "closed",
-        "label": "CLOSED"
-      },
-      {
-        "month": "9월",
-        "status": "open",
-        "label": "OPEN"
-      },
-      {
-        "month": "10월",
-        "status": "open",
-        "label": "OPEN"
-      },
-      {
-        "month": "11월",
-        "status": "open",
-        "label": "OPEN"
-      },
-      {
-        "month": "12월",
-        "status": "open",
-        "label": "OPEN"
-      }
+      { "month": "6", "status": "closed", "label": { "ko": "CLOSED", "ja": "CLOSED", "en": "CLOSED" } },
+      { "month": "7", "status": "closed", "label": { "ko": "CLOSED", "ja": "CLOSED", "en": "CLOSED" } },
+      { "month": "8", "status": "closed", "label": { "ko": "CLOSED", "ja": "CLOSED", "en": "CLOSED" } },
+      { "month": "9", "status": "open", "label": { "ko": "OPEN", "ja": "OPEN", "en": "OPEN" } },
+      { "month": "10", "status": "open", "label": { "ko": "OPEN", "ja": "OPEN", "en": "OPEN" } },
+      { "month": "11", "status": "open", "label": { "ko": "OPEN", "ja": "OPEN", "en": "OPEN" } },
+      { "month": "12", "status": "open", "label": { "ko": "OPEN", "ja": "OPEN", "en": "OPEN" } }
     ]
   },
   "event": {
     "visibility": "open",
-    "sectionLabel": "02. 이벤트",
-    "title": "진행 중인 이벤트",
-    "cardLabel": "이벤트",
-    "status": "진행중",
-    "type": "재정비 기념 할인 이벤트",
-    "period": "10월 슬롯 마감시 까지",
+    "title": {
+      "ko": "진행 중인 이벤트",
+      "ja": "開催中のイベント",
+      "en": "Ongoing Event"
+    },
+    "cardLabel": {
+      "ko": "이벤트",
+      "ja": "イベント",
+      "en": "Event"
+    },
+    "status": {
+      "ko": "진행중",
+      "ja": "開催中",
+      "en": "Active"
+    },
+    "type": {
+      "ko": "재정비 기념 할인 이벤트",
+      "ja": "リニューアル記念割引イベント",
+      "en": "Renewal Celebration Discount Event"
+    },
+    "period": {
+      "ko": "10월 슬롯 마감시 까지",
+      "ja": "10月スロット終了まで",
+      "en": "Until October slots close"
+    },
     "oldPrice": "₩1,200,000",
     "discount": "-₩200,000",
     "finalPrice": "₩1,000,000",
-    "guides": [
-      "가격, 이벤트 - 프리퀄 두상 그림 서비스 이벤트",
-      "협업 할인과 같이 진행 가능"
-    ],
-    "sideTitle": "안내사항",
-    "sideStatus": "확인 필수",
-    "sideNotices": [
-      "공지를 읽지 않아 생기는 문제는 책임지지 않습니다.",
-      "현금영수증 발행시에도 가격은 동일합니다."
-    ]
+    "guides": {
+      "ko": [
+        "가격, 이벤트 - 프리퀄 두상 그림 서비스 이벤트",
+        "협업 할인과 같이 진행 가능"
+      ],
+      "ja": [
+        "価格・イベント - プリクエル頭部イラストサービスイベント",
+        "コラボ割引との併用可能"
+      ],
+      "en": [
+        "Price & Event — Prequel head illustration bonus event",
+        "Can be combined with collab artist discount"
+      ]
+    },
+    "sideTitle": {
+      "ko": "안내사항",
+      "ja": "ご案内",
+      "en": "Notices"
+    },
+    "sideStatus": {
+      "ko": "확인 필수",
+      "ja": "要確認",
+      "en": "Must Read"
+    },
+    "sideNotices": {
+      "ko": [
+        "공지를 읽지 않아 생기는 문제는 책임지지 않습니다.",
+        "현금영수증 발행시에도 가격은 동일합니다.",
+        "파츠 분리 난이도에 따라 추가금이 들 수 있습니다."
+
+      ],
+      "ja": [
+        "お知らせを読まずに発生した問題については責任を負いかねます。",
+        "現金領収書発行時も価格は同一です。",
+        "パーツの分離難易度に応じて追加料金が発生する場合があります。"
+      ],
+      "en": [
+        "Issues arising from not reading the notices are not our responsibility.",
+        "Prices remain the same even with cash receipt issuance.",
+        "Depending on the difficulty of separating parts, there may be additional charges."
+      ]
+    }
   },
   "notice": {
-    "sectionLabel": "03. 공지사항",
-    "title": "작업 공지사항",
+    "title": {
+      "ko": "작업 공지사항",
+      "ja": "作業に関するお知らせ",
+      "en": "Commission Notices"
+    },
     "sections": [
       {
-        "title": "작업 안내",
+        "title": { "ko": "작업 안내", "ja": "作業案内", "en": "Work Guide" },
         "type": "default",
-        "items": [
-          "1. 방송용 버츄얼 캐릭터 일러스트 작업만 진행합니다. 리깅 작업은 포함되지 않습니다.",
-          "2. 작업물의 저작권은 작가 cooing에게 귀속됩니다.",
-          "3. 기본 사용 범위는 개인 방송 활동에 한정됩니다.",
-          "※ 본 공지를 숙지하지 않아 발생하는 모든 문제에 대해 작가는 책임지지 않습니다."
-        ]
+        "items": {
+          "ko": [
+            "1. 방송용 버츄얼 캐릭터 일러스트 작업만 진행합니다. 리깅 작업은 포함되지 않습니다.",
+            "2. 작업물의 저작권은 작가 cooing에게 귀속됩니다.",
+            "3. 기본 사용 범위는 개인 방송 활동에 한정됩니다.",
+            "※ 본 공지를 숙지하지 않아 발생하는 모든 문제에 대해 작가는 책임지지 않습니다."
+          ],
+          "ja": [
+            "1. 配信用バーチャルキャラクターイラストの制作のみ承っています。リギング作業は含まれません。",
+            "2. 作業物の著作権は作家cooingに帰属します。",
+            "3. 基本使用範囲は個人配信活動に限定されます。",
+            "※ 本お知らせを熟知しないことで発生するすべての問題について、作家は責任を負いません。"
+          ],
+          "en": [
+            "1. Only virtual character illustration for streaming is accepted. Rigging is not included.",
+            "2. Copyright of all work belongs to the artist, cooing.",
+            "3. Basic usage is limited to personal streaming activities.",
+            "※ The artist is not responsible for any issues arising from not reading these notices."
+          ]
+        }
       },
       {
-        "title": "사용 범위 안내",
+        "title": { "ko": "사용 범위 안내", "ja": "使用範囲案内", "en": "Usage Scope" },
         "type": "default",
-        "items": [
-          "1. 저작권 구매 시 굿즈 제작 라이센스 / 오리지널 3D 제작 라이센스가 양도됩니다.",
-          "2. 저작권 구매시 타 작가에게 신 의상, 추가 파츠 등의 의뢰는 가능하지만 디자인 및 Live2D 일러스트 저작권은 cooing에게 있습니다.",
-          "3. ip소유 저작권까지 구매를 원하실 경우 별도 문의 부탁드립니다."
-        ]
+        "items": {
+          "ko": [
+            "1. 저작권 구매 시 굿즈 제작 라이센스 / 오리지널 3D 제작 라이센스가 양도됩니다.",
+            "2. 저작권 구매시 타 작가에게 신 의상, 추가 파츠 등의 의뢰는 가능하지만 디자인 및 Live2D 일러스트 저작권은 cooing에게 있습니다.",
+            "3. ip소유 저작권까지 구매를 원하실 경우 별도 문의 부탁드립니다."
+          ],
+          "ja": [
+            "1. 著作権購入時、グッズ制作ライセンス／オリジナル3D制作ライセンスが譲渡されます。",
+            "2. 著作権購入時、他の作家へ新衣装・追加パーツなどの依頼は可能ですが、デザインおよびLive2Dイラストの著作権はcooingに帰属します。",
+            "3. IP所有著作権までの購入をご希望の場合は、別途お問い合わせください。"
+          ],
+          "en": [
+            "1. Purchasing copyright transfers merchandise production license / original 3D production license.",
+            "2. With copyright purchase, you may commission new outfits and additional parts from other artists, but design and Live2D illustration copyright remains with cooing.",
+            "3. For full IP ownership rights, please inquire separately."
+          ]
+        }
       },
       {
-        "title": "저작권 안내",
+        "title": { "ko": "저작권 안내", "ja": "著作権案内", "en": "Copyright Info" },
         "type": "license",
-        "paragraphs": [
-          "모든 작업물은 포트폴리오에 활용될 수 있습니다.",
-          "저작권의 이용권을 구매하실 수 있으며, 구매 시 타작가 의뢰와 라이센스 활용이 가능합니다."
-        ],
-        "table": {
-          "header1Left": "디자인 O",
-          "header1Right": "디자인 X",
-          "header2Left": "기업",
-          "header2LeftSub": "개인",
-          "header2Right": "기업",
-          "header2RightSub": "개인",
-          "priceLeft": "100만원 (+10%)",
-          "priceLeftSub": "50만원 (+10%)",
-          "priceRight": "150만원 (+10%)",
-          "priceRightSub": "60만원 (+10%)",
-          "descLeft": "개인소장+커뮤니티+스트리밍\n+유튜브+굿즈+2차수정\n+타작가 의뢰(O)",
-          "descRight": "개인소장+커뮤니티+스트리밍\n+유튜브+굿즈+2차수정\n+타작가 의뢰(O)"
+        "paragraphs": {
+          "ko": [
+            "모든 작업물은 포트폴리오에 활용될 수 있습니다.",
+            "저작권의 이용권을 구매하실 수 있으며, 구매 시 타작가 의뢰와 라이센스 활용이 가능합니다."
+          ],
+          "ja": [
+            "すべての作業物はポートフォリオに活用される場合があります。",
+            "著作権の利用権を購入することができ、購入後は他の作家への依頼やライセンス活用が可能です。"
+          ],
+          "en": [
+            "All work may be used in the artist's portfolio.",
+            "You may purchase usage rights to the copyright, enabling commissions from other artists and license use."
+          ]
         },
-        "notes": [
-          "※ 타작가 의뢰 및 활용 범위는 계약 내용에 따라 달라질 수 있으므로 사전 문의 부탁드립니다.",
-          "※ 별도 IP 권리 양도 및 확장 사용 범위는 추가 협의가 필요합니다."
-        ]
+        "table": {
+          "header1Left": { "ko": "디자인 O", "ja": "デザイン有", "en": "With Design" },
+          "header1Right": { "ko": "디자인 X", "ja": "デザイン無", "en": "No Design" },
+          "header2Left": { "ko": "기업", "ja": "法人", "en": "Corporate" },
+          "header2LeftSub": { "ko": "개인", "ja": "個人", "en": "Individual" },
+          "header2Right": { "ko": "기업", "ja": "法人", "en": "Corporate" },
+          "header2RightSub": { "ko": "개인", "ja": "個人", "en": "Individual" },
+          "priceLeft": { "ko": "100만원 (+10%)", "ja": "100万ウォン(+10%)", "en": "₩1,000,000 (+10%)" },
+          "priceLeftSub": { "ko": "50만원 (+10%)", "ja": "50万ウォン(+10%)", "en": "₩500,000 (+10%)" },
+          "priceRight": { "ko": "150만원 (+10%)", "ja": "150万ウォン(+10%)", "en": "₩1,500,000 (+10%)" },
+          "priceRightSub": { "ko": "60만원 (+10%)", "ja": "60万ウォン(+10%)", "en": "₩600,000 (+10%)" },
+          "descLeft": {
+            "ko": "개인소장+커뮤니티+스트리밍\n+유튜브+굿즈+2차수정\n+타작가 의뢰(O)",
+            "ja": "個人所蔵+コミュニティ+配信\n+YouTube+グッズ+二次修正\n+他作家依頼(O)",
+            "en": "Personal use+Community+Streaming\n+YouTube+Merch+2nd edit\n+Other artist commission(O)"
+          },
+          "descRight": {
+            "ko": "개인소장+커뮤니티+스트리밍\n+유튜브+굿즈+2차수정\n+타작가 의뢰(O)",
+            "ja": "個人所蔵+コミュニティ+配信\n+YouTube+グッズ+二次修正\n+他作家依頼(O)",
+            "en": "Personal use+Community+Streaming\n+YouTube+Merch+2nd edit\n+Other artist commission(O)"
+          }
+        },
+        "notes": {
+          "ko": [
+            "※ 타작가 의뢰 및 활용 범위는 계약 내용에 따라 달라질 수 있으므로 사전 문의 부탁드립니다.",
+            "※ 별도 IP 권리 양도 및 확장 사용 범위는 추가 협의가 필요합니다."
+          ],
+          "ja": [
+            "※ 他作家への依頼および活用範囲は契約内容によって異なりますので、事前にお問い合わせください。",
+            "※ 別途IP権利譲渡および拡張使用範囲については追加協議が必要です。"
+          ],
+          "en": [
+            "※ Scope of other artist commissions may vary by contract; please inquire in advance.",
+            "※ Separate IP rights transfer and extended usage require additional negotiation."
+          ]
+        }
       },
       {
-        "title": "작업 범위",
+        "title": { "ko": "작업 범위", "ja": "作業範囲", "en": "Work Scope" },
         "type": "default",
-        "items": [
-          "1. 기본 제작 사이즈 및 해상도는 세로 5000px / 300dpi입니다.",
-          "2. 기본 표정 3종이 포함됩니다.",
-          "3. 추가 표정 및 추가 파츠는 별도의 비용이 발생합니다.",
-          "4. 복잡한 의상, 장식, 소품 등은 작업 난이도에 따라 추가 비용이 발생할 수 있습니다."
-        ]
+        "items": {
+          "ko": [
+            "1. 기본 제작 사이즈 및 해상도는 세로 5000px / 300dpi입니다.",
+            "2. 기본 표정 3종이 포함됩니다.",
+            "3. 추가 표정 및 추가 파츠는 별도의 비용이 발생합니다.",
+            "4. 복잡한 의상, 장식, 소품 등은 작업 난이도에 따라 추가 비용이 발생할 수 있습니다."
+          ],
+          "ja": [
+            "1. 基本制作サイズおよび解像度は縦5000px / 300dpiです。",
+            "2. 基本表情3種が含まれます。",
+            "3. 追加表情および追加パーツは別途費用が発生します。",
+            "4. 複雑な衣装・装飾・小物等は作業難易度に応じて追加費用が発生する場合があります。"
+          ],
+          "en": [
+            "1. Base size and resolution is 5000px tall / 300dpi.",
+            "2. Includes 3 base expressions.",
+            "3. Additional expressions and parts incur extra costs.",
+            "4. Complex outfits, decorations, or props may incur additional charges depending on complexity."
+          ]
+        }
       },
       {
-        "title": "파일 전달",
+        "title": { "ko": "파일 전달", "ja": "ファイル納品", "en": "File Delivery" },
         "type": "default",
-        "items": [
-          "1. 모든 작업물은 PSD 파일로 전달됩니다.",
-          "2. PSD 파일은 담당 리거에게만 직접 공유합니다. 저작권 구매 시 요청할 경우 자유롭게 전달 가능합니다.",
-          "3. 사전 예고 없이 완성본을 제외한 러프, 선화, 작업 과정물의 공개를 금합니다."
-        ]
+        "items": {
+          "ko": [
+            "1. 모든 작업물은 PSD 파일로 전달됩니다.",
+            "2. PSD 파일은 담당 리거에게만 직접 공유합니다. 저작권 구매 시 요청할 경우 자유롭게 전달 가능합니다.",
+            "3. 사전 예고 없이 완성본을 제외한 러프, 선화, 작업 과정물의 공개를 금합니다."
+          ],
+          "ja": [
+            "1. すべての作業物はPSDファイルで納品されます。",
+            "2. PSDファイルは担当リガーにのみ直接共有します。著作権購入時にご要望の場合は自由に共有可能です。",
+            "3. 事前予告なく完成品を除くラフ・線画・作業過程物の公開を禁じます。"
+          ],
+          "en": [
+            "1. All work is delivered as PSD files.",
+            "2. PSD files are shared directly only with the designated rigger. With copyright purchase, they can be freely shared upon request.",
+            "3. Publishing roughs, lineart, or WIP materials without prior notice is prohibited."
+          ]
+        }
       },
       {
-        "title": "작업 기간 및 수정",
+        "title": { "ko": "작업 기간 및 수정", "ja": "作業期間と修正", "en": "Timeline & Revisions" },
         "type": "default",
-        "items": [
-          "1. 작업 기간은 최대 30일이며 작업 시작 시점을 기준으로 합니다.",
-          "2. 수정은 최대 2회까지 가능합니다.",
-          "3. 추가 수정은 별도의 비용이 발생하며 수정 범위에 따라 금액이 달라질 수 있습니다.",
-          "4. 전달된 파일에 오류가 있거나 리거의 요청으로 필요한 수정은 해당 부분에 한해 무료로 진행됩니다."
-        ]
+        "items": {
+          "ko": [
+            "1. 작업 기간은 최대 30일이며 작업 시작 시점을 기준으로 합니다.",
+            "2. 수정은 최대 2회까지 가능합니다.",
+            "3. 추가 수정은 별도의 비용이 발생하며 수정 범위에 따라 금액이 달라질 수 있습니다.",
+            "4. 전달된 파일에 오류가 있거나 리거의 요청으로 필요한 수정은 해당 부분에 한해 무료로 진행됩니다."
+          ],
+          "ja": [
+            "1. 作業期間は最大30日で、作業開始時点を基準とします。",
+            "2. 修正は最大2回まで可能です。",
+            "3. 追加修正は別途費用が発生し、修正範囲によって金額が異なります。",
+            "4. 納品ファイルにエラーがある場合やリガーの要望による修正は、該当箇所に限り無料で対応します。"
+          ],
+          "en": [
+            "1. Work period is up to 30 days from the start date.",
+            "2. Up to 2 revisions are included.",
+            "3. Additional revisions incur extra costs depending on scope.",
+            "4. Errors in delivered files or revisions requested by the rigger are handled free of charge."
+          ]
+        }
       },
       {
-        "title": "결제 및 환불 안내",
+        "title": { "ko": "결제 및 환불 안내", "ja": "お支払いと返金案内", "en": "Payment & Refund" },
         "type": "default",
-        "items": [
-          "1. 작업은 입금 확인 후 진행됩니다.",
-          "2. 작업 예약은 총 금액 전액 결제 후 확정됩니다.",
-          "3. 예약 파기 시 총 금액의 10% 위약금이 발생합니다."
-        ]
+        "items": {
+          "ko": [
+            "1. 작업은 입금 확인 후 진행됩니다.",
+            "2. 작업 예약은 총 금액 전액 결제 후 확정됩니다.",
+            "3. 예약 파기 시 총 금액의 10% 위약금이 발생합니다."
+          ],
+          "ja": [
+            "1. 作業は入金確認後に進行されます。",
+            "2. 作業予約は総額全額決済後に確定されます。",
+            "3. 予約キャンセル時、総額の10%の違約金が発生します。"
+          ],
+          "en": [
+            "1. Work proceeds after payment confirmation.",
+            "2. Reservations are confirmed after full payment.",
+            "3. Cancellation incurs a 10% penalty fee."
+          ]
+        }
       },
       {
-        "title": "크레딧 표기",
+        "title": { "ko": "크레딧 표기", "ja": "クレジット表記", "en": "Credit Notice" },
         "type": "default",
-        "items": [
-          "1. 방송, SNS 및 각종 플랫폼에서 캐릭터를 사용할 경우 작가 크레딧(cooing) 표기는 필수입니다.",
-          "2. 크레딧 표기를 임의로 삭제하거나 누락하는 것을 금합니다.",
-          "3. 단, 저작권 구매 시에는 예외로 합니다."
-        ]
+        "items": {
+          "ko": [
+            "1. 방송, SNS 및 각종 플랫폼에서 캐릭터를 사용할 경우 작가 크레딧(cooing) 표기는 필수입니다.",
+            "2. 크레딧 표기를 임의로 삭제하거나 누락하는 것을 금합니다.",
+            "3. 단, 저작권 구매 시에는 예외로 합니다."
+          ],
+          "ja": [
+            "1. 配信・SNS・各種プラットフォームでキャラクターを使用する場合、作家クレジット(cooing)の表記は必須です。",
+            "2. クレジット表記を任意に削除・省略することを禁じます。",
+            "3. ただし、著作権購入時は例外とします。"
+          ],
+          "en": [
+            "1. Artist credit (cooing) is required when using the character on streams, SNS, or any platform.",
+            "2. Removing or omitting the credit is prohibited.",
+            "3. Exception applies when copyright has been purchased."
+          ]
+        }
       },
       {
-        "title": "기타 사항",
+        "title": { "ko": "기타 사항", "ja": "その他", "en": "Other" },
         "type": "default",
-        "items": [
-          "1. 작업과정은 sns에 공개될 수 있습니다! 데뷔일까지 비공개를 원하시는 경우 추가금 (50000) 옵션을 넣어주세요.",
-          "2. 일정 기간 이상 연락이 두절될 경우 작업이 자동 취소될 수 있습니다.",
-          "3. 모든 작업물의 AI 학습 및 데이터셋 활용을 금합니다.",
-          "4. 모든 작업물의 무단 수정, 트레이싱, 재가공을 금합니다. (저작권 구매 시 예외)",
-          "5. 기타 문의 사항은 별도로 연락 부탁드립니다."
-        ]
+        "items": {
+          "ko": [
+            "1. 작업과정은 sns에 공개될 수 있습니다! 데뷔일까지 비공개를 원하시는 경우 추가금 (50000) 옵션을 넣어주세요.",
+            "2. 일정 기간 이상 연락이 두절될 경우 작업이 자동 취소될 수 있습니다.",
+            "3. 모든 작업물의 AI 학습 및 데이터셋 활용을 금합니다.",
+            "4. 모든 작업물의 무단 수정, 트레이싱, 재가공을 금합니다. (저작권 구매 시 예외)",
+            "5. 기타 문의 사항은 별도로 연락 부탁드립니다."
+          ],
+          "ja": [
+            "1. 作業過程はSNSに公開される場合があります！デビュー日まで非公開をご希望の場合は追加料金(50,000ウォン)オプションをご選択ください。",
+            "2. 一定期間以上連絡が取れない場合、作業が自動キャンセルされる場合があります。",
+            "3. すべての作業物のAI学習およびデータセット利用を禁じます。",
+            "4. すべての作業物の無断修正・トレース・二次加工を禁じます。（著作権購入時は例外）",
+            "5. その他お問い合わせは別途ご連絡ください。"
+          ],
+          "en": [
+            "1. WIP may be posted on SNS! If you want it kept private until debut, please add the privacy fee (₩50,000) option.",
+            "2. If contact is lost for an extended period, the commission may be automatically cancelled.",
+            "3. AI training and dataset use of all work is prohibited.",
+            "4. Unauthorized modification, tracing, or reprocessing of all work is prohibited. (Exception with copyright purchase)",
+            "5. For other inquiries, please contact separately."
+          ]
+        }
       }
     ]
   },
   "process": {
-    "sectionLabel": "04. 작업",
-    "title": "작업 과정",
-    "orderTitle": "작업순서",
-    "steps": [
-      "문의",
-      "주문 및 입금",
-      "시안 전달",
-      "컨펌",
-      "파츠분리 및 중간과정",
-      "완성 및 최종컨펌"
-    ],
-    "processTitle": "작업과정",
-    "summary": "시안전달 → 파츠분리 및 중간과정 → 완성본 전달",
-    "details": [
-      "시안 단계에서 최대한 조율해드립니다.",
-      "파츠가 많은 경우 작업기간이 늘어날 수 있으며 사전 공지드립니다.",
-      "컨펌 단계 외 수정 요청 시 추가금이 있습니다.",
-      "리깅 과정에서 파츠 관련 수정 요청은 무료로 진행해드립니다."
-    ]
+    "title": {
+      "ko": "작업 과정",
+      "ja": "作業工程",
+      "en": "Work Process"
+    },
+    "orderTitle": {
+      "ko": "작업순서",
+      "ja": "作業順序",
+      "en": "Work Order"
+    },
+    "steps": {
+      "ko": ["문의", "주문 및 입금", "시안 전달", "컨펌", "파츠분리 및 중간과정", "완성 및 최종컨펌"],
+      "ja": ["お問い合わせ", "注文・入金", "ラフ提出", "確認", "パーツ分離・中間工程", "完成・最終確認"],
+      "en": ["Inquiry", "Order & Payment", "Draft Delivery", "Confirmation", "Parts Separation & WIP", "Completion & Final Confirm"]
+    },
+    "processTitle": {
+      "ko": "작업과정",
+      "ja": "作業工程",
+      "en": "Process Details"
+    },
+    "summary": {
+      "ko": "시안전달 → 파츠분리 및 중간과정 → 완성본 전달",
+      "ja": "ラフ提出 → パーツ分離・中間工程 → 完成品納品",
+      "en": "Draft Delivery → Parts Separation & WIP → Final Delivery"
+    },
+    "details": {
+      "ko": [
+        "시안 단계에서 최대한 조율해드립니다.",
+        "파츠가 많은 경우 작업기간이 늘어날 수 있으며 사전 공지드립니다.",
+        "컨펌 단계 외 수정 요청 시 추가금이 있습니다.",
+        "리깅 과정에서 파츠 관련 수정 요청은 무료로 진행해드립니다."
+      ],
+      "ja": [
+        "ラフ段階で最大限調整いたします。",
+        "パーツが多い場合、作業期間が延びる可能性があり、事前にお知らせします。",
+        "確認段階外の修正依頼は追加料金が発生します。",
+        "リギング過程でのパーツ関連修正依頼は無料で対応いたします。"
+      ],
+      "en": [
+        "Adjustments are maximized at the draft stage.",
+        "If there are many parts, the work period may extend and you will be notified in advance.",
+        "Revision requests outside the confirmation stage incur additional charges.",
+        "Part-related revision requests during rigging are handled free of charge."
+      ]
+    }
   },
   "menu": {
-    "sectionLabel": "06. 메뉴",
-    "title": "Live2D 리깅 메뉴",
-    "subtitle": "자세한 내용은 펼쳐서 확인",
-    "expandAllText": "전체 펼치기",
-    "collapseAllText": "전체 접기",
+    "title": {
+      "ko": "Live2D 리깅 메뉴",
+      "ja": "Live2D リギングメニュー",
+      "en": "Live2D Rigging Menu"
+    },
+    "subtitle": {
+      "ko": "자세한 내용은 펼쳐서 확인",
+      "ja": "詳細は展開してご確認ください",
+      "en": "Expand items to see details"
+    },
     "items": [
       {
-        "title": "온오프 장식 등",
+        "title": { "ko": "온오프 장식 등", "ja": "オンオフ装飾など", "en": "On/Off Toggle Decorations" },
         "priceText": "₩100,000",
-        "details": [
-          "온오프 토글 장식"
-        ]
+        "details": {
+          "ko": ["온오프 토글 장식"],
+          "ja": ["オンオフトグル装飾"],
+          "en": ["On/off toggle decoration"]
+        }
       },
       {
-        "title": "엉덩이 밑보다 더 긴 헤어",
+        "title": { "ko": "엉덩이 밑보다 더 긴 헤어", "ja": "腰より長いヘア", "en": "Hair Below the Hips" },
         "priceText": "₩100,000",
-        "details": [
-          "장발 헤어 물리 및 길이 보정 포함"
-        ]
+        "details": {
+          "ko": ["장발 헤어 물리 및 길이 보정 포함"],
+          "ja": ["長髪ヘアの物理および長さ補正を含む"],
+          "en": ["Includes long hair physics and length correction"]
+        }
       },
       {
-        "title": "헤어 (복잡한 변형)",
+        "title": { "ko": "헤어 (복잡한 변형)", "ja": "ヘア（複雑な変形）", "en": "Hair (Complex Variation)" },
         "priceText": "₩50,000",
-        "details": [
-          "복잡한 실루엣 변형이 포함된 헤어 작업"
-        ]
+        "details": {
+          "ko": ["복잡한 실루엣 변형이 포함된 헤어 작업"],
+          "ja": ["複雑なシルエット変形を含むヘア作業"],
+          "en": ["Hair with complex silhouette variations"]
+        }
       },
       {
-        "title": "신헤어(전체 변형)",
+        "title": { "ko": "신헤어(전체 변형)", "ja": "新ヘア（全体変形）", "en": "New Hair (Full)" },
         "priceText": "₩350,000",
-        "details": [
-          "앞머리와 뒷머리 전체 신규 제작"
-        ]
+        "details": {
+          "ko": ["앞머리와 뒷머리 전체 신규 제작"],
+          "ja": ["前髪と後ろ髪の全体新規制作"],
+          "en": ["Full new front and back hair creation"]
+        }
       },
       {
-        "title": "신헤어(뒷머리 변형)",
+        "title": { "ko": "신헤어(뒷머리 변형)", "ja": "新ヘア（後ろ髪変形）", "en": "New Hair (Back Only)" },
         "priceText": "₩200,000",
-        "details": [
-          "뒷머리만 신규 추가되는 헤어 옵션"
-        ]
+        "details": {
+          "ko": ["뒷머리만 신규 추가되는 헤어 옵션"],
+          "ja": ["後ろ髪のみ新規追加されるヘアオプション"],
+          "en": ["New back hair addition only"]
+        }
       },
       {
-        "title": "동물귀, 꼬리, 유사 파츠",
+        "title": { "ko": "동물귀, 꼬리, 유사 파츠", "ja": "獣耳・尻尾・類似パーツ", "en": "Animal Ears, Tail, Similar Parts" },
         "priceText": "₩50,000~",
-        "details": [
-          "동물귀, 꼬리, 유사 파츠의 물리 추가"
-        ]
+        "details": {
+          "ko": ["동물귀, 꼬리, 유사 파츠의 물리 추가"],
+          "ja": ["獣耳・尻尾・類似パーツの物理追加"],
+          "en": ["Physics added for animal ears, tail, and similar parts"]
+        }
       },
       {
-        "title": "소품",
+        "title": { "ko": "소품", "ja": "小物", "en": "Props" },
         "priceText": "₩50,000~",
-        "details": [
-          "머리위에 얹어진 인형 등"
-        ]
+        "details": {
+          "ko": ["머리위에 얹어진 인형 등"],
+          "ja": ["頭に乗ったぬいぐるみなど"],
+          "en": ["Dolls or props placed on the head, etc."]
+        }
       },
       {
-        "title": "신의상",
+        "title": { "ko": "신의상", "ja": "新衣装", "en": "New Outfit" },
         "priceText": "₩350,000~",
-        "details": [
-          "기존 모델 기준 신규 의상 파츠 제작"
-        ]
+        "details": {
+          "ko": ["기존 모델 기준 신규 의상 파츠 제작"],
+          "ja": ["既存モデル基準での新規衣装パーツ制作"],
+          "en": ["New outfit parts based on existing model"]
+        }
       },
       {
-        "title": "손포즈",
+        "title": { "ko": "손포즈", "ja": "ハンドポーズ", "en": "Hand Pose" },
         "priceText": "₩80,000",
-        "details": [
-          "추가 손포즈 및 간단한 동작 조정"
-        ]
+        "details": {
+          "ko": ["추가 손포즈 및 간단한 동작 조정"],
+          "ja": ["追加ハンドポーズおよび簡単な動作調整"],
+          "en": ["Additional hand poses and simple motion adjustments"]
+        }
       },
       {
-        "title": "오브젝트 & 추가팔",
+        "title": { "ko": "오브젝트 & 추가팔", "ja": "オブジェクト & 追加アーム", "en": "Object & Extra Arm" },
         "priceText": "₩150,000~",
-        "details": [
-          "오브젝트 파츠 또는 추가 팔 제작"
-        ]
+        "details": {
+          "ko": ["오브젝트 파츠 또는 추가 팔 제작"],
+          "ja": ["オブジェクトパーツまたは追加アーム制作"],
+          "en": ["Object parts or additional arm creation"]
+        }
       },
       {
-        "title": "추가시안",
+        "title": { "ko": "추가시안", "ja": "追加ラフ", "en": "Extra Draft" },
         "priceText": "₩50,000",
-        "details": [
-          "추가 러프/시안 제작 비용"
-        ]
+        "details": {
+          "ko": ["추가 러프/시안 제작 비용"],
+          "ja": ["追加ラフ/草案制作費用"],
+          "en": ["Cost for additional rough draft/sketch"]
+        }
       },
       {
-        "title": "삼면도 단색",
+        "title": { "ko": "삼면도 단색", "ja": "三面図（単色）", "en": "3-View Sheet (Flat Color)" },
         "priceText": "₩200,000",
-        "details": [
-          "단색 기준 삼면도 제작"
-        ]
+        "details": {
+          "ko": ["단색 기준 삼면도 제작"],
+          "ja": ["単色基準の三面図制作"],
+          "en": ["3-view reference sheet in flat color"]
+        }
       },
       {
-        "title": "비대칭 포즈",
+        "title": { "ko": "비대칭 포즈", "ja": "非対称ポーズ", "en": "Asymmetric Pose" },
         "priceText": "₩150,000",
-        "details": [
-          "비대칭 포즈 제작"
-        ]
+        "details": {
+          "ko": ["비대칭 포즈 제작"],
+          "ja": ["非対称ポーズ制作"],
+          "en": ["Asymmetric pose creation"]
+        }
       },
       {
-        "title": "표정추가",
+        "title": { "ko": "표정추가", "ja": "表情追加", "en": "Extra Expression" },
         "priceText": "₩10,000",
-        "details": [
-          "표정 1종 추가 기준"
-        ]
+        "details": {
+          "ko": ["표정 1종 추가 기준"],
+          "ja": ["表情1種追加基準"],
+          "en": ["Per 1 additional expression"]
+        }
       },
       {
-        "title": "얼굴 전체가 변하는 표정",
+        "title": { "ko": "얼굴 전체가 변하는 표정", "ja": "顔全体が変わる表情", "en": "Full-Face Changing Expression" },
         "priceText": "₩30,000",
-        "details": [
-          "얼굴전체가 변하는 표정입니다"
-        ]
+        "details": {
+          "ko": ["얼굴전체가 변하는 표정입니다"],
+          "ja": ["顔全体が変わる表情です"],
+          "en": ["Expression where the entire face changes"]
+        }
       },
       {
-        "title": "디스코드 실시간 컨펌",
+        "title": { "ko": "디스코드 실시간 컨펌", "ja": "Discordリアルタイム確認", "en": "Discord Live Review" },
         "priceText": "₩15,000",
-        "details": [
-          "디스코드 실시간 화면 공유 컨펌"
-        ]
+        "details": {
+          "ko": ["디스코드 실시간 화면 공유 컨펌"],
+          "ja": ["Discord リアルタイム画面共有確認"],
+          "en": ["Real-time screen share confirmation via Discord"]
+        }
       },
       {
-        "title": "맨몸 풀 채색",
+        "title": { "ko": "맨몸 풀 채색", "ja": "素体フルカラー", "en": "Bare Body Full Color" },
         "priceText": "₩300,000",
-        "details": [
-          "맨몸 풀 채색 추가 옵션"
-        ]
+        "details": {
+          "ko": ["맨몸 풀 채색 추가 옵션"],
+          "ja": ["素体フルカラー追加オプション"],
+          "en": ["Additional option for bare body full coloring"]
+        }
       },
       {
-        "title": "핸드 트래킹",
+        "title": { "ko": "핸드 트래킹", "ja": "ハンドトラッキング", "en": "Hand Tracking" },
         "priceText": "₩400,000",
-        "details": [
-          "핸드 트래킹이 가능하도록 손파츠를 분리합니다"
-        ]
+        "details": {
+          "ko": ["핸드 트래킹이 가능하도록 손파츠를 분리합니다"],
+          "ja": ["ハンドトラッキングが可能なよう手パーツを分離します"],
+          "en": ["Hand parts are separated to enable hand tracking"]
+        }
       },
       {
-        "title": "SD 전신",
+        "title": { "ko": "SD 전신", "ja": "SD全身", "en": "SD Full Body" },
         "priceText": "₩200,000",
-        "details": [
-          "ld 캐릭터와는 별개로 제작되는 sd 캐릭터 전신입니다"
-        ]
+        "details": {
+          "ko": ["ld 캐릭터와는 별개로 제작되는 sd 캐릭터 전신입니다"],
+          "ja": ["LDキャラクターとは別に制作されるSDキャラクター全身です"],
+          "en": ["Full-body SD character created separately from the LD character"]
+        }
       },
       {
-        "title": "협업 작가 이벤트",
+        "title": { "ko": "협업 작가 이벤트", "ja": "コラボ作家イベント", "en": "Collab Artist Event" },
         "priceText": "-₩50,000 ~",
-        "details": [
-          "협업작가 선택 시 적용 할인"
-        ]
+        "details": {
+          "ko": ["협업작가 선택 시 적용 할인"],
+          "ja": ["コラボ作家選択時の適用割引"],
+          "en": ["Discount applied when selecting a collab artist"]
+        }
       },
       {
-        "title": "전신[이벤트]",
+        "title": { "ko": "전신[이벤트]", "ja": "全身【イベント】", "en": "Full Body [Event]" },
         "priceText": "₩900,000",
-        "details": [
-          "이벤트 추가 옵션: 파츠분리 + 디자인 + 표정 3 + 시안 3 (협업 작가 중복 할인 가능)"
-        ]
+        "details": {
+          "ko": ["이벤트 추가 옵션: 파츠분리 + 디자인 + 표정 3 + 시안 3 (협업 작가 중복 할인 가능)"],
+          "ja": ["イベント追加オプション: パーツ分離+デザイン+表情3+ラフ3（コラボ作家重複割引可）"],
+          "en": ["Event option: parts separation + design + 3 expressions + 3 drafts (collab discount stackable)"]
+        }
       },
       {
-        "title": "리뷰이벤트",
+        "title": { "ko": "리뷰이벤트", "ja": "レビューイベント", "en": "Review Event" },
         "priceText": "₩0",
-        "details": [
-          "이벤트 참여 시 적용 가능한 리뷰 이벤트 옵션"
-        ]
+        "details": {
+          "ko": ["이벤트 참여 시 적용 가능한 리뷰 이벤트 옵션"],
+          "ja": ["イベント参加時に適用可能なレビューイベントオプション"],
+          "en": ["Review event option applicable upon event participation"]
+        }
       }
-
-      
     ]
   },
   "apply": {
-    "sectionLabel": "07. 신청양식",
-    "title": "신청양식",
-    "subtitle": "항목을 선택/작성한 뒤 “문의 내용 복사”를 눌러 그대로 붙여넣어 주세요.",
-    "selectPlaceholder": "선택해주세요",
-    "baseOptionsLabel": "리깅 기본 옵션",
-    "addonOptionsLabel": "추가 옵션",
-    "faceOptionsLabel": "표정 옵션",
-    "summaryTitle": "문의 텍스트",
-    "totalPrefix": "선택 합계:",
-    "summaryHelper": "문의 텍스트에 항목/총액이 함께 포함됩니다.",
-    "copyButtonText": "문의 내용 복사",
-    "previewButtonText": "미리보기 갱신",
-    "copySuccessMessage": "문의 내용이 복사되었습니다.",
-    "copyFailMessage": "복사에 실패했습니다. 직접 선택해서 복사해주세요.",
+    "title": {
+      "ko": "신청양식",
+      "ja": "お申し込みフォーム",
+      "en": "Commission Form"
+    },
+    "subtitle": {
+      "ko": "항목을 선택/작성한 뒤 '문의 내용 복사'를 눌러 그대로 붙여넣어 주세요.",
+      "ja": "各項目を選択・入力後、「お問い合わせをコピー」を押してそのまま貼り付けてください。",
+      "en": "Fill in the fields and click \"Copy Inquiry Text\" to paste it directly."
+    },
     "fields": {
-      "nickname": {
-        "label": "방송 닉네임",
-        "placeholder": "예: 미작성"
-      },
-      "platform": {
-        "label": "방송 플랫폼 & 닉네임",
-        "placeholder": "예: 치지직 / 유튜브 / 트위치 등"
-      },
-      "debutDate": {
-        "label": "희망 마감일 / 데뷔 예정일",
-        "placeholder": "예: 2025-02-14"
-      },
       "businessType": {
-        "label": "기업세 / 개인세",
-        "defaultValue": "미구매",
+        "defaultValue": { "ko": "미구매", "ja": "未購入", "en": "Not purchasing" },
         "options": [
-          {
-            "title": "기업세 상업권 구매 (디자인 X)",
-            "priceText": "[₩1,000,000]",
-            "price": 1000000,
-            "outputLabel": "기업세 상업권 구매 1"
-          },
-          {
-            "title": "개인세 상업권 구매 (디자인 X)",
-            "priceText": "[₩500,000]",
-            "price": 500000,
-            "outputLabel": "개인세 상업권 구매 2"
-          },
-          {
-            "title": "기업세 상업권 구매 (디자인 필요)",
-            "priceText": "[₩1,500,000]",
-            "price": 1500000,
-            "outputLabel": "기업세 상업권 구매 1 (₩1,500,000)"
-          },
-          {
-            "title": "개인세 상업권 구매 (디자인 필요)",
-            "priceText": "[₩600,000]",
-            "price": 600000,
-            "outputLabel": "개인세 상업권 구매 2 (₩600,000)"
-          },
-          {
-            "title": "미구매",
-            "priceText": "",
-            "price": 0,
-            "outputLabel": "미구매"
-          }
+          { "title": { "ko": "기업세 상업권 구매 (디자인 X)", "ja": "法人税 商業権購入（デザイン無）", "en": "Corporate commercial rights (no design)" }, "priceText": "[₩1,000,000]", "price": 1000000, "outputLabel": { "ko": "기업세 상업권 구매 1", "ja": "法人税 商業権購入1", "en": "Corporate commercial rights 1" } },
+          { "title": { "ko": "개인세 상업권 구매 (디자인 X)", "ja": "個人税 商業権購入（デザイン無）", "en": "Individual commercial rights (no design)" }, "priceText": "[₩500,000]", "price": 500000, "outputLabel": { "ko": "개인세 상업권 구매 2", "ja": "個人税 商業権購入2", "en": "Individual commercial rights 2" } },
+          { "title": { "ko": "기업세 상업권 구매 (디자인 필요)", "ja": "法人税 商業権購入（デザイン有）", "en": "Corporate commercial rights (with design)" }, "priceText": "[₩1,500,000]", "price": 1500000, "outputLabel": { "ko": "기업세 상업권 구매 (디자인 포함)", "ja": "法人税 商業権購入（デザイン有）", "en": "Corporate commercial rights (with design)" } },
+          { "title": { "ko": "개인세 상업권 구매 (디자인 필요)", "ja": "個人税 商業権購入（デザイン有）", "en": "Individual commercial rights (with design)" }, "priceText": "[₩600,000]", "price": 600000, "outputLabel": { "ko": "개인세 상업권 구매 (디자인 포함)", "ja": "個人税 商業権購入（デザイン有）", "en": "Individual commercial rights (with design)" } },
+          { "title": { "ko": "미구매", "ja": "未購入", "en": "Not purchasing" }, "priceText": "", "price": 0, "outputLabel": { "ko": "미구매", "ja": "未購入", "en": "Not purchasing" } }
         ]
       },
-      "appearance": {
-        "label": "캐릭터 외관 설정",
-        "placeholder": "성별, 나이 및 키, 정확한 색상정보, 의상, 성격, 분위기, 체형, 표정 등을 작성해주세요."
-      },
       "collabArtist": {
-        "label": "협업작가 선택",
-        "defaultValue": "없음(+0원)",
+        "defaultValue": { "ko": "없음(+0원)", "ja": "なし(+0円)", "en": "None (+₩0)" },
         "options": [
-          {
-            "title": "네코노바 작가님 - 일러스트 할인",
-            "priceText": "[-₩50,000]",
-            "price": -50000,
-            "outputLabel": "네코노바 작가님 - 일러스트 할인"
-          },
-          {
-            "title": "아스레 작가님 -일러스트 할인",
-            "priceText": "[-₩100,000]",
-            "price": -100000,
-            "outputLabel": "아스레 작가님 - 일러스트 할인"
-          },
-          {
-            "title": "보현 작가님 - 일러스트 할인",
-            "priceText": "[-₩50,000]",
-            "price": -50000,
-            "outputLabel": "보현 작가님 - 일러스트 할인"
-          },
-          {
-            "title": "Eyrn 작가님 - 일러스트 할인 및 추가표정 2(표정 총 5개)",
-            "priceText": "[-₩50,000]",
-            "price": -50000,
-            "outputLabel": "Eyrn 작가님 - 일러스트 할인 및 추가표정 2(표정 총 5개)"
-          },
-          {
-            "title": "KuA 작가님 - 일러스트 할인 및 추가표정 2(표정 총 5개)",
-            "priceText": "[-₩80,000]",
-            "price": -80000,
-            "outputLabel": "KuA 작가님 - 일러스트 할인 및 추가표정 2(표정 총 5개)"
-          },
-          {
-            "title": "루가 작가님 - 일러스트 할인",
-            "priceText": "[-₩100,000]",
-            "price": -100000,
-            "outputLabel": "루가 작가님 - 일러스트 할인"
-          },
-          {
-            "title": "없음",
-            "priceText": "",
-            "price": 0,
-            "outputLabel": "없음"
-          }
+          { "title": { "ko": "네코노바 작가님 - 일러스트 할인", "ja": "ネコノバ先生 - イラスト割引", "en": "Nekonova - Illustration discount" }, "priceText": "[-₩50,000]", "price": -50000, "outputLabel": { "ko": "네코노바 작가님 - 일러스트 할인", "ja": "ネコノバ先生 - イラスト割引", "en": "Nekonova - Illustration discount" } },
+          { "title": { "ko": "아스레 작가님 - 일러스트 할인", "ja": "アスレ先生 - イラスト割引", "en": "Asrae - Illustration discount" }, "priceText": "[-₩100,000]", "price": -100000, "outputLabel": { "ko": "아스레 작가님 - 일러스트 할인", "ja": "アスレ先生 - イラスト割引", "en": "Asrae - Illustration discount" } },
+          { "title": { "ko": "보현 작가님 - 일러스트 할인", "ja": "ボヒョン先生 - イラスト割引", "en": "Bohyun - Illustration discount" }, "priceText": "[-₩50,000]", "price": -50000, "outputLabel": { "ko": "보현 작가님 - 일러스트 할인", "ja": "ボヒョン先生 - イラスト割引", "en": "Bohyun - Illustration discount" } },
+          { "title": { "ko": "Eryn 작가님 - 일러스트 할인 및 추가표정 2", "ja": "Eryn先生 - イラスト割引および追加表情2", "en": "Eryn - Illustration discount + 2 bonus expressions" }, "priceText": "[-₩50,000]", "price": -50000, "outputLabel": { "ko": "Eryn 작가님 - 일러스트 할인 및 추가표정 2(표정 총 5개)", "ja": "Eryn先生 - イラスト割引および追加表情2（計5種）", "en": "Eryn - Illustration discount + 2 bonus expressions (5 total)" } },
+          { "title": { "ko": "KuA 작가님 - 일러스트 할인 및 추가표정 2", "ja": "KuA先生 - イラスト割引および追加表情2", "en": "KuA - Illustration discount + 2 bonus expressions" }, "priceText": "[-₩80,000]", "price": -80000, "outputLabel": { "ko": "KuA 작가님 - 일러스트 할인 및 추가표정 2(표정 총 5개)", "ja": "KuA先生 - イラスト割引および追加表情2（計5種）", "en": "KuA - Illustration discount + 2 bonus expressions (5 total)" } },
+          { "title": { "ko": "루가 작가님 - 일러스트 할인", "ja": "ルガ先生 - イラスト割引", "en": "Ruga - Illustration discount" }, "priceText": "[-₩100,000]", "price": -100000, "outputLabel": { "ko": "루가 작가님 - 일러스트 할인", "ja": "ルガ先生 - イラスト割引", "en": "Ruga - Illustration discount" } },
+          { "title": { "ko": "없음", "ja": "なし", "en": "None" }, "priceText": "", "price": 0, "outputLabel": { "ko": "없음", "ja": "なし", "en": "None" } }
         ]
       },
       "copyrightBuy": {
-        "label": "저작권 구매 여부",
-        "defaultValue": "미선택",
+        "defaultValue": { "ko": "미선택", "ja": "未選択", "en": "Not selected" },
         "options": [
-          "구매",
-          "미구매"
+          { "ko": "구매", "ja": "購入", "en": "Purchase" },
+          { "ko": "미구매", "ja": "未購入", "en": "Not purchasing" }
         ]
       },
       "privateUse": {
-        "label": "비공개 항목",
-        "defaultValue": "미선택",
+        "defaultValue": { "ko": "미선택", "ja": "未選択", "en": "Not selected" },
         "options": [
-          {
-            "title": "포트폴리오 영구 비공개",
-            "priceText": "[₩1,000,000]",
-            "price": 1000000,
-            "outputLabel": "포트폴리오 영구 비공개"
-          },
-          {
-            "title": "완성일로 부터 1달 이상 비공개 시 한달간 추가금 (협업작가 해당 X)",
-            "priceText": "[₩20,000]",
-            "price": 20000,
-            "outputLabel": "한달 이상 비공개"
-          },
-          {
-            "title": "공개 가능",
-            "priceText": "",
-            "price": 0,
-            "outputLabel": "공개 가능"
-          }
+          { "title": { "ko": "포트폴리오 영구 비공개", "ja": "ポートフォリオ永久非公開", "en": "Permanent portfolio privacy" }, "priceText": "[₩1,000,000]", "price": 1000000, "outputLabel": { "ko": "포트폴리오 영구 비공개", "ja": "ポートフォリオ永久非公開", "en": "Permanent portfolio privacy" } },
+          { "title": { "ko": "완성일로부터 1달 이상 비공개", "ja": "完成日から1ヶ月以上非公開", "en": "Non-public for 1+ month after completion" }, "priceText": "[₩20,000]", "price": 20000, "outputLabel": { "ko": "한달 이상 비공개", "ja": "1ヶ月以上非公開", "en": "1+ month non-public" } },
+          { "title": { "ko": "공개 가능", "ja": "公開可能", "en": "Public OK" }, "priceText": "", "price": 0, "outputLabel": { "ko": "공개 가능", "ja": "公開可能", "en": "Public OK" } }
         ]
-      },
-      "etc": {
-        "label": "기타 문의내용",
-        "placeholder": "기타 요청사항이 있으면 작성해주세요. 없으면 비워두셔도 됩니다."
       }
     },
     "baseOptions": [
-      {
-        "title": "이벤트 전신 아바타 일러스트",
-        "description": "표정 3개, 시안 2개, 파츠분리",
-        "priceText": "₩1,000,000",
-        "price": 1000000,
-        "outputLabel": "전신 아바타 일러스트 (표정 3개 포함)"
-      },
-      {
-        "title": "전신 아바타 일러스트",
-        "description": "표정 3개, 시안 2개, 하체제외 파츠분리",
-        "priceText": "₩800,000",
-        "price": 800000,
-        "outputLabel": "전신 아바타 일러스트 (표정 3개 포함)"
-      },
-      {
-        "title": "반신 아바타 일러스트",
-        "description": "표정 3개, 시안 2개, 파츠분리",
-        "priceText": "₩600,000",
-        "price": 600000,
-        "outputLabel": "반신 아바타 일러스트 (표정 3개 포함)"
-      }
+      { "title": { "ko": "이벤트 전신 아바타 일러스트", "ja": "イベント全身アバターイラスト", "en": "Event Full-Body Avatar Illustration" }, "description": { "ko": "표정 3개, 시안 2개, 파츠분리", "ja": "表情3種、ラフ2種、パーツ分離", "en": "3 expressions, 2 drafts, parts separation" }, "priceText": "₩1,000,000", "price": 1000000, "outputLabel": { "ko": "이벤트 전신 아바타 일러스트 (표정 3개 포함)", "ja": "イベント全身アバターイラスト（表情3種含む）", "en": "Event full-body avatar illustration (3 expressions incl.)" } },
+      { "title": { "ko": "전신 아바타 일러스트", "ja": "全身アバターイラスト", "en": "Full-Body Avatar Illustration" }, "description": { "ko": "표정 3개, 시안 2개, 하체제외 파츠분리", "ja": "表情3種、ラフ2種、下半身除くパーツ分離", "en": "3 expressions, 2 drafts, parts separation (excl. lower body)" }, "priceText": "₩800,000", "price": 800000, "outputLabel": { "ko": "전신 아바타 일러스트 (표정 3개 포함)", "ja": "全身アバターイラスト（表情3種含む）", "en": "Full-body avatar illustration (3 expressions incl.)" } },
+      { "title": { "ko": "반신 아바타 일러스트", "ja": "半身アバターイラスト", "en": "Half-Body Avatar Illustration" }, "description": { "ko": "표정 3개, 시안 2개, 파츠분리", "ja": "表情3種、ラフ2種、パーツ分離", "en": "3 expressions, 2 drafts, parts separation" }, "priceText": "₩600,000", "price": 600000, "outputLabel": { "ko": "반신 아바타 일러스트 (표정 3개 포함)", "ja": "半身アバターイラスト（表情3種含む）", "en": "Half-body avatar illustration (3 expressions incl.)" } }
     ],
     "addonOptions": [
-      {
-        "title": "온오프 장식 등",
-        "priceText": "₩100,000",
-        "price": 100000,
-        "outputLabel": "온오프 장식 등"
-      },
-      {
-        "title": "엉덩이 밑까지 오는 긴헤어",
-        "priceText": "₩100,000",
-        "price": 100000,
-        "outputLabel": "엉덩이 밑까지 오는 긴헤어"
-      },
-      {
-        "title": "헤어 (복잡한 변형)",
-        "priceText": "₩50,000",
-        "price": 50000,
-        "outputLabel": "헤어 (복잡한 변형)"
-      },
-      {
-        "title": "신헤어(전체 변형)",
-        "priceText": "350,000",
-        "price": 350000,
-        "outputLabel": "신헤어(전체 변형)"
-      },
-      {
-        "title": "신헤어(뒷머리 변형)",
-        "priceText": "₩200,000",
-        "price": 200000,
-        "outputLabel": "신헤어(뒷머리 변형)"
-      },
-      {
-        "title": "동물귀, 꼬리, 유사 파츠",
-        "priceText": "₩50,000~",
-        "price": 50000,
-        "outputLabel": "동물귀, 꼬리 등"
-      },
-      {
-        "title": "소품",
-        "priceText": "₩50,000~",
-        "price": 50000,
-        "outputLabel": "소품"
-      },
-      {
-        "title": "신의상",
-        "priceText": "₩350,000~",
-        "price": 350000,
-        "outputLabel": "신의상"
-      },
-      {
-        "title": "손포즈",
-        "priceText": "₩80,000",
-        "price": 80000,
-        "outputLabel": "손포즈"
-      },
-      {
-        "title": "오브젝트 & 추가팔",
-        "priceText": "₩150,000~",
-        "price": 150000,
-        "outputLabel": "오브젝트 & 추가팔"
-      },
-      {
-        "title": "추가시안",
-        "priceText": "₩50,000",
-        "price": 50000,
-        "outputLabel": "추가시안"
-      },
-      {
-        "title": "삼면도 단색",
-        "priceText": "₩200,000",
-        "price": 200000,
-        "outputLabel": "삼면도 단색"
-      },
-      {
-        "title": "비대칭 포즈",
-        "priceText": "₩150,000",
-        "price": 150000,
-        "outputLabel": "비대칭 포즈"
-      },
-      {
-        "title": "표정추가",
-        "priceText": "₩10,000",
-        "price": 10000,
-        "outputLabel": "표정추가"
-      },
-      {
-        "title": "얼굴 전체가 변하는 표정",
-        "priceText": "₩30,000",
-        "price": 30000,
-        "outputLabel": "얼굴 전체가 변하는 표정"
-      },
-      {
-        "title": "디스코드 실시간 컨펌",
-        "priceText": "₩15,000",
-        "price": 15000,
-        "outputLabel": "디스코드 실시간 컨펌"
-      },
-      
-      {
-        "title": "핸드트래킹",
-        "priceText": "₩400,000",
-        "price": 400000,
-        "outputLabel": "핸드트래킹"
-      },
-      {
-        "title": "SD전신",
-        "priceText": "₩200,000",
-        "price": 200000,
-        "outputLabel": "SD전신"
-      },
-      {
-        "title": "맨몸 풀 채색",
-        "priceText": "₩300,000",
-        "price": 300000,
-        "outputLabel": "맨몸 풀 채색"
-      },
-      {
-        "title": "전신[이벤트]",
-        "priceText": "₩800,000",
-        "price": 800000,
-        "outputLabel": "전신[이벤트]"
-      },
-      {
-        "title": "리뷰이벤트",
-        "priceText": "",
-        "price": 0,
-        "outputLabel": "리뷰이벤트"
-      }
-      
+      { "title": { "ko": "온오프 장식 등", "ja": "オンオフ装飾など", "en": "On/Off Toggle Decorations" }, "priceText": "₩100,000", "price": 100000, "outputLabel": { "ko": "온오프 장식 등", "ja": "オンオフ装飾など", "en": "On/Off decorations" } },
+      { "title": { "ko": "엉덩이 밑까지 오는 긴헤어", "ja": "腰より長いヘア", "en": "Hair Below the Hips" }, "priceText": "₩100,000", "price": 100000, "outputLabel": { "ko": "엉덩이 밑까지 오는 긴헤어", "ja": "腰より長いヘア", "en": "Hair below hips" } },
+      { "title": { "ko": "헤어 (복잡한 변형)", "ja": "ヘア（複雑な変形）", "en": "Hair (Complex Variation)" }, "priceText": "₩50,000", "price": 50000, "outputLabel": { "ko": "헤어 (복잡한 변형)", "ja": "ヘア（複雑な変形）", "en": "Hair (complex variation)" } },
+      { "title": { "ko": "신헤어(전체 변형)", "ja": "新ヘア（全体変形）", "en": "New Hair (Full)" }, "priceText": "₩350,000", "price": 350000, "outputLabel": { "ko": "신헤어(전체 변형)", "ja": "新ヘア（全体変形）", "en": "New hair (full)" } },
+      { "title": { "ko": "신헤어(뒷머리 변형)", "ja": "新ヘア（後ろ髪変形）", "en": "New Hair (Back Only)" }, "priceText": "₩200,000", "price": 200000, "outputLabel": { "ko": "신헤어(뒷머리 변형)", "ja": "新ヘア（後ろ髪変形）", "en": "New hair (back only)" } },
+      { "title": { "ko": "동물귀, 꼬리, 유사 파츠", "ja": "獣耳・尻尾・類似パーツ", "en": "Animal Ears, Tail, Similar Parts" }, "priceText": "₩50,000~", "price": 50000, "outputLabel": { "ko": "동물귀, 꼬리 등", "ja": "獣耳・尻尾など", "en": "Animal ears, tail, etc." } },
+      { "title": { "ko": "소품", "ja": "小物", "en": "Props" }, "priceText": "₩50,000~", "price": 50000, "outputLabel": { "ko": "소품", "ja": "小物", "en": "Props" } },
+      { "title": { "ko": "신의상", "ja": "新衣装", "en": "New Outfit" }, "priceText": "₩350,000~", "price": 350000, "outputLabel": { "ko": "신의상", "ja": "新衣装", "en": "New outfit" } },
+      { "title": { "ko": "손포즈", "ja": "ハンドポーズ", "en": "Hand Pose" }, "priceText": "₩80,000", "price": 80000, "outputLabel": { "ko": "손포즈", "ja": "ハンドポーズ", "en": "Hand pose" } },
+      { "title": { "ko": "오브젝트 & 추가팔", "ja": "オブジェクト & 追加アーム", "en": "Object & Extra Arm" }, "priceText": "₩150,000~", "price": 150000, "outputLabel": { "ko": "오브젝트 & 추가팔", "ja": "オブジェクト & 追加アーム", "en": "Object & extra arm" } },
+      { "title": { "ko": "추가시안", "ja": "追加ラフ", "en": "Extra Draft" }, "priceText": "₩50,000", "price": 50000, "outputLabel": { "ko": "추가시안", "ja": "追加ラフ", "en": "Extra draft" } },
+      { "title": { "ko": "삼면도 단색", "ja": "三面図（単色）", "en": "3-View Sheet (Flat Color)" }, "priceText": "₩200,000", "price": 200000, "outputLabel": { "ko": "삼면도 단색", "ja": "三面図（単色）", "en": "3-view sheet (flat color)" } },
+      { "title": { "ko": "비대칭 포즈", "ja": "非対称ポーズ", "en": "Asymmetric Pose" }, "priceText": "₩150,000", "price": 150000, "outputLabel": { "ko": "비대칭 포즈", "ja": "非対称ポーズ", "en": "Asymmetric pose" } },
+      { "title": { "ko": "표정추가", "ja": "表情追加", "en": "Extra Expression" }, "priceText": "₩10,000", "price": 10000, "outputLabel": { "ko": "표정추가", "ja": "表情追加", "en": "Extra expression" } },
+      { "title": { "ko": "얼굴 전체가 변하는 표정", "ja": "顔全体が変わる表情", "en": "Full-Face Expression" }, "priceText": "₩30,000", "price": 30000, "outputLabel": { "ko": "얼굴 전체가 변하는 표정", "ja": "顔全体が変わる表情", "en": "Full-face expression" } },
+      { "title": { "ko": "디스코드 실시간 컨펌", "ja": "Discordリアルタイム確認", "en": "Discord Live Review" }, "priceText": "₩15,000", "price": 15000, "outputLabel": { "ko": "디스코드 실시간 컨펌", "ja": "Discordリアルタイム確認", "en": "Discord live review" } },
+      { "title": { "ko": "핸드트래킹", "ja": "ハンドトラッキング", "en": "Hand Tracking" }, "priceText": "₩400,000", "price": 400000, "outputLabel": { "ko": "핸드트래킹", "ja": "ハンドトラッキング", "en": "Hand tracking" } },
+      { "title": { "ko": "SD전신", "ja": "SD全身", "en": "SD Full Body" }, "priceText": "₩200,000", "price": 200000, "outputLabel": { "ko": "SD전신", "ja": "SD全身", "en": "SD full body" } },
+      { "title": { "ko": "맨몸 풀 채색", "ja": "素体フルカラー", "en": "Bare Body Full Color" }, "priceText": "₩300,000", "price": 300000, "outputLabel": { "ko": "맨몸 풀 채색", "ja": "素体フルカラー", "en": "Bare body full color" } },
+      { "title": { "ko": "전신[이벤트]", "ja": "全身【イベント】", "en": "Full Body [Event]" }, "priceText": "₩800,000", "price": 800000, "outputLabel": { "ko": "전신[이벤트]", "ja": "全身【イベント】", "en": "Full body [event]" } },
+      { "title": { "ko": "리뷰이벤트", "ja": "レビューイベント", "en": "Review Event" }, "priceText": "", "price": 0, "outputLabel": { "ko": "리뷰이벤트", "ja": "レビューイベント", "en": "Review event" } }
     ],
-
     "faceOptions": [
-      {
-        "title": "정색",
-        "price": 0,
-        "outputLabel": "정색"
-      },
-      {
-        "title": "반짝",
-        "price": 0,
-        "outputLabel": "반짝"
-      },
-      {
-        "title": "하트",
-        "price": 0,
-        "outputLabel": "하트"
-      },
-      {
-        "title": "눈물",
-        "price": 0,
-        "outputLabel": "눈물"
-      },
-      {
-        "title": "죽은 눈",
-        "price": 0,
-        "outputLabel": "죽은 눈"
-      },
-      {
-        "title": "홍조",
-        "price": 0,
-        "outputLabel": "홍조"
-      },
-      {
-        "title": "볼빵빵",
-        "price": 0,
-        "outputLabel": "볼빵빵"
-      },
-      {
-        "title": "헤롱",
-        "price": 0,
-        "outputLabel": "헤롱"
-      },
-      {
-        "title": "표정 의뢰",
-        "price": 0,
-        "outputLabel": "표정 의뢰"
-      }
-      
-      
-    ],
-
-
-
-    "outputText": {
-      "greeting": "안녕하세요. 신청 문의드립니다.",
-      "closing": "감사합니다!",
-      "noAddonText": "없음",
-      "labels": {
-        "nickname": "방송 닉네임",
-        "businessType": "기업세 / 개인세",
-        "appearance": "캐릭터 외관 설정",
-        "total": "선택 합계",
-        "platform": "방송 플랫폼 & 닉네임",
-        "collabArtist": "협업작가 선택",
-        "debutDate": "데뷔 예정일",
-        "copyrightBuy": "저작권 구매항목",
-        "privateUse": "비공개 항목",
-        "baseOption": "기본 옵션",
-        "addonOption": "추가 옵션",
-        "faceOption": "표정 옵션",
-        "etc": "기타 문의내용"
-      },
-      "fallbacks": {
-        "nickname": "미작성",
-        "businessType": "미작성",
-        "appearance": "미작성",
-        "platform": "미작성",
-        "collabArtist": "없음",
-        "debutDate": "미작성",
-        "copyrightBuy": "미선택",
-        "privateUse": "미선택",
-        "etc": "없음"
-      }
-    }
+      { "title": { "ko": "정색", "ja": "真顔", "en": "Serious" }, "price": 0, "outputLabel": { "ko": "정색", "ja": "真顔", "en": "Serious" } },
+      { "title": { "ko": "반짝", "ja": "キラキラ", "en": "Sparkling" }, "price": 0, "outputLabel": { "ko": "반짝", "ja": "キラキラ", "en": "Sparkling" } },
+      { "title": { "ko": "하트", "ja": "ハート", "en": "Heart Eyes" }, "price": 0, "outputLabel": { "ko": "하트", "ja": "ハート", "en": "Heart Eyes" } },
+      { "title": { "ko": "눈물", "ja": "涙", "en": "Teary" }, "price": 0, "outputLabel": { "ko": "눈물", "ja": "涙", "en": "Teary" } },
+      { "title": { "ko": "죽은 눈", "ja": "死んだ目", "en": "Dead Eyes" }, "price": 0, "outputLabel": { "ko": "죽은 눈", "ja": "死んだ目", "en": "Dead Eyes" } },
+      { "title": { "ko": "홍조", "ja": "照れ顔", "en": "Blushing" }, "price": 0, "outputLabel": { "ko": "홍조", "ja": "照れ顔", "en": "Blushing" } },
+      { "title": { "ko": "볼빵빵", "ja": "ほっぺふくらみ", "en": "Puffed Cheeks" }, "price": 0, "outputLabel": { "ko": "볼빵빵", "ja": "ほっぺふくらみ", "en": "Puffed Cheeks" } },
+      { "title": { "ko": "헤롱", "ja": "とろとろ", "en": "Dazed" }, "price": 0, "outputLabel": { "ko": "헤롱", "ja": "とろとろ", "en": "Dazed" } },
+      { "title": { "ko": "표정 의뢰", "ja": "表情依頼", "en": "Custom Expression" }, "price": 0, "outputLabel": { "ko": "표정 의뢰", "ja": "表情依頼", "en": "Custom Expression" } }
+    ]
   }
 }
