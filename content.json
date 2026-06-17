@@ -86,7 +86,7 @@
     ]
   },
   "posters": [
-    { "no": "NO.1", "image": "images/poster/poster1.png", "name": { "ko": "엔서스", "ja": "エンサス", "en": "Ensus" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "販売予定モデルです。", "en": "Model available for sale." }, "forSale": true },
+    { "no": "NO.1", "image": "images/poster/poster1.png", "name": { "ko": "엔서스", "ja": "エンサス", "en": "Ensus" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "販売予定モデルです。", "en": "Model available for sale." }, "forSale": false },
     { "no": "NO.2", "image": "images/poster/poster2.png", "name": { "ko": "협업 모델 샘플", "ja": "コラボモデルサンプル", "en": "Collab Model Sample" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "ポスターサンプルです。", "en": "Poster sample." }, "forSale": false },
     { "no": "NO.3", "image": "images/poster/poster3.png", "name": { "ko": "아야린", "ja": "アヤリン", "en": "Ayarin" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "ポスターサンプルです。", "en": "Poster sample." }, "forSale": false },
     { "no": "NO.4", "image": "images/poster/poster4.png", "name": { "ko": "리아 설", "ja": "リア・ソル", "en": "Ria Seol" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "ポスターサンプルです。", "en": "Poster sample." }, "forSale": false },
