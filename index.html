@@ -8,51 +8,33 @@
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap');
     * { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #dedddb;
-      --panel-bg: #f8f4ec;
-      --panel-border: #d7ccb9;
-      --panel-shadow: rgba(96,84,67,0.08);
-      --text-main: #2f2a25;
-      --text-sub: #74695f;
-      --text-soft: #8d8278;
-      --chip-bg: #efe7d8;
-      --chip-border: #d8cab2;
-      --box-bg: #fcfaf6;
-      --box-border: #e2d8c8;
-      --accent-brown: #7b6955;
-      --accent-gold: #d8c07d;
-      --accent-gold-deep: #b79d55;
-      --accent-rose: #cfaebc;
-      --accent-rose-deep: #a47b93;
-      --button-primary: #8b7967;
-      --button-primary-text: #fffdf8;
-      --button-secondary: #efe6d9;
-      --button-secondary-text: #5f554b;
-      --menu-card: #fbf8f2;
-      --menu-border: #e1d7c7;
-      --gold-soft: #fbf4df;
-      --gold-mid: #f2e2ac;
-      --gold-border: #d9c06f;
-      --gold-text: #5b4c24;
-      --tag-radius: 999px;
-      --closed-bg: #eee9e3;
-      --closed-border: #d5c9b6;
-      --closed-text: #7a6a5a;
-      --open-bg-from: #faf4dd;
-      --open-bg-to: #f3e7b6;
-      --open-border: #d7c274;
-      --open-text: #5e512b;
+      --bg: #dedddb; --panel-bg: #f8f4ec; --panel-border: #d7ccb9;
+      --panel-shadow: rgba(96,84,67,0.08); --text-main: #2f2a25; --text-sub: #74695f;
+      --text-soft: #8d8278; --chip-bg: #efe7d8; --chip-border: #d8cab2;
+      --box-bg: #fcfaf6; --box-border: #e2d8c8; --accent-brown: #7b6955;
+      --accent-gold: #d8c07d; --accent-gold-deep: #b79d55; --accent-rose: #cfaebc;
+      --accent-rose-deep: #a47b93; --button-primary: #8b7967; --button-primary-text: #fffdf8;
+      --button-secondary: #efe6d9; --button-secondary-text: #5f554b;
+      --menu-card: #fbf8f2; --menu-border: #e1d7c7; --gold-soft: #fbf4df;
+      --gold-mid: #f2e2ac; --gold-border: #d9c06f; --gold-text: #5b4c24;
+      --tag-radius: 999px; --closed-bg: #eee9e3; --closed-border: #d5c9b6;
+      --closed-text: #7a6a5a; --open-bg-from: #faf4dd; --open-bg-to: #f3e7b6;
+      --open-border: #d7c274; --open-text: #5e512b;
     }
     html { scroll-behavior: smooth; }
     body { font-family: "Noto Sans KR","Pretendard",sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.6; min-height: 100vh; }
     body[lang="ja"] { font-family: "Noto Sans JP","Noto Sans KR",sans-serif; }
-    body[lang="en"] { font-family: "Noto Sans KR",sans-serif; }
 
+    /* ── LANG BAR ── */
     .lang-bar { position: sticky; top: 0; z-index: 200; background: rgba(248,244,236,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--panel-border); display: flex; align-items: center; justify-content: flex-end; gap: 6px; padding: 8px 24px; }
     .lang-btn { appearance: none; border: 1.5px solid var(--chip-border); background: var(--chip-bg); color: var(--accent-brown); border-radius: var(--tag-radius); padding: 5px 14px; font-size: 12px; font-weight: 800; cursor: pointer; font-family: inherit; transition: background 0.18s, border-color 0.18s, transform 0.15s; }
     .lang-btn:hover { background: #efe0cc; transform: translateY(-1px); }
     .lang-btn.active { background: linear-gradient(135deg,#e8d9b5,#d8c07d); border-color: var(--accent-gold-deep); color: var(--gold-text); box-shadow: 0 2px 8px rgba(183,157,85,0.2); }
     .lang-bar-label { font-size: 11px; color: var(--text-soft); font-weight: 700; margin-right: 4px; }
+
+    /* ── BANNER ── */
+    .site-banner { width: 70%; margin: 0 auto; max-height: 320px; overflow: hidden; background: var(--chip-bg); display: block; line-height: 0; }
+    .site-banner img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
 
     .page { max-width: 1000px; margin: 0 auto; padding: 32px 20px 80px; }
     .panel { background: var(--panel-bg); border: 1.5px solid var(--panel-border); border-radius: 24px; box-shadow: 0 8px 32px var(--panel-shadow); padding: 28px 28px 32px; margin-bottom: 24px; position: relative; }
@@ -65,6 +47,7 @@
     .section-title { font-size: 26px; font-weight: 900; color: var(--text-main); margin-bottom: 6px; letter-spacing: -0.02em; }
     .section-sub { font-size: 13px; color: var(--text-sub); margin-bottom: 20px; }
 
+    /* ── INTRO ── */
     .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .intro-text-box { background: linear-gradient(135deg,#fdf9f2,#f8f1e4); border: 1.5px solid var(--panel-border); border-radius: 18px; padding: 22px; }
     .intro-greeting { font-size: 17px; font-weight: 900; color: var(--accent-brown); margin-bottom: 12px; }
@@ -73,13 +56,13 @@
     .slot-box { background: linear-gradient(160deg,#fdfaf4,#f8f2e6); border: 1.5px solid var(--panel-border); border-radius: 18px; padding: 20px; }
     .slot-box-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
     .slot-box-title { font-size: 15px; font-weight: 900; color: var(--text-main); display: flex; align-items: center; gap: 7px; }
-    .slot-box-title::before { content: "🔸"; font-size: 13px; color: var(--accent-rose-deep); }
+    .slot-box-title::before { content: "🔸"; font-size: 13px; }
     .slot-notice { font-size: 11px; color: var(--text-soft); }
-    .slot-notice-box { margin-top: 14px; padding: 12px 16px; background: linear-gradient(135deg, #fdfaf4, #f4ecd8); border: 1.5px solid var(--chip-border); border-radius: 12px; font-size: 12px; color: var(--text-sub); line-height: 1.7; border-left: 4px solid var(--accent-gold-deep);}
+    .slot-notice-box { margin-top: 14px; padding: 12px 16px; background: linear-gradient(135deg,#fdfaf4,#f4ecd8); border: 1.5px solid var(--chip-border); border-radius: 12px; font-size: 12px; color: var(--text-sub); line-height: 1.7; border-left: 4px solid var(--accent-gold-deep); }
     .slot-calendar { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
     .slot-cell { border-radius: 14px; padding: 10px 8px; text-align: center; border: 1.5px solid; transition: transform 0.18s,box-shadow 0.18s; cursor: default; }
     .slot-cell:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(120,96,60,0.1); }
-    .slot-cell .cal-month { font-size: 15px; font-weight: 700; margin-bottom: 6px; letter-spacing: 0.02em; }
+    .slot-cell .cal-month { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
     .slot-cell .status-dot { width: 7px; height: 7px; border-radius: 50%; margin: 0 auto 5px; }
     .slot-cell .status-label { font-size: 10px; font-weight: 900; letter-spacing: 0.06em; }
     .slot-cell.closed { background: var(--closed-bg); border-color: var(--closed-border); }
@@ -91,19 +74,48 @@
     .slot-cell.open .status-dot { background: var(--accent-gold-deep); box-shadow: 0 0 0 3px rgba(183,157,85,0.25); }
     .slot-cell.open .status-label { color: var(--open-text); }
 
+    /* ── SAMPLE SECTION ── */
     .sample-two-col { display: flex; flex-direction: column; gap: 16px; }
     .card-inner { background: var(--box-bg); border: 1.5px solid var(--box-border); border-radius: 16px; padding: 16px; }
     .card-inner h3 { font-size: 14px; font-weight: 900; color: var(--text-main); margin-bottom: 12px; }
     .sample-card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
     .face-card-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
-    .sample-card { border-radius: 14px; overflow: hidden; background: #fff; border: 1.5px solid var(--box-border); transition: transform 0.2s,box-shadow 0.2s; }
+
+    /* ── SAMPLE CARD ── */
+    .sample-card { border-radius: 14px; overflow: hidden; background: #fff; border: 1.5px solid var(--box-border); transition: transform 0.2s,box-shadow 0.2s; position: relative; }
     .sample-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(120,96,60,0.1); }
-    .sample-thumb { width: 100%; overflow: hidden; background: var(--chip-bg); }
+    .sample-thumb { width: 100%; overflow: hidden; background: var(--chip-bg); position: relative; }
     .sample-thumb img { width: 100%; height: auto; display: block; cursor: zoom-in; }
+
+    /* ── FOR SALE BADGE ── */
+    .sale-badge { position: absolute; top: 7px; right: 7px; z-index: 3; font-size: 10px; font-weight: 900; letter-spacing: 0.04em; padding: 3px 9px; border-radius: var(--tag-radius); pointer-events: none; }
+    .sale-badge.on-sale { background: linear-gradient(135deg,#e8a020,#c07810); color: #fff; box-shadow: 0 2px 8px rgba(192,120,16,0.35); }
+    .sale-badge.sold-out { background: linear-gradient(135deg,#888,#555); color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+
     .sample-info { padding: 8px 10px 10px; }
     .sample-no { font-size: 10px; font-weight: 700; color: var(--text-soft); margin-bottom: 2px; }
     .sample-name { font-size: 13px; font-weight: 900; color: var(--text-main); margin-bottom: 2px; }
     .sample-desc { font-size: 11px; color: var(--text-soft); }
+
+    /* ── SALE MODEL SECTION ── */
+    .sale-model-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin-top: 4px; }
+    .sale-model-card { border-radius: 18px; overflow: hidden; background: #fff; border: 1.5px solid var(--box-border); box-shadow: 0 4px 16px rgba(120,96,60,0.07); transition: transform 0.2s,box-shadow 0.2s; position: relative; }
+    .sale-model-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(120,96,60,0.13); }
+    .sale-model-thumb { position: relative; width: 100%; overflow: hidden; background: var(--chip-bg); aspect-ratio: 3/4; }
+    .sale-model-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; cursor: zoom-in; }
+    .sale-model-status { position: absolute; top: 10px; right: 10px; z-index: 3; font-size: 11px; font-weight: 900; padding: 4px 12px; border-radius: var(--tag-radius); letter-spacing: 0.06em; }
+    .sale-model-status.on-sale { background: linear-gradient(135deg,#e8a020,#c07810); color: #fff; box-shadow: 0 3px 10px rgba(192,120,16,0.35); }
+    .sale-model-status.sold-out { background: linear-gradient(135deg,#9a9a9a,#666); color: #fff; box-shadow: 0 3px 10px rgba(0,0,0,0.2); }
+    .sale-model-status.upcoming { background: linear-gradient(135deg,#a890c8,#8468a8); color: #fff; box-shadow: 0 3px 10px rgba(132,104,168,0.3); }
+    .sale-model-upcoming { border-style: dashed; }
+    .sale-model-upcoming-thumb { width: 100%; height: 100%; position: absolute; inset: 0; background: linear-gradient(145deg,#f4eef8,#ebe0f4); display: flex; align-items: center; justify-content: center; font-size: 36px; color: #c0a8d8; }
+    .sale-model-info { padding: 14px 16px 16px; }
+    .sale-model-no { font-size: 10px; font-weight: 700; color: var(--text-soft); margin-bottom: 2px; }
+    .sale-model-name { font-size: 16px; font-weight: 900; color: var(--text-main); margin-bottom: 4px; }
+    .sale-model-desc { font-size: 12px; color: var(--text-sub); margin-bottom: 10px; line-height: 1.5; }
+    .sale-model-price { font-size: 18px; font-weight: 900; color: var(--gold-text); }
+
+    /* ── VIDEO SLIDER ── */
     .video-slider-wrap { border-radius: 14px; overflow: hidden; background: #f4ede2; border: 1.5px solid var(--box-border); }
     .slide-frame { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #ede5d8; }
     .slide-item { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
@@ -115,6 +127,8 @@
     .slide-dots { display: flex; align-items: center; justify-content: center; gap: 6px; }
     .slide-dot { appearance: none; width: 8px; height: 8px; border: none; border-radius: 50%; background: var(--chip-border); cursor: pointer; padding: 0; transition: width 0.2s,background 0.2s; }
     .slide-dot.active { width: 22px; background: var(--accent-brown); border-radius: var(--tag-radius); }
+
+    /* ── SHOWCASE ── */
     .sample-showcase { margin-top: 18px; background: linear-gradient(135deg,#fdf9f2,#f8f1e8); border: 1.5px solid var(--panel-border); border-radius: 20px; padding: 20px; }
     .showcase-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 800; color: var(--accent-brown); background: var(--chip-bg); border: 1px solid var(--chip-border); border-radius: var(--tag-radius); padding: 3px 10px; margin-bottom: 8px; }
     .showcase-chip::before { content: "💠"; font-size: 9px; }
@@ -127,6 +141,7 @@
     .cat-pill { font-size: 11px; font-weight: 800; color: var(--accent-brown); background: var(--chip-bg); border: 1px solid var(--chip-border); padding: 3px 10px; border-radius: var(--tag-radius); }
     .cat-note { font-size: 12px; color: var(--text-soft); margin-bottom: 10px; }
 
+    /* ── EVENT ── */
     .event-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; }
     .event-card { background: linear-gradient(145deg,#fdf8ee,#f8f0e0); border: 1.5px solid var(--panel-border); border-radius: 20px; padding: 20px; position: relative; overflow: hidden; box-shadow: 0 6px 20px rgba(120,96,60,0.07); }
     .event-card::before { content: ""; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; border-radius: 50%; background: radial-gradient(circle,rgba(216,192,125,0.22),transparent 70%); pointer-events: none; }
@@ -140,7 +155,7 @@
     .event-row:first-child { border-top: none; padding-top: 0; }
     .event-key { font-size: 11px; font-weight: 900; color: var(--accent-brown); padding-top: 2px; }
     .event-val { font-size: 13px; font-weight: 700; color: var(--text-main); }
-    .price-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: space-between;}
+    .price-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: space-between; }
     .price-left { display: flex; flex-direction: column; gap: 2px; }
     .price-old { text-decoration: line-through; color: var(--text-soft); font-size: 12px; }
     .price-disc { color: #b04060; font-size: 13px; font-weight: 900; }
@@ -160,6 +175,7 @@
     .notice-item-key { font-size: 11px; font-weight: 900; color: var(--accent-brown); }
     .notice-item-val { font-size: 12px; font-weight: 600; color: var(--text-sub); line-height: 1.5; }
 
+    /* ── NOTICE BOXES ── */
     .notice-box { border: 1.5px solid var(--box-border); border-radius: 14px; overflow: hidden; margin-bottom: 10px; background: var(--box-bg); }
     .notice-box:last-child { margin-bottom: 0; }
     .notice-box-head { padding: 12px 16px; font-weight: 800; font-size: 14px; color: var(--text-main); background: linear-gradient(90deg,var(--chip-bg),var(--box-bg)); border-bottom: 1px solid var(--box-border); display: flex; align-items: center; gap: 8px; }
@@ -177,12 +193,14 @@
     .license-table tbody td { background: #fff; }
     .license-note { margin-top: 8px; font-size: 11px; color: var(--text-soft); line-height: 1.6; }
 
+    /* ── PROCESS ── */
     .process-steps { display: grid; grid-template-columns: repeat(6,1fr); gap: 8px; margin: 14px 0 0; }
     .process-step { background: linear-gradient(145deg,var(--box-bg),#f4ece0); border: 1.5px solid var(--chip-border); border-radius: 14px; padding: 14px 8px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.18s,box-shadow 0.18s; }
     .process-step:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(120,96,60,0.1); }
     .step-num { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg,var(--accent-brown),#6e5d4a); color: #fff; font-size: 12px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
     .step-label { font-size: 12px; font-weight: 800; color: var(--text-main); line-height: 1.35; }
 
+    /* ── COLLAB ── */
     .collab-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
     .collab-card { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 16/10; cursor: pointer; border: 1.5px solid var(--chip-border); background: var(--chip-bg); box-shadow: 0 6px 20px rgba(120,96,60,0.08); transition: transform 0.22s,box-shadow 0.22s; }
     .collab-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(120,96,60,0.14); }
@@ -196,6 +214,7 @@
     .collab-link-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 900; color: #e8d4a0; text-decoration: none; background: none; border: none; padding: 0; cursor: pointer; }
     .collab-link-btn:hover { text-decoration: underline; color: #fff; }
 
+    /* ── MENU ── */
     .menu-dark-panel { background: linear-gradient(145deg,#faf6ee,#f4eddf); border: 1.5px solid var(--panel-border); border-radius: 20px; padding: 20px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5); }
     .menu-top-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; padding-bottom: 16px; border-bottom: 1px solid var(--chip-border); margin-bottom: 14px; }
     .menu-kicker { font-size: 11px; font-weight: 800; color: var(--accent-brown); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
@@ -210,9 +229,9 @@
     .menu-item.open { box-shadow: 0 6px 20px rgba(120,96,60,0.1); }
     .menu-item-head { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding: 9px 12px; cursor: pointer; }
     .menu-item-icon { width: 30px; height: 30px; border-radius: 9px; background: var(--chip-bg); border: 1px solid var(--chip-border); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; color: var(--accent-brown); }
-    .menu-item-title { font-size: 14px; font-weight: 900; color: var(--text-main); flex: 1; min-width: 120px;}
-    .menu-item-price { font-size: 13px; font-weight: 900; color: var(--gold-text); background: linear-gradient(180deg,#fffefb,#f0e8db); border: 1px solid var(--gold-border); border-radius: var(--tag-radius); padding: 4px 12px; white-space: nowrap; flex-shrink: 0; margin-left: 38px;}
-    .menu-item-toggle { width: 30px; height: 30px; border-radius: 9px; background: var(--chip-bg); border: 1px solid var(--chip-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-left: auto;}
+    .menu-item-title { font-size: 14px; font-weight: 900; color: var(--text-main); flex: 1; min-width: 120px; }
+    .menu-item-price { font-size: 13px; font-weight: 900; color: var(--gold-text); background: linear-gradient(180deg,#fffefb,#f0e8db); border: 1px solid var(--gold-border); border-radius: var(--tag-radius); padding: 4px 12px; white-space: nowrap; flex-shrink: 0; margin-left: 38px; }
+    .menu-item-toggle { width: 30px; height: 30px; border-radius: 9px; background: var(--chip-bg); border: 1px solid var(--chip-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-left: auto; }
     .menu-arrow { width: 8px; height: 8px; border-right: 2.5px solid var(--accent-brown); border-bottom: 2.5px solid var(--accent-brown); transform: rotate(45deg); transition: transform 0.24s; }
     .menu-item.open .menu-arrow { transform: rotate(225deg); }
     .menu-item-body { max-height: 0; overflow: hidden; opacity: 0; padding: 0 14px 0 56px; background: rgba(248,244,236,0.6); border-top: 0px solid var(--menu-border); transition: max-height 0.35s,opacity 0.25s,padding 0.25s,border-top-width 0.2s; }
@@ -221,6 +240,7 @@
     .menu-detail-list { margin: 0; padding-left: 16px; }
     .menu-detail-list li { font-size: 12px; color: var(--text-sub); margin-bottom: 4px; }
 
+    /* ── APPLY FORM ── */
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
     .field { display: flex; flex-direction: column; gap: 7px; position: relative; }
     .field.full { grid-column: 1/-1; }
@@ -241,7 +261,6 @@
     .pretty-option:hover { background: var(--chip-bg); }
     .pretty-option.selected { background: linear-gradient(180deg,#fff4da,#f3e1ac); color: var(--gold-text); box-shadow: inset 0 0 0 1px var(--gold-border); border-radius: 10px; }
     .pretty-option.placeholder-option { color: var(--text-soft); }
-    /* ── BUSINESS TYPE RADIO (2-choice) ── */
     .biz-radio-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .biz-radio-option { position: relative; display: flex; flex-direction: column; gap: 4px; background: linear-gradient(180deg,#fffdf9,#f6efe4); border: 1.5px solid var(--chip-border); border-radius: 14px; padding: 14px 14px 14px 42px; cursor: pointer; transition: border-color 0.2s,background 0.2s,transform 0.2s,box-shadow 0.2s; }
     .biz-radio-option:hover { transform: translateY(-2px); }
@@ -283,6 +302,7 @@
     .btn-secondary:hover { background: #ffe9cf; transform: translateY(-1px); }
     pre.output { margin-top: 14px; white-space: pre-wrap; word-break: break-word; background: var(--box-bg); border: 1.5px solid var(--chip-border); border-radius: 12px; padding: 14px; font-size: 13px; color: var(--text-sub); min-height: 160px; font-family: inherit; }
 
+    /* ── IMAGE MODAL ── */
     .image-modal { position: fixed; inset: 0; background: rgba(27,18,10,0.85); z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.25s; touch-action: none; }
     .image-modal.open { opacity: 1; pointer-events: auto; }
     .image-modal-inner { position: fixed; left: 0; top: 0; width: 100px; height: 100px; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 16px 48px rgba(0,0,0,0.3); will-change: left,top,width,height; transition: left 0.34s cubic-bezier(0.22,1,0.36,1),top 0.34s cubic-bezier(0.22,1,0.36,1),width 0.34s cubic-bezier(0.22,1,0.36,1),height 0.34s cubic-bezier(0.22,1,0.36,1),border-radius 0.34s cubic-bezier(0.22,1,0.36,1); }
@@ -290,8 +310,9 @@
     .image-modal-close { position: fixed; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.15); color: #fff; font-size: 22px; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(6px); z-index: 10000; opacity: 0; transform: scale(0.9); transition: opacity 0.2s,transform 0.2s; }
     .image-modal.open .image-modal-close { opacity: 1; transform: scale(1); }
 
+    /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
-      .intro-grid,.sample-two-col,.event-layout { grid-template-columns: 1fr; }
+      .intro-grid,.event-layout { grid-template-columns: 1fr; }
       .sample-card-grid { grid-template-columns: repeat(3,1fr); }
       .face-card-grid { grid-template-columns: repeat(3,1fr); }
       .radio-group { grid-template-columns: 1fr; }
@@ -301,6 +322,7 @@
       .menu-top-row { flex-direction: column; }
       .panel { padding: 20px 18px 24px; }
       .slot-calendar { grid-template-columns: repeat(4,1fr); }
+      .sale-model-grid { grid-template-columns: repeat(2,1fr); }
     }
     @media (max-width: 640px) {
       .sample-card-grid { grid-template-columns: repeat(2,1fr); }
@@ -311,6 +333,7 @@
       .lang-bar { padding: 7px 14px; gap: 4px; }
       .lang-btn { padding: 4px 10px; font-size: 11px; }
       .biz-radio-group { grid-template-columns: 1fr; }
+      .sale-model-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -323,42 +346,36 @@
   <button type="button" class="lang-btn" data-lang="en">English</button>
 </div>
 
+<!-- 배너 -->
+<div class="site-banner">
+  <img src="images/banner.png" alt="cooing banner" />
+</div>
+
 <div class="page">
   <section class="panel" id="topIntro"></section>
+
   <section class="panel" id="samples">
     <span class="section-label" id="lbl-samples"></span>
     <h1 class="section-title" id="ttl-samples"></h1>
     <p class="section-sub" id="sub-samples"></p>
     <div class="sample-two-col">
+      <!-- 포스터 -->
       <div class="card-inner">
         <h3 id="h-poster"></h3>
-        <div class="sample-card-grid">
-          <div class="sample-card"><div class="sample-thumb"><img src="images/poster/poster1.png" alt="poster1" data-expandable /></div><div class="sample-info"><div class="sample-no">NO.1</div><div class="sample-name" data-i18n="poster1name"></div><div class="sample-desc" data-i18n="poster1desc"></div></div></div>
-          <div class="sample-card"><div class="sample-thumb"><img src="images/poster/poster2.png" alt="poster2" data-expandable /></div><div class="sample-info"><div class="sample-no">NO.2</div><div class="sample-name" data-i18n="poster2name"></div><div class="sample-desc" data-i18n="poster2desc"></div></div></div>
-          <div class="sample-card"><div class="sample-thumb"><img src="images/poster/poster3.png" alt="poster3" data-expandable /></div><div class="sample-info"><div class="sample-no">NO.3</div><div class="sample-name">아야린</div><div class="sample-desc" data-i18n="posterSampleDesc"></div></div></div>
-          <div class="sample-card"><div class="sample-thumb"><img src="images/poster/poster4.png" alt="poster4" data-expandable /></div><div class="sample-info"><div class="sample-no">NO.4</div><div class="sample-name">리아 설</div><div class="sample-desc" data-i18n="posterSampleDesc"></div></div></div>
-          <div class="sample-card"><div class="sample-thumb"><img src="images/poster/poster5.png" alt="poster5" data-expandable /></div><div class="sample-info"><div class="sample-no">NO.5</div><div class="sample-name">박유넬</div><div class="sample-desc" data-i18n="posterSampleDesc"></div></div></div>
-          <div class="sample-card"><div class="sample-thumb"><img src="images/poster/poster6.png" alt="poster6" data-expandable /></div><div class="sample-info"><div class="sample-no">NO.6</div><div class="sample-name">빈터</div><div class="sample-desc" data-i18n="posterSampleDesc"></div></div></div>
-        </div>
+        <div class="sample-card-grid" id="posterGrid"></div>
       </div>
-      <div class="card-inner">
-        <h3 id="h-video"></h3>
-        <div class="video-slider-wrap">
-          <div class="slide-frame" id="videoSlider">
-            <div class="slide-item active"><iframe src="https://www.youtube.com/embed/nKnbNQM_E6Y" title="sample1" frameborder="0" allowfullscreen></iframe></div>
-            <div class="slide-item"><iframe src="https://www.youtube.com/embed/u9pkq4Gwj9c" title="sample2" frameborder="0" allowfullscreen></iframe></div>
-            <div class="slide-item"><iframe src="https://www.youtube.com/embed/6W68Cqy4hR4" title="sample3" frameborder="0" allowfullscreen></iframe></div>
-            <div class="slide-item"><iframe src="https://www.youtube.com/embed/GSNXmsDC6VY" title="sample4" frameborder="0" allowfullscreen></iframe></div>
-            <div class="slide-item"><iframe src="https://www.youtube.com/embed/zM50eZXTxVY" title="sample5" frameborder="0" allowfullscreen></iframe></div>
-          </div>
-          <div class="slider-controls">
-            <button type="button" class="slide-control-btn" id="videoPrevBtn" data-i18n="prev"></button>
-            <div class="slide-dots" id="videoDots"></div>
-            <button type="button" class="slide-control-btn" id="videoNextBtn" data-i18n="next"></button>
-          </div>
-        </div>
+
+      <!-- ★ 판매 모델 칸 (포스터와 영상 사이) -->
+      <div class="card-inner" id="saleModelSection">
+        <h3 id="h-sale-model"></h3>
+        <div class="sale-model-grid" id="saleModelGrid"></div>
       </div>
+
+      <!-- 영상 -->
+      <div class="card-inner" id="videoCardInner" style="position:relative;"></div>
     </div>
+
+    <!-- 쇼케이스 -->
     <div class="sample-showcase">
       <div class="showcase-chip">Sample Preview</div>
       <div class="showcase-title" data-i18n="showcaseTitle"></div>
@@ -416,16 +433,14 @@ const I18N = {
   ko: {
     langBarLabel:"언어 :",
     lblSamples:"01 — Live2D 작업 샘플", ttlSamples:"버튜버 Live2D 작업 페이지", subSamples:"포스터 / 리깅 영상 / 샘플 메뉴를 한 페이지에서 확인할 수 있도록 구성한 페이지입니다.",
-    hPoster:"포스터 및 사진", hVideo:"작업 샘플",
+    hPoster:"포스터 및 사진", hVideo:"작업 샘플", hSaleModel:"판매 모델",
     prev:"이전", next:"다음",
     showcaseTitle:"샘플", showcaseSub:"표정 및 디자인 샘플입니다.",
     faceSampleTitle:"표정 샘플", faceSampleNote:"없는 표정도 의뢰 가능합니다.",
     designSampleTitle:"디자인 샘플",
-    poster1name:"엔서스", poster1desc:"포스터 샘플입니다.",
-    poster2name:"협업 모델 샘플", poster2desc:"포스터 샘플입니다.",
-    posterSampleDesc:"포스터 샘플입니다.",
-    face4name:"눈물 표정", face5name:"죽은 눈 표정", face6name:"홍조 표정", face8name:"헤롱 표정",
     designBuyableDesc:"협업 샘플 제작 예정입니다.", designCollabDesc:"협업 샘플 제작 예정입니다.",
+    face4name:"눈물 표정", face5name:"죽은 눈 표정", face6name:"홍조 표정", face8name:"헤롱 표정",
+    badgeSale:"판매중", badgeSoldOut:"판매완료", badgeUpcoming:"준비중",
     evtKey1:"종류", evtKey2:"기간", evtKey3:"이벤트 내용", evtKey4:"안내",
     evtClosed:"이벤트가 종료되었습니다",
     noticeKey:"안내",
@@ -439,15 +454,10 @@ const I18N = {
     collab6desc:"리깅 무상지원 표정 3개 + 5~10만원 할인\n일러 10만원 할인\n월페이퍼, sd 선착순 2명 30% 할인",
     expandAll:"전체 펼치기", collapseAll:"전체 접기",
     addonHint:"의상 · 헤어는 먼저 문의 후 선택해 주세요",
-    copySuccess:"문의 내용이 복사되었습니다.",
-    copyFail:"복사에 실패했습니다. 직접 선택해서 복사해주세요.",
+    copySuccess:"문의 내용이 복사되었습니다.", copyFail:"복사에 실패했습니다. 직접 선택해서 복사해주세요.",
     copyBtn:"문의 내용 복사", previewBtn:"미리보기 갱신",
-    applyGreeting:"안녕하세요. 신청 문의드립니다.",
-    applyClosing:"감사합니다!",
-    noAddon:"없음",
-    summaryTitle:"문의 텍스트",
-    totalLabel:"선택 합계:",
-    summaryHelper:"문의 텍스트에 항목/총액이 함께 포함됩니다.",
+    applyGreeting:"안녕하세요. 신청 문의드립니다.", applyClosing:"감사합니다!",
+    noAddon:"없음", summaryTitle:"문의 텍스트", totalLabel:"선택 합계:", summaryHelper:"문의 텍스트에 항목/총액이 함께 포함됩니다.",
     placeholder:"선택해주세요",
     lNickname:"방송 닉네임", lPlatform:"방송 플랫폼 & 닉네임", lDebut:"희망 마감일 / 데뷔 예정일",
     lBusiness:"기업세 / 개인세", lAppearance:"캐릭터 외관 설정", lCollab:"협업작가 선택",
@@ -462,22 +472,19 @@ const I18N = {
     outBase:"기본 옵션", outAddon:"추가 옵션", outFace:"표정 옵션", outEtc:"기타 문의내용",
     fbNickname:"미작성", fbBusiness:"미선택", fbAppearance:"미작성", fbPlatform:"미작성",
     fbCollab:"없음", fbDebut:"미작성", fbCopyright:"미선택", fbPrivate:"미선택", fbEtc:"없음",
-    slotConfirm:"결제 완료 순 확정",
-    introSectionLabel:"00 — 소개 및 슬롯",
+    slotConfirm:"결제 완료 순 확정", introSectionLabel:"00 — 소개 및 슬롯",
   },
   ja: {
     langBarLabel:"言語 :",
     lblSamples:"01 — Live2D 作業サンプル", ttlSamples:"Vtuber Live2D 作業ページ", subSamples:"ポスター / リギング映像 / サンプルメニューを一ページでご確認いただけます。",
-    hPoster:"ポスター・写真", hVideo:"作業サンプル",
+    hPoster:"ポスター・写真", hVideo:"作業サンプル", hSaleModel:"販売モデル",
     prev:"前へ", next:"次へ",
     showcaseTitle:"サンプル", showcaseSub:"表情・デザインサンプルです。",
     faceSampleTitle:"表情サンプル", faceSampleNote:"ない表情もご依頼いただけます。",
     designSampleTitle:"デザインサンプル",
-    poster1name:"エンサス", poster1desc:"販売予定モデルです。",
-    poster2name:"コラボモデルサンプル", poster2desc:"ポスターサンプルです。",
-    posterSampleDesc:"ポスターサンプルです。",
-    face4name:"涙の表情", face5name:"死んだ目の表情", face6name:"照れ顔", face8name:"とろとろ表情",
     designBuyableDesc:"購入可能なサンプルです。", designCollabDesc:"コラボサンプル制作予定です。",
+    face4name:"涙の表情", face5name:"死んだ目の表情", face6name:"照れ顔", face8name:"とろとろ表情",
+    badgeSale:"販売中", badgeSoldOut:"販売済み", badgeUpcoming:"準備中",
     evtKey1:"種類", evtKey2:"期間", evtKey3:"イベント内容", evtKey4:"案内",
     evtClosed:"イベントは終了しました",
     noticeKey:"案内",
@@ -491,15 +498,10 @@ const I18N = {
     collab6desc:"リギング無償表情3種 + 5〜10万ウォン割引\nイラスト10万ウォン割引\n壁紙, sd 先着2名様 30%割引",
     expandAll:"すべて展開", collapseAll:"すべて折り畳む",
     addonHint:"衣装・ヘアは先にお問い合わせ後に選択してください",
-    copySuccess:"お問い合わせ内容をコピーしました。",
-    copyFail:"コピーに失敗しました。手動でコピーしてください。",
+    copySuccess:"お問い合わせ内容をコピーしました。", copyFail:"コピーに失敗しました。手動でコピーしてください。",
     copyBtn:"お問い合わせをコピー", previewBtn:"プレビュー更新",
-    applyGreeting:"こんにちは。ご依頼のお問い合わせをさせていただきます。",
-    applyClosing:"よろしくお願いいたします！",
-    noAddon:"なし",
-    summaryTitle:"お問い合わせテキスト",
-    totalLabel:"合計金額:",
-    summaryHelper:"お問い合わせ内容に項目と合計金額が含まれます。",
+    applyGreeting:"こんにちは。ご依頼のお問い合わせをさせていただきます。", applyClosing:"よろしくお願いいたします！",
+    noAddon:"なし", summaryTitle:"お問い合わせテキスト", totalLabel:"合計金額:", summaryHelper:"お問い合わせ内容に項目と合計金額が含まれます。",
     placeholder:"選択してください",
     lNickname:"配信ニックネーム", lPlatform:"配信プラットフォーム & ニックネーム", lDebut:"希望締切日 / デビュー予定日",
     lBusiness:"法人税 / 個人税", lAppearance:"キャラクター外見設定", lCollab:"コラボ作家選択",
@@ -514,22 +516,19 @@ const I18N = {
     outBase:"基本オプション", outAddon:"追加オプション", outFace:"表情オプション", outEtc:"その他",
     fbNickname:"未記入", fbBusiness:"未選択", fbAppearance:"未記入", fbPlatform:"未記入",
     fbCollab:"なし", fbDebut:"未記入", fbCopyright:"未選択", fbPrivate:"未選択", fbEtc:"なし",
-    slotConfirm:"入金確認順で確定",
-    introSectionLabel:"00 — 紹介 & スロット",
+    slotConfirm:"入金確認順で確定", introSectionLabel:"00 — 紹介 & スロット",
   },
   en: {
     langBarLabel:"Language :",
     lblSamples:"01 — Live2D Work Samples", ttlSamples:"Vtuber Live2D Commission Page", subSamples:"Browse posters, rigging videos, and sample menus all in one page.",
-    hPoster:"Posters & Artwork", hVideo:"Work Samples",
+    hPoster:"Posters & Artwork", hVideo:"Work Samples", hSaleModel:"Models for Sale",
     prev:"Prev", next:"Next",
     showcaseTitle:"Samples", showcaseSub:"Expression and design samples.",
     faceSampleTitle:"Expression Samples", faceSampleNote:"Custom expressions can also be commissioned.",
     designSampleTitle:"Design Samples",
-    poster1name:"Ensus", poster1desc:"Model available for sale.",
-    poster2name:"Collab Model Sample", poster2desc:"Poster sample.",
-    posterSampleDesc:"Poster sample.",
-    face4name:"Teary Expression", face5name:"Dead-Eyes Expression", face6name:"Blushing Expression", face8name:"Dazed Expression",
     designBuyableDesc:"Available for purchase.", designCollabDesc:"Collab sample coming soon.",
+    face4name:"Teary Expression", face5name:"Dead-Eyes Expression", face6name:"Blushing Expression", face8name:"Dazed Expression",
+    badgeSale:"FOR SALE", badgeSoldOut:"SOLD", badgeUpcoming:"COMING SOON",
     evtKey1:"Type", evtKey2:"Period", evtKey3:"Event Details", evtKey4:"Notes",
     evtClosed:"This event has ended",
     noticeKey:"Notice",
@@ -543,15 +542,10 @@ const I18N = {
     collab6desc:"Free rigging 3 expressions + ₩50,000–100,000 off\nIllustration ₩100,000 discount\nWallpaper/SD first 2 clients: 30% off",
     expandAll:"Expand All", collapseAll:"Collapse All",
     addonHint:"Please inquire about costumes & hair before selecting",
-    copySuccess:"Copied to clipboard!",
-    copyFail:"Copy failed. Please select and copy manually.",
+    copySuccess:"Copied to clipboard!", copyFail:"Copy failed. Please select and copy manually.",
     copyBtn:"Copy Inquiry Text", previewBtn:"Refresh Preview",
-    applyGreeting:"Hello, I would like to submit a commission inquiry.",
-    applyClosing:"Thank you!",
-    noAddon:"None",
-    summaryTitle:"Inquiry Text",
-    totalLabel:"Total:",
-    summaryHelper:"The inquiry text includes all selections and the total price.",
+    applyGreeting:"Hello, I would like to submit a commission inquiry.", applyClosing:"Thank you!",
+    noAddon:"None", summaryTitle:"Inquiry Text", totalLabel:"Total:", summaryHelper:"The inquiry text includes all selections and the total price.",
     placeholder:"Please select",
     lNickname:"Stream Nickname", lPlatform:"Platform & Nickname", lDebut:"Desired Deadline / Debut Date",
     lBusiness:"Corporate / Individual Tax", lAppearance:"Character Appearance Notes", lCollab:"Collab Artist",
@@ -566,45 +560,29 @@ const I18N = {
     outBase:"Base Option", outAddon:"Add-ons", outFace:"Expressions", outEtc:"Other",
     fbNickname:"Not filled", fbBusiness:"Not selected", fbAppearance:"Not filled", fbPlatform:"Not filled",
     fbCollab:"None", fbDebut:"Not filled", fbCopyright:"Not selected", fbPrivate:"Not selected", fbEtc:"None",
-    slotConfirm:"Confirmed in payment order",
-    introSectionLabel:"00 — Intro & Slots",
+    slotConfirm:"Confirmed in payment order", introSectionLabel:"00 — Intro & Slots",
   }
 };
 
 let currentLang = "ko";
 let activeExpandableImage = null, lastFocusedElement = null, modalAnimating = false, contentData = null;
 
-function L(field) {
-  if (!field) return "";
-  if (typeof field === "string") return field;
-  return field[currentLang] || field["ko"] || "";
-}
-
-function t(key){ return (I18N[currentLang] || I18N.ko)[key] || I18N.ko[key] || key; }
+function L(field){ if(!field)return""; if(typeof field==="string")return field; return field[currentLang]||field["ko"]||""; }
+function t(key){ return (I18N[currentLang]||I18N.ko)[key]||I18N.ko[key]||key; }
 function escapeHtml(s=""){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;"); }
 function nlToBr(s=""){ return escapeHtml(s).replace(/\n/g,"<br />"); }
 function formatKRW(v){ return "\u20a9"+Number(v).toLocaleString("ko-KR"); }
 
 function applyStaticI18n(){
   document.querySelectorAll("[data-i18n]").forEach(el=>{
-    const key=el.getAttribute("data-i18n");
-    el.textContent=t(key);
+    const key=el.getAttribute("data-i18n"); el.textContent=t(key);
   });
-  const pb=document.getElementById("videoPrevBtn");
-  const nb=document.getElementById("videoNextBtn");
-  if(pb) pb.textContent=t("prev");
-  if(nb) nb.textContent=t("next");
-  const lbl=document.getElementById("langBarLabel");
-  if(lbl) lbl.textContent=t("langBarLabel");
-  const mapId={
-    "lbl-samples":"lblSamples","ttl-samples":"ttlSamples","sub-samples":"subSamples",
-    "h-poster":"hPoster","h-video":"hVideo",
-    "lbl-collab":"lblCollab","ttl-collab":"ttlCollab","sub-collab":"subCollab"
-  };
+  const pb=document.getElementById("videoPrevBtn"), nb=document.getElementById("videoNextBtn");
+  if(pb) pb.textContent=t("prev"); if(nb) nb.textContent=t("next");
+  const lbl=document.getElementById("langBarLabel"); if(lbl) lbl.textContent=t("langBarLabel");
+  const mapId={"lbl-samples":"lblSamples","ttl-samples":"ttlSamples","sub-samples":"subSamples","h-poster":"hPoster","h-video":"hVideo","h-sale-model":"hSaleModel","lbl-collab":"lblCollab","ttl-collab":"ttlCollab","sub-collab":"subCollab"};
   Object.entries(mapId).forEach(([id,key])=>{const el=document.getElementById(id);if(el)el.textContent=t(key);});
-  document.querySelectorAll(".lang-btn").forEach(btn=>{
-    btn.classList.toggle("active", btn.dataset.lang===currentLang);
-  });
+  document.querySelectorAll(".lang-btn").forEach(btn=>btn.classList.toggle("active",btn.dataset.lang===currentLang));
   document.documentElement.lang=currentLang;
   document.body.setAttribute("lang",currentLang);
 }
@@ -613,6 +591,9 @@ function rerenderAll(){
   if(!contentData) return;
   applyStaticI18n();
   renderIntro(contentData.intro);
+  renderPosterGrid(contentData.posters||[]);
+  renderVideoSlider(contentData.videos||[]);
+  renderSaleModels(contentData.saleModels);
   renderEvent(contentData.event);
   renderNotice(contentData.notice);
   renderProcess(contentData.process);
@@ -629,11 +610,7 @@ function rerenderAll(){
 
 function setupLangSwitcher(){
   document.querySelectorAll(".lang-btn").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      if(btn.dataset.lang===currentLang) return;
-      currentLang=btn.dataset.lang;
-      rerenderAll();
-    });
+    btn.addEventListener("click",()=>{ if(btn.dataset.lang===currentLang)return; currentLang=btn.dataset.lang; rerenderAll(); });
   });
 }
 
@@ -649,9 +626,10 @@ async function loadContent(){
   return r.json();
 }
 
+/* ── RENDER INTRO ── */
 function renderIntro(data){
   const mn=MONTH_NAMES[currentLang]||MONTH_NAMES.ko;
-  const sm={};(data.slots||[]).forEach(s=>{ const m=parseInt(s.month); if(m) sm[m]=s; });
+  const sm={}; (data.slots||[]).forEach(s=>{const m=parseInt(s.month);if(m)sm[m]=s;});
   const cal=mn.map((n,i)=>{
     const m=i+1,s=sm[m],st=s?s.status:"closed",lb=s?L(s.label):"CLOSED";
     return `<div class="slot-cell ${st}"><div class="cal-month">${n}</div><div class="status-dot"></div><div class="status-label">${escapeHtml(lb)}</div></div>`;
@@ -669,11 +647,69 @@ function renderIntro(data){
           <div class="slot-notice">${t("slotConfirm")}</div>
         </div>
         <div class="slot-calendar">${cal}</div>
-        ${L(data.slotNotice) ? `<div class="slot-notice-box">${escapeHtml(L(data.slotNotice))}</div>` : ""}
+        ${L(data.slotNotice)?`<div class="slot-notice-box">${escapeHtml(L(data.slotNotice))}</div>`:""}
       </div>
     </div>`;
 }
 
+/* ── RENDER POSTER GRID (i18n 이름 포함) ── */
+function renderPosterGrid(posters){
+  const grid=document.getElementById("posterGrid");
+  if(!grid) return;
+  grid.innerHTML=posters.map(p=>{
+    const name=escapeHtml(L(p.name));
+    const desc=escapeHtml(L(p.desc));
+    const badgeHtml=p.forSale
+      ?`<span class="sale-badge on-sale">${t("badgeSale")}</span>`
+      :"";
+    return `<div class="sample-card">
+      <div class="sample-thumb">
+        ${badgeHtml}
+        <img src="${escapeHtml(p.image)}" alt="${name}" data-expandable />
+      </div>
+      <div class="sample-info">
+        <div class="sample-no">${escapeHtml(p.no)}</div>
+        <div class="sample-name">${name}</div>
+        <div class="sample-desc">${desc}</div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+/* ── RENDER SALE MODELS ── */
+function renderSaleModels(data){
+  const section=document.getElementById("saleModelSection");
+  const grid=document.getElementById("saleModelGrid");
+  if(!section||!grid||!data) return;
+  const items=data.items||[];
+  if(items.length===0){ section.style.display="none"; return; }
+  section.style.display="";
+  grid.innerHTML=items.map(item=>{
+    const isUpcoming=item.status==="upcoming";
+    const isSale=item.status==="sale";
+    const statusClass=isUpcoming?"upcoming":isSale?"on-sale":"sold-out";
+    const statusText=isUpcoming?t("badgeUpcoming"):isSale?t("badgeSale"):t("badgeSoldOut");
+    const name=escapeHtml(L(item.name));
+    const desc=escapeHtml(L(item.desc));
+    const thumbHtml=isUpcoming
+      ?`<div class="sale-model-upcoming-thumb"><span>✦</span></div>`
+      :`<img src="${escapeHtml(item.image)}" alt="${name}" data-expandable />`;
+    return `<div class="sale-model-card${isUpcoming?" sale-model-upcoming":""}">
+      <div class="sale-model-thumb">
+        ${thumbHtml}
+        <span class="sale-model-status ${statusClass}">${statusText}</span>
+      </div>
+      <div class="sale-model-info">
+        <div class="sale-model-no">${escapeHtml(item.no)}</div>
+        <div class="sale-model-name">${name}</div>
+        <div class="sale-model-desc">${desc}</div>
+        ${item.price?`<div class="sale-model-price">${escapeHtml(item.price)}</div>`:""}
+      </div>
+    </div>`;
+  }).join("");
+}
+
+/* ── RENDER EVENT ── */
 function renderEvent(data){
   const isOpen=data.visibility==="open";
   const guides=L(data.guides)||[];
@@ -694,10 +730,7 @@ function renderEvent(data){
             <div class="event-row"><div class="event-key">${t("evtKey2")}</div><div class="event-val">${escapeHtml(L(data.period))}</div></div>
             <div class="event-row"><div class="event-key">${t("evtKey3")}</div><div class="event-val">
               <div class="price-group">
-                <div class="price-left">
-                  <div class="price-old">${escapeHtml(data.oldPrice)}</div>
-                  <div class="price-disc">${escapeHtml(data.discount)}</div>
-                </div>
+                <div class="price-left"><div class="price-old">${escapeHtml(data.oldPrice)}</div><div class="price-disc">${escapeHtml(data.discount)}</div></div>
                 <div class="price-now">${escapeHtml(data.finalPrice)}</div>
               </div>
             </div></div>
@@ -718,42 +751,37 @@ function renderEvent(data){
     </div>`;
 }
 
+/* ── RENDER NOTICE ── */
 function renderNotice(data){
   document.getElementById("notice").innerHTML=`
     <span class="section-label">03 &mdash; ${escapeHtml(L(data.title))}</span>
     <h2 class="section-title">${escapeHtml(L(data.title))}</h2>
     ${data.sections.map(s=>{
-      if(s.type==="license") {
-        const paras=L(s.paragraphs)||[];
-        const notes=L(s.notes)||[];
-        const tbl=s.table;
-        return `
-        <div class="notice-box">
-          <div class="notice-box-head">${escapeHtml(L(s.title))}</div>
-          <div class="notice-box-body">
-            ${paras.map(p=>`<p>${escapeHtml(p)}</p>`).join("")}
-            <div class="license-table-wrap"><table class="license-table">
-              <thead>
-                <tr><th colspan="2">${escapeHtml(L(tbl.header1Left))}</th><th colspan="2">${escapeHtml(L(tbl.header1Right))}</th></tr>
-                <tr><th>${escapeHtml(L(tbl.header2Left))}</th><th>${escapeHtml(L(tbl.header2LeftSub))}</th><th>${escapeHtml(L(tbl.header2Right))}</th><th>${escapeHtml(L(tbl.header2RightSub))}</th></tr>
-              </thead>
-              <tbody>
-                <tr><td><strong>${escapeHtml(L(tbl.priceLeft))}</strong></td><td><strong>${escapeHtml(L(tbl.priceLeftSub))}</strong></td><td><strong>${escapeHtml(L(tbl.priceRight))}</strong></td><td><strong>${escapeHtml(L(tbl.priceRightSub))}</strong></td></tr>
-                <tr><td colspan="2">${nlToBr(L(tbl.descLeft))}</td><td colspan="2">${nlToBr(L(tbl.descRight))}</td></tr>
-              </tbody>
-            </table></div>
-            <div class="license-note">${notes.map(n=>escapeHtml(n)).join("<br />")}</div>
-          </div>
-        </div>`;
+      if(s.type==="license"){
+        const paras=L(s.paragraphs)||[], notes=L(s.notes)||[], tbl=s.table;
+        return `<div class="notice-box"><div class="notice-box-head">${escapeHtml(L(s.title))}</div><div class="notice-box-body">
+          ${paras.map(p=>`<p>${escapeHtml(p)}</p>`).join("")}
+          <div class="license-table-wrap"><table class="license-table">
+            <thead>
+              <tr><th colspan="2">${escapeHtml(L(tbl.header1Left))}</th><th colspan="2">${escapeHtml(L(tbl.header1Right))}</th></tr>
+              <tr><th>${escapeHtml(L(tbl.header2Left))}</th><th>${escapeHtml(L(tbl.header2LeftSub))}</th><th>${escapeHtml(L(tbl.header2Right))}</th><th>${escapeHtml(L(tbl.header2RightSub))}</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>${escapeHtml(L(tbl.priceLeft))}</strong></td><td><strong>${escapeHtml(L(tbl.priceLeftSub))}</strong></td><td><strong>${escapeHtml(L(tbl.priceRight))}</strong></td><td><strong>${escapeHtml(L(tbl.priceRightSub))}</strong></td></tr>
+              <tr><td colspan="2">${nlToBr(L(tbl.descLeft))}</td><td colspan="2">${nlToBr(L(tbl.descRight))}</td></tr>
+            </tbody>
+          </table></div>
+          <div class="license-note">${notes.map(n=>escapeHtml(n)).join("<br />")}</div>
+        </div></div>`;
       }
       const items=L(s.items)||[];
       return `<div class="notice-box"><div class="notice-box-head">${escapeHtml(L(s.title))}</div><div class="notice-box-body">${items.map(i=>`<p>${escapeHtml(i)}</p>`).join("")}</div></div>`;
     }).join("")}`;
 }
 
+/* ── RENDER PROCESS ── */
 function renderProcess(data){
-  const steps=L(data.steps)||[];
-  const details=L(data.details)||[];
+  const steps=L(data.steps)||[], details=L(data.details)||[];
   document.getElementById("process").innerHTML=`
     <span class="section-label">04 &mdash; ${escapeHtml(L(data.title))}</span>
     <h2 class="section-title">${escapeHtml(L(data.title))}</h2>
@@ -772,6 +800,7 @@ function renderProcess(data){
     </div>`;
 }
 
+/* ── RENDER MENU ── */
 function renderMenu(data){
   document.getElementById("menu").innerHTML=`
     <span class="section-label">06 &mdash; ${escapeHtml(L(data.title))}</span>
@@ -790,39 +819,30 @@ function renderMenu(data){
       <div class="menu-accordion-list">
         ${data.items.map(item=>{
           const details=L(item.details)||[];
-          return `
-          <div class="menu-item">
-            <div class="menu-item-head">
-              <div class="menu-item-icon">&#10022;</div>
-              <div class="menu-item-title">${escapeHtml(L(item.title))}</div>
-              <div class="menu-item-price">${escapeHtml(item.priceText)}</div>
-              <div class="menu-item-toggle"><span class="menu-arrow"></span></div>
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-subcard"><ul class="menu-detail-list">${details.map(d=>`<li>${escapeHtml(d)}</li>`).join("")}</ul></div>
-            </div>
+          return `<div class="menu-item"><div class="menu-item-head">
+            <div class="menu-item-icon">&#10022;</div>
+            <div class="menu-item-title">${escapeHtml(L(item.title))}</div>
+            <div class="menu-item-price">${escapeHtml(item.priceText)}</div>
+            <div class="menu-item-toggle"><span class="menu-arrow"></span></div>
+          </div>
+          <div class="menu-item-body"><div class="menu-subcard"><ul class="menu-detail-list">${details.map(d=>`<li>${escapeHtml(d)}</li>`).join("")}</ul></div></div>
           </div>`;
         }).join("")}
       </div>
     </div>`;
 }
 
-/* ── renderApply: 변경된 필드 순서 및 businessType 라디오 ── */
+/* ── RENDER APPLY ── */
 function renderApply(data){
-  const bFields=data.fields;
-  const bizOpts=bFields.businessType.options;
+  const bFields=data.fields, bizOpts=bFields.businessType.options;
   document.getElementById("apply").innerHTML=`
     <span class="section-label">07 &mdash; ${escapeHtml(L(data.title))}</span>
     <h2 class="section-title">${escapeHtml(L(data.title))}</h2>
     <p class="section-sub">${escapeHtml(L(data.subtitle))}</p>
     <div class="form-grid">
-      <!-- 닉네임 -->
       <div class="field"><label class="field-label" for="nickname">${t("lNickname")}</label><input class="form-input" id="nickname" placeholder="${t("pNickname")}" /></div>
-      <!-- 플랫폼 -->
       <div class="field"><label class="field-label" for="platform">${t("lPlatform")}</label><input class="form-input" id="platform" placeholder="${t("pPlatform")}" /></div>
-      <!-- 데뷔일 -->
       <div class="field"><label class="field-label" for="debutDate">${t("lDebut")}</label><input class="form-input" id="debutDate" placeholder="${t("pDebut")}" /></div>
-      <!-- 협업작가 (이전 businessType 자리) -->
       <div class="field"><label class="field-label" for="collabArtist">${t("lCollab")}</label>
         <div class="pretty-select" data-target="collabArtist">
           <input type="hidden" id="collabArtist" value="${escapeHtml(L(bFields.collabArtist.defaultValue))}" data-price="0" />
@@ -832,19 +852,12 @@ function renderApply(data){
           </div>
         </div>
       </div>
-      <!-- 외관 -->
       <div class="field full"><label class="field-label" for="appearance">${t("lAppearance")}</label><textarea class="form-input" id="appearance" placeholder="${t("pAppearance")}"></textarea></div>
-      <!-- 기업세/개인세 라디오 (이전 collab 자리) -->
       <div class="field full"><label class="field-label">${t("lBusiness")}</label>
         <div class="biz-radio-group">
-          ${bizOpts.map(o=>`
-          <label class="biz-radio-option">
-            <input type="radio" name="bizType" data-label="${escapeHtml(L(o.outputLabel))}" />
-            <div class="biz-radio-label">${escapeHtml(L(o.title))}</div>
-          </label>`).join("")}
+          ${bizOpts.map(o=>`<label class="biz-radio-option"><input type="radio" name="bizType" data-label="${escapeHtml(L(o.outputLabel))}" /><div class="biz-radio-label">${escapeHtml(L(o.title))}</div></label>`).join("")}
         </div>
       </div>
-      <!-- 저작권 구매 여부 (상업권 옵션 포함) -->
       <div class="field full"><label class="field-label" for="copyrightBuy">${t("lCopyright")}</label>
         <div class="pretty-select" data-target="copyrightBuy">
           <input type="hidden" id="copyrightBuy" value="${escapeHtml(L(bFields.copyrightBuy.defaultValue))}" data-price="0" />
@@ -855,7 +868,6 @@ function renderApply(data){
           </div>
         </div>
       </div>
-      <!-- 비공개 -->
       <div class="field full"><label class="field-label" for="privateUse">${t("lPrivate")}</label>
         <div class="pretty-select" data-target="privateUse">
           <input type="hidden" id="privateUse" value="${escapeHtml(L(bFields.privateUse.defaultValue))}" data-price="0" />
@@ -866,26 +878,22 @@ function renderApply(data){
           </div>
         </div>
       </div>
-      <!-- 기본 옵션 -->
       <div class="field full"><label class="field-label">${t("lBaseOpt")}</label>
         <div class="radio-group">
           ${data.baseOptions.map(o=>`<label class="radio-option"><input type="radio" name="baseOption" value="${Number(o.price)}" data-label="${escapeHtml(L(o.outputLabel))}" /><div class="radio-label">${escapeHtml(L(o.title))}</div><div class="radio-sub">${escapeHtml(L(o.description))} / ${escapeHtml(o.priceText)}</div></label>`).join("")}
         </div>
       </div>
-      <!-- 표정 옵션 -->
       <div class="field full"><label class="field-label">${t("lFaceOpt")}</label>
         <div class="option-face-grid">
           ${data.faceOptions.map(o=>`<label class="face-option"><input type="checkbox" class="face-addon" data-price="${Number(o.price)}" data-label="${escapeHtml(L(o.outputLabel))}" />${escapeHtml(L(o.title))}</label>`).join("")}
         </div>
       </div>
-      <!-- 추가 옵션 -->
       <div class="field full"><label class="field-label">${t("lAddonOpt")}</label>
         <div class="addon-hint">${t("addonHint")}</div>
         <div class="addon-tags-wrap">
           ${data.addonOptions.map(o=>`<label class="addon-tag"><input type="checkbox" class="addon" data-price="${Number(o.price)}" data-label="${escapeHtml(L(o.outputLabel))}" />${escapeHtml(L(o.title))}<span class="addon-price-text">${escapeHtml(o.priceText)}</span></label>`).join("")}
         </div>
       </div>
-      <!-- 기타 -->
       <div class="field full"><label class="field-label" for="etc">${t("lEtc")}</label><textarea class="form-input" id="etc" placeholder="${t("pEtc")}"></textarea></div>
     </div>
     <div class="summary-box">
@@ -900,37 +908,80 @@ function renderApply(data){
     </div>`;
 }
 
-/* ── BIZ RADIO SETUP ── */
+/* ── BIZ RADIO ── */
 function setupBizRadio(){
   const opts=document.querySelectorAll(".biz-radio-option");
   opts.forEach(lbl=>{
     const inp=lbl.querySelector('input[name="bizType"]');
     inp.addEventListener("click",function(){
       if(this.dataset.wasChecked==="true"){this.checked=false;this.dataset.wasChecked="false";}
-      else{
-        opts.forEach(o=>{const i=o.querySelector('input[name="bizType"]');i.dataset.wasChecked="false";});
-        this.checked=true;this.dataset.wasChecked="true";
-      }
+      else{opts.forEach(o=>{const i=o.querySelector('input[name="bizType"]');i.dataset.wasChecked="false";});this.checked=true;this.dataset.wasChecked="true";}
       opts.forEach(o=>o.classList.toggle("is-selected",!!o.querySelector('input[name="bizType"]').checked));
       buildOutput();
     });
     inp.addEventListener("mousedown",function(){this.dataset.wasChecked=this.checked?"true":"false";});
   });
 }
+function getSelectedBizType(){ const s=document.querySelector('input[name="bizType"]:checked'); return s?s.dataset.label:t("fbBusiness"); }
 
-function getSelectedBizType(){
-  const s=document.querySelector('input[name="bizType"]:checked');
-  return s?s.dataset.label:t("fbBusiness");
+/* ── RENDER VIDEO SLIDER ── */
+function renderVideoSlider(videos){
+  const card=document.getElementById("videoCardInner");
+  if(!card) return;
+  // 배지 상태 텍스트
+  function badgeHtml(status){
+    if(!status||status==="none") return "";
+    const cls=status==="sale"?"on-sale":"sold-out";
+    const txt=status==="sale"?t("badgeSale"):t("badgeSoldOut");
+    return `<span class="sale-badge ${cls}" id="videoSaleBadge" style="position:absolute;top:12px;right:12px;z-index:4;">${txt}</span>`;
+  }
+  const slidesHtml=videos.map((v,i)=>
+    `<div class="slide-item${i===0?" active":""}" data-badge="${v.badge||"none"}">
+      <iframe src="https://www.youtube.com/embed/${escapeHtml(v.id)}" title="${escapeHtml(v.title||"")}" frameborder="0" allowfullscreen></iframe>
+    </div>`
+  ).join("");
+  card.innerHTML=`
+    ${badgeHtml(videos[0]?.badge)}
+    <h3 id="h-video">${t("hVideo")}</h3>
+    <div class="video-slider-wrap">
+      <div class="slide-frame" id="videoSlider">${slidesHtml}</div>
+      <div class="slider-controls">
+        <button type="button" class="slide-control-btn" id="videoPrevBtn">${t("prev")}</button>
+        <div class="slide-dots" id="videoDots"></div>
+        <button type="button" class="slide-control-btn" id="videoNextBtn">${t("next")}</button>
+      </div>
+    </div>`;
 }
 
-/* ═══ SLIDER ═══ */
+/* ── SLIDER ── */
 function createManualSlider({sliderId,dotsId,prevBtnId,nextBtnId}){
   const slider=document.getElementById(sliderId),dw=document.getElementById(dotsId),pb=document.getElementById(prevBtnId),nb=document.getElementById(nextBtnId);
-  if(!slider||!dw) return;
-  const slides=Array.from(slider.querySelectorAll(".slide-item"));
-  if(!slides.length) return;
+  if(!slider||!dw)return;
+  const slides=Array.from(slider.querySelectorAll(".slide-item")); if(!slides.length)return;
   let cur=0;
-  function update(){slides.forEach((s,i)=>s.classList.toggle("active",i===cur));dw.querySelectorAll(".slide-dot").forEach((d,i)=>d.classList.toggle("active",i===cur));}
+  function updateBadge(){
+    const card=document.getElementById("videoCardInner"); if(!card)return;
+    const status=slides[cur]?.dataset.badge||"none";
+    let badge=card.querySelector("#videoSaleBadge");
+    if(status==="none"||!status){
+      if(badge) badge.remove(); return;
+    }
+    const cls=status==="sale"?"on-sale":"sold-out";
+    const txt=status==="sale"?t("badgeSale"):t("badgeSoldOut");
+    if(!badge){
+      badge=document.createElement("span");
+      badge.id="videoSaleBadge";
+      badge.style.cssText="position:absolute;top:12px;right:12px;z-index:4;";
+      card.insertBefore(badge,card.firstChild);
+    }
+    badge.className=`sale-badge ${cls}`;
+    badge.textContent=txt;
+  }
+  function update(){
+    slides.forEach((s,i)=>s.classList.toggle("active",i===cur));
+    dw.querySelectorAll(".slide-dot").forEach((d,i)=>d.classList.toggle("active",i===cur));
+    updateBadge();
+  }
   function goTo(i){cur=(i+slides.length)%slides.length;update();}
   dw.innerHTML="";
   slides.forEach((_,i)=>{const d=document.createElement("button");d.type="button";d.className="slide-dot"+(i===cur?" active":"");d.setAttribute("aria-label",(i+1)+" / "+slides.length);d.addEventListener("click",()=>goTo(i));dw.appendChild(d);});
@@ -942,14 +993,14 @@ function createManualSlider({sliderId,dotsId,prevBtnId,nextBtnId}){
   update();
 }
 
-/* ═══ FORM HELPERS ═══ */
+/* ── FORM HELPERS ── */
 function syncBaseOptionUI(){document.querySelectorAll(".radio-option").forEach(l=>l.classList.toggle("is-selected",!!l.querySelector('input[name="baseOption"]').checked));}
 function getSelectedBaseOption(){const s=document.querySelector('input[name="baseOption"]:checked');return{price:Number(s?.value||0),label:s?.dataset.label||t("noAddon")};}
 function getPrettySelectData(id,fb){const el=document.getElementById(id);const v=(el?.value||"").trim();return{label:v||fb,price:Number(el?.dataset.price||0)};}
 function valueOrFallback(id,fb){return(document.getElementById(id)?.value||"").trim()||fb;}
 
 function buildOutput(){
-  if(!contentData?.apply) return "";
+  if(!contentData?.apply)return"";
   const nickname=valueOrFallback("nickname",t("fbNickname"));
   const platform=valueOrFallback("platform",t("fbPlatform"));
   const debutDate=valueOrFallback("debutDate",t("fbDebut"));
@@ -969,10 +1020,10 @@ function buildOutput(){
   const addonText=addonLabels.length?addonLabels.join(", "):t("noAddon");
   const faceText=faceLabels.length?faceLabels.join(", "):t("noAddon");
   const tp=document.getElementById("totalPrice");
-  if(tp) tp.textContent=`${t("totalLabel")} ${formatKRW(total)}`;
+  if(tp)tp.textContent=`${t("totalLabel")} ${formatKRW(total)}`;
   const text=`${t("applyGreeting")}\n\n1) ${t("outNickname")}: ${nickname}\n2) ${t("outBusiness")}: ${businessType}\n3) ${t("outAppearance")}: ${appearance}\n4) ${t("outTotal")}: ${formatKRW(total)}\n5) ${t("outPlatform")}: ${platform}\n6) ${t("outCollab")}: ${collabArtist.label}\n7) ${t("outDebut")}: ${debutDate}\n8) ${t("outCopyright")}: ${copyrightBuy.label}\n9) ${t("outPrivate")}: ${privateUse.label}\n10) ${t("outBase")}: ${base.label}\n11) ${t("outAddon")}: ${addonText}\n12) ${t("outFace")}: ${faceText}\n13) ${t("outEtc")}: ${etc}\n\n${t("applyClosing")}`;
   const ot=document.getElementById("outputText");
-  if(ot) ot.textContent=text;
+  if(ot)ot.textContent=text;
   return text;
 }
 
@@ -1002,11 +1053,9 @@ function setupToggleableBaseOption(){
 }
 
 function setAccordionHeight(item){
-  const b=item.querySelector(".menu-item-body");
-  if(!b) return;
+  const b=item.querySelector(".menu-item-body"); if(!b)return;
   b.style.maxHeight=item.classList.contains("open")?b.scrollHeight+24+"px":"0px";
 }
-
 function setupMenuAccordion(){
   const items=document.querySelectorAll(".menu-item");
   const exBtn=document.getElementById("expandAllBtn"),colBtn=document.getElementById("collapseAllBtn");
@@ -1027,7 +1076,7 @@ function setupApplyEvents(){
   });
 }
 
-/* ═══ IMAGE MODAL ═══ */
+/* ── IMAGE MODAL ── */
 function fitImageSize(nw,nh){const mw=window.innerWidth*0.92,mh=window.innerHeight*0.88;if(!nw||!nh)return{width:Math.min(mw,800),height:Math.min(mh,600)};const r=nw/nh;let w=mw,h=w/r;if(h>mh){h=mh;w=h*r;}return{width:w,height:h};}
 function applyModalRect(rect){const mi=document.getElementById("imageModalInner");if(!mi)return;mi.style.left=rect.left+"px";mi.style.top=rect.top+"px";mi.style.width=rect.width+"px";mi.style.height=rect.height+"px";}
 function getExpandedRect(img){const rect=img.getBoundingClientRect(),f=fitImageSize(img.naturalWidth,img.naturalHeight);let l=rect.left+(rect.width/2)-(f.width/2),tt=rect.top+(rect.height/2)-(f.height/2);l=Math.max(12,Math.min(l,window.innerWidth-f.width-12));tt=Math.max(12,Math.min(tt,window.innerHeight-f.height-12));return{width:f.width,height:f.height,left:l,top:tt};}
