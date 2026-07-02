@@ -38,6 +38,11 @@
       "en": "We focus on only one person every month, and please refer to the status of the slots below. The slots will be finalized in the order of payment completion, and it will start sequentially as soon as the previous work is completed. Please note that 10% of the penalty will be added for canceling the reservation."
     },
     "slots": [
+      { "month": "1", "status": "open", "label": { "ko": "OPEN", "ja": "OPEN", "en": "OPEN" } },
+      { "month": "2", "status": "open", "label": { "ko": "OPEN", "ja": "OPEN", "en": "OPEN" } },
+      { "month": "3", "status": "open", "label": { "ko": "OPEN", "ja": "OPEN", "en": "OPEN" } },
+      { "month": "4", "status": "open", "label": { "ko": "OPEN", "ja": "OPEN", "en": "OPEN" } },
+      { "month": "5", "status": "open", "label": { "ko": "OPEN", "ja": "OPEN", "en": "OPEN" } },
       { "month": "6", "status": "closed", "label": { "ko": "CLOSED", "ja": "CLOSED", "en": "CLOSED" } },
       { "month": "7", "status": "closed", "label": { "ko": "CLOSED", "ja": "CLOSED", "en": "CLOSED" } },
       { "month": "8", "status": "closed", "label": { "ko": "CLOSED", "ja": "CLOSED", "en": "CLOSED" } },
@@ -71,7 +76,7 @@
         "no": "NO.1",
         "image": "images/sale/sale1.png",
         "name": { "ko": "KuroNeko 샘플", "ja": "KuroNeko サンプル", "en": "KuroNeko Sample" },
-        "price": "₩4,000,000",
+        "price": "₩3,100,000",
         "status": "sale",
         "desc": { "ko": "표정 13종 + 혀내밀기 + 볼빵빵 + 브이브릿저 + 모델 MOC3 파일 + 단축키 셋팅 파일 + 브이브릿저 세팅 파일", "ja": "表情13種 + 舌を出す + ボールパンパン + Vブリッジャー + モデルMOC3ファイル + ショートカット設定ファイル + Vブリッジャー設定ファイル", "en": "facial expression 13 types + tongue push + cheek bread + V blissor + model MOC3 file + shortcut setting file + V blissor setting file" }
       },
