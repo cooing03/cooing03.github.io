@@ -99,7 +99,7 @@
     { "no": "NO.6", "image": "images/poster/poster6.png", "name": { "ko": "빈터", "ja": "ビンター", "en": "Binter" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "ポスターサンプルです。", "en": "Poster sample." }, "forSale": false }
   ],
   "event": {
-    "visibility": "open",
+    "visibility": "closed",
     "title": { "ko": "진행 중인 이벤트", "ja": "開催中のイベント", "en": "Ongoing Event" },
     "cardLabel": { "ko": "이벤트", "ja": "イベント", "en": "Event" },
     "status": { "ko": "진행중", "ja": "開催中", "en": "Active" },
