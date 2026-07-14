@@ -47,7 +47,7 @@
       { "month": "7", "status": "closed", "label": { "ko": "CLOSED", "ja": "CLOSED", "en": "CLOSED" } },
       { "month": "8", "status": "closed", "label": { "ko": "CLOSED", "ja": "CLOSED", "en": "CLOSED" } },
       { "month": "9", "status": "closed", "label": { "ko": "CLOSED", "ja": "CLOSED", "en": "CLOSED" } },
-      { "month": "10", "status": "open", "label": { "ko": "OPEN", "ja": "OPEN", "en": "OPEN" } },
+      { "month": "10", "status":"closed", "label": { "ko": "CLOSED", "ja": "CLOSED", "en": "CLOSED" } },
       { "month": "11", "status": "open", "label": { "ko": "OPEN", "ja": "OPEN", "en": "OPEN" } },
       { "month": "12", "status": "open", "label": { "ko": "OPEN", "ja": "OPEN", "en": "OPEN" } }
     ]
