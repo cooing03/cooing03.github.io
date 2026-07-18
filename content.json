@@ -297,6 +297,7 @@
           { "title": { "ko": "Eryn 작가님 - 일러스트 할인 및 추가표정 2", "ja": "Eryn先生 - イラスト割引および追加表情2", "en": "Eryn - Illustration discount + 2 bonus expressions" }, "priceText": "[-₩50,000]", "price": -50000, "outputLabel": { "ko": "Eryn 작가님 - 일러스트 할인 및 추가표정 2(표정 총 5개)", "ja": "Eryn先生 - イラスト割引および追加表情2（計5種）", "en": "Eryn - Illustration discount + 2 bonus expressions (5 total)" } },
           { "title": { "ko": "KuA 작가님 - 일러스트 할인 및 추가표정 2", "ja": "KuA先生 - イラスト割引および追加表情2", "en": "KuA - Illustration discount + 2 bonus expressions" }, "priceText": "[-₩80,000]", "price": -80000, "outputLabel": { "ko": "KuA 작가님 - 일러스트 할인 및 추가표정 2(표정 총 5개)", "ja": "KuA先生 - イラスト割引および追加表情2（計5種）", "en": "KuA - Illustration discount + 2 bonus expressions (5 total)" } },
           { "title": { "ko": "루가 작가님 - 일러스트 할인", "ja": "ルガ先生 - イラスト割引", "en": "Ruga - Illustration discount" }, "priceText": "[-₩100,000]", "price": -100000, "outputLabel": { "ko": "루가 작가님 - 일러스트 할인", "ja": "ルガ先生 - イラスト割引", "en": "Ruga - Illustration discount" } },
+          { "title": { "ko": "도요 작가님 - 일러스트 할인", "ja": "ドヨ作家さん - イラスト割引", "en": "Toyo - Illustration discount" }, "priceText": "[-₩50,000]", "price": -50000, "outputLabel": { "ko": "도요 작가님 - 일러스트 할인", "ja": "ドヨ作家さん - イラスト割引", "en": "Toyo - Illustration discount" } },
           { "title": { "ko": "없음", "ja": "なし", "en": "None" }, "priceText": "", "price": 0, "outputLabel": { "ko": "없음", "ja": "なし", "en": "None" } }
         ]
       },
