@@ -74,14 +74,6 @@
     "items": [
       {
         "no": "NO.1",
-        "image": "images/sale/sale1.png",
-        "name": { "ko": "KuroNeko 샘플", "ja": "KuroNeko サンプル", "en": "KuroNeko Sample" },
-        "price": "₩3,100,000",
-        "status": "sale",
-        "desc": { "ko": "표정 13종 + 혀내밀기 + 볼빵빵 + 브이브릿저 + 모델 MOC3 파일 + 단축키 셋팅 파일 + 브이브릿저 세팅 파일", "ja": "表情13種 + 舌を出す + ボールパンパン + Vブリッジャー + モデルMOC3ファイル + ショートカット設定ファイル + Vブリッジャー設定ファイル", "en": "facial expression 13 types + tongue push + cheek bread + V blissor + model MOC3 file + shortcut setting file + V blissor setting file" }
-      },
-      {
-        "no": "NO.2",
         "image": "",
         "name": { "ko": "준비중", "ja": "準備中", "en": "Coming Soon" },
         "price": "",
