@@ -83,10 +83,10 @@
     ]
   },
   "posters": [
-    { "no": "NO.1", "image": "images/poster/poster1.png", "name": { "ko": "Cooing", "ja": "エンサス", "en": "Ensus" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "販売予定モデルです。", "en": "Model available for sale." }, "forSale": false },
-    { "no": "NO.2", "image": "images/poster/poster2.png", "name": { "ko": "Sample", "ja": "コラボモデルサンプル", "en": "Collab Model Sample" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "ポスターサンプルです。", "en": "Poster sample." }, "forSale": false },
-    { "no": "NO.3", "image": "images/poster/poster3.png", "name": { "ko": "Nene", "ja": "アヤリン", "en": "Ayarin" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "ポスターサンプルです。", "en": "Poster sample." }, "forSale": false },
-    { "no": "NO.4", "image": "images/poster/poster4.png", "name": { "ko": "MongNya", "ja": "リア・ソル", "en": "Ria Seol" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "ポスターサンプルです。", "en": "Poster sample." }, "forSale": false },
+    { "no": "NO.1", "image": "images/poster/poster1.png", "name": { "ko": "Cooing", "ja": "Cooing", "en": "Cooing" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "販売予定モデルです。", "en": "Model available for sale." }, "forSale": false },
+    { "no": "NO.2", "image": "images/poster/poster2.png", "name": { "ko": "Sample", "ja": "Sample", "en": "Sample" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "ポスターサンプルです。", "en": "Poster sample." }, "forSale": false },
+    { "no": "NO.3", "image": "images/poster/poster3.png", "name": { "ko": "Nene", "ja": "Nene", "en": "Nene" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "ポスターサンプルです。", "en": "Poster sample." }, "forSale": false },
+    { "no": "NO.4", "image": "images/poster/poster4.png", "name": { "ko": "MongNya", "ja": "MongNya", "en": "MongNya" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "ポスターサンプルです。", "en": "Poster sample." }, "forSale": false },
     { "no": "NO.5", "image": "images/poster/poster5.png", "name": { "ko": "박유넬", "ja": "パク・ユネル", "en": "Pak Yunel" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "ポスターサンプルです。", "en": "Poster sample." }, "forSale": false },
     { "no": "NO.6", "image": "images/poster/poster6.png", "name": { "ko": "빈터", "ja": "ビンター", "en": "Binter" }, "desc": { "ko": "포스터 샘플입니다.", "ja": "ポスターサンプルです。", "en": "Poster sample." }, "forSale": false }
   ],
