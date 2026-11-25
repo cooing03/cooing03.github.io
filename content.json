@@ -131,7 +131,7 @@
       },
       {
         "no": "No.2",
-        "image": "images/design/design3.png",
+        "image": "images/design/design3.PNG",
         "name": { "ko": "design two", "ja": "design two", "en": "design two" },
         "desc": { "ko": "협업 샘플 제작 예정입니다.", "ja": "コラボサンプル制作予定です。", "en": "Collab sample coming soon." }
       },
