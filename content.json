@@ -491,7 +491,7 @@
       "id": "nekonova",
       "name": { "ko": "네코노바", "ja": "ネコノバ", "en": "Nekonova" },
       "img": "images/artist/artist1.png",
-      "discount": -50000,
+      "discount": -100000,
       "applyTitle": { "ko": "네코노바 작가님 - 일러스트 할인", "ja": "ネコノバ様 - イラスト割引", "en": "Nekonova - Illustration Discount" },
       "outputLabel": "네코노바 작가님 - 일러스트 할인",
       "desc": {
@@ -705,9 +705,9 @@
     },
     "baseOptions": [
       {
-        "title": { "ko": "전신 아바타 일러스트", "ja": "全身アバターイラスト", "en": "Full Body Avatar Illustration" },
+        "title": { "ko": "이벤트 전신 아바타 일러스트", "ja": "全身アバターイラスト", "en": "Full Body Avatar Illustration" },
         "description": { "ko": "표정 3개, 시안 2개, 파츠분리", "ja": "表情3種、ラフ2案、パーツ分け", "en": "3 expressions, 2 drafts, part separation" },
-        "price": 1200000,
+        "price": 1100000,
         "outputLabel": "전신 아바타 일러스트 (표정 3개 포함)"
       },
       {
