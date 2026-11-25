@@ -1211,7 +1211,7 @@ select.inp { appearance: none; -webkit-appearance: none; padding-right: 44px; cu
     setText('[data-t="event"]', L(d.title));
     var open = d.visibility === 'open';
     var oldP = Number(d.oldPrice || 0);
-    var discP = Number(d.discount || 0);
+    var discP = Number(d.discount || -100000);
     var finalP = d.finalPrice != null ? Number(d.finalPrice) : (oldP + discP);
     var guides = A(d.guides).map(function (g, i) { return (i + 1) + '. ' + esc(g); }).join('<br>');
     $('#eventBox').innerHTML =
